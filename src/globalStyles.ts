@@ -20,9 +20,6 @@ const GlobalStyles = createGlobalStyle`
         font-size: 14px;
         font-family: 'Arial', sans-serif;
     }
-
-    button {
-    }
 `;
 
 export default GlobalStyles;
