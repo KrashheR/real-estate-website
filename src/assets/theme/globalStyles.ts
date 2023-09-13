@@ -14,9 +14,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        padding: 2rem;
-        background-color: #212121;
-        color: #878787;
         font-size: 14px;
         font-family: 'Arial', sans-serif;
     }
