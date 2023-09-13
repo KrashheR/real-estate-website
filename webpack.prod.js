@@ -1,9 +1,9 @@
-import { merge } from 'webpack-merge';
-import CompressionPlugin from 'compression-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import commonConfig from './webpack.common.js';
+const { merge } = require('webpack-merge');
+const CompressionPlugin = require('compression-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const commonConfig = require('./webpack.common.js');
 
-export default merge(commonConfig, {
+module.exports = merge(commonConfig, {
   mode: 'production',
   devtool: 'source-map',
   output: {
