@@ -1,2 +1,6 @@
-declare module '*.jpg';
+declare module '*.svg';
+declare module '*.webp';
 declare module '*.png';
+declare module '*.woff';
+declare module '*.woff2';
+declare module '*.ttf';

@@ -19,13 +19,25 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(gif|png|jpe?g|svg|webp)$/i,
         use: [
           'file-loader',
           {
             loader: 'image-webpack-loader',
             options: {
-              disable: process.env.NODE_ENV !== 'production', // Отключите сжатие в режиме разработки
+              disable: process.env.NODE_ENV !== 'production',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 100000,
+              name: 'fonts/[name].[ext]',
             },
           },
         ],
