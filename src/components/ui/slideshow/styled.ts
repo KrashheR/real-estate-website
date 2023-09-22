@@ -7,7 +7,6 @@ export const StyledSlideshow = styled.div`
   width: 540px;
   height: 520px;
   border-radius: 25px;
-  background-color: white;
   grid-area: slideshow;
 
   &:hover{
@@ -32,7 +31,7 @@ export const StyledSlideshow = styled.div`
     color: ${(props) => props.theme.colors.colorSlideshowButton};
     width: 50px;
     height: 50px;
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.colorWhite};
     border-radius: 25%;
     opacity: 0;
     transition: all 0.3s ease;
@@ -51,8 +50,17 @@ export const StyledSlideshow = styled.div`
     justify-self: center;
   }
 
-  .swiper-pagination-bullet-active {
+  .swiper-pagination-bullet {
     background-color: ${(props) => props.theme.colors.colorSlideshowPagination};
+    width: 6px;
+    height: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: ${(props) => props.theme.colors.colorSlideshowPaginationActive};
+    width: 8px;
+    height: 8px;
   }
 `;
 
@@ -67,8 +75,6 @@ export const StyledSlideshowLink = styled.a`
   display: block;
   width: 100%;
   height: 100%;
-
-
 `;
 
 export const StyledSlideshowTitle = styled.span`
