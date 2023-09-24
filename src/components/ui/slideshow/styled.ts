@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyledReadMoreButton } from '../readMoreButton/styled';
 
 export const StyledSlideshow = styled.div`
   display: flex;
@@ -19,11 +20,12 @@ export const StyledSlideshow = styled.div`
     }
   }
 
-  .swiper .swiper-slide {
+  .swiper, .swiper-slide {
     background-size: cover;
     background-position: center;
     width: 540px;
     height: 520px;
+    border-radius: 25px;
   }
 
   .swiper-button-prev,
@@ -75,12 +77,38 @@ export const StyledSlideshowLink = styled.a`
   display: block;
   width: 100%;
   height: 100%;
+
+  &::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 25px;
+    z-index: 1;
+    background: rgb(75,0,14);
+    background: linear-gradient(180deg,rgba(0,0,0,.5),transparent 50%);
+  }
 `;
 
-export const StyledSlideshowTitle = styled.span`
+export const StyledSlideshowTitle = styled.h3`
   position: absolute;
-  left: 10px;
+  left: 0;
+  display: inline-block;
+  max-width: 400px;
+  margin-top: 20px;
+  margin-left: 20px;
   color: ${(props) => props.theme.colors.colorSlideshowTitle};
   font-size: 40px;
   font-weight: 600;
+  z-index: 2;
+`;
+
+export const StyledSlideshowButton = styled(StyledReadMoreButton)`
+  position: absolute;
+  display: inline-block;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3;
 `;
