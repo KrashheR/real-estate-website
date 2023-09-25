@@ -4,13 +4,18 @@ export const StyledReadMoreButton = styled.button`
   display: block;
   border: none;
   padding: 8px;
-  border-radius: 25px;
-  width: 100px;
+  border-radius: 10px;
+  width: 120px;
   text-align: center;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 700;
-  color: ${(props) => props.theme.colors.colorMainRed};
-  background-color: ${(props) => props.theme.colors.colorWhite};
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.colorButtonText};
+  background-color: ${(props) => props.theme.colors.colorButtonPrimary};
   cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover{
+    border-radius: 30px;
+  }
 `;
