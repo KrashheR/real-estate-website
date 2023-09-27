@@ -10,6 +10,11 @@ export const StyledFormRange = styled.div`
   padding: 0 20px;
   justify-content: space-between;
   background-color: ${(props) => props.theme.colors.colorLightRed};
+  transition: all 0.3s ease;
+
+  &:hover{
+    border-radius: 30px;
+  }
 `;
 
 export const StyledFormRangeContainer = styled.span`
@@ -22,12 +27,13 @@ export const StyledFormRangeContainer = styled.span`
 `;
 
 export const StyledFormRangeInput = styled.input`
-  width: 60px;
+  width: 80px;
   height: 100%;
   border: none;
   background: none;
   outline: none;
   font-size: 16px;
   font-weight: 500;
+  padding-left: 5px;
   color: ${(props) => props.theme.colors.colorBlack};
 `;

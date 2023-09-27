@@ -6,19 +6,22 @@ export const StyledFormSelect = styled.select`
   width: 340px;
   border: none;
   border-radius: 15px;
-  padding: 10px;
+  padding: 20px;
   font-size: 16px;
   font-weight: 500;
   color: ${(props) => props.theme.colors.colorBlack};
   background-color: ${(props) => props.theme.colors.colorLightRed};
   transition: all 0.3s ease;
   cursor: pointer;
-  -webkit-appearance: button;
   appearance: button;
   outline: none;
 
   &:hover{
+    border-radius: 30px;
+  }
 
+  &:focus {
+    outline: 1px solid ${(props) => props.theme.colors.colorMainRed};
   }
 `;
 
