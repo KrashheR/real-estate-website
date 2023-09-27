@@ -1,8 +1,19 @@
 export const DefaultTheme = {
   colors: {
+    colorMainRed: '#F42F46',
+    colorLightRed: '#FBF4F4',
+    colorBlack: '#4A4A4A',
+    colorWhite: '#FFFFFF',
     colorButtonPrimary: '#ffffff',
+    colorButtonText: '#E11439',
+    colorSlideshowButton: '#F42F46',
+    colorSlideshowPagination: '#FFFFFF',
+    colorSlideshowPaginationActive: '#F42F46',
+    colorSlideshowTitle: '#FFFFFF',
     backgroundButtonPrimary: '#ff0d29',
     backgroundHeader: '#ffffff',
+    promoGradient:
+      'linear-gradient(90deg, rgba(244,47,70,1) 0%, rgba(225,20,57,1) 100%)',
     colorWarning: '#d10a34',
     colorSuccess: '#52bc77',
     colorActive: '#1e90ff',
