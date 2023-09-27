@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     src: url(${RobotoRegular}) format("truetype");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -18,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     src: url(${RobotoMedium}) format("truetype");
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -25,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
     src: url(${RobotoBold}) format("truetype");
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
 
   @supports (font-variation-settings: normal) {
@@ -35,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 100 900;
     font-stretch: 25% 151%;
     font-style: normal;
+    font-display: swap;
   };
 }
 
@@ -57,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  button {
+  button, form, select, input {
     font-family: 'RobotoFlex', 'Roboto', sans-serif;
   }
 `;
