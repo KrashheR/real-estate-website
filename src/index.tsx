@@ -9,7 +9,6 @@ ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>
-    asd
   </React.StrictMode>,
   document.getElementById('root'),
 );
