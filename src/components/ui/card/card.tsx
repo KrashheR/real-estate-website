@@ -1,23 +1,27 @@
 import React from 'react';
-import { StyledCard, StyledCardAvaiable, StyledCardAvaiableContainer, StyledCardButton } from './styled';
+import { StyledCard, StyledCardAvaiable, StyledCardAvaiableContainer, StyledCardButton, StyledCardPlaceContainer, StyledCardPlaceText, StyledCardPlaceIcon, StyledCardTitleContainer } from './styled';
 import Title, { TitleLevel, TitleColor, TitleType } from '../title/title';
-import ReadMoreButton from '../readMoreButton/readMoreButton';
-
-interface CardProps {
-  gridArea: string;
-}
+import metro from "../../../assets/images/card/metro.svg"
+import human from "../../../assets/images/card/human.svg"
 
 function Card() {
   return (
     <StyledCard>
-      <Title
-        level={TitleLevel.H2}
-        color={TitleColor.WHITE}
-        type={TitleType.CARD}
-      >
-        Card Name
-      </Title>
-
+      <StyledCardTitleContainer>
+        <Title
+          level={TitleLevel.H2}
+          color={TitleColor.WHITE}
+          type={TitleType.CARD}
+        >
+          CARD NAME
+        </Title>
+        <StyledCardPlaceContainer>
+          <StyledCardPlaceIcon src={metro}/>
+          <StyledCardPlaceText>Щелковская</StyledCardPlaceText>
+          <StyledCardPlaceIcon src={human}/>
+          <StyledCardPlaceText>от 10 мин.</StyledCardPlaceText>
+        </StyledCardPlaceContainer>
+      </StyledCardTitleContainer>
       <StyledCardAvaiableContainer>
         <StyledCardAvaiable $area={"house"}>20 квартир</StyledCardAvaiable>
         <StyledCardAvaiable $area={"housePrice"}>от 10 млн.</StyledCardAvaiable>
