@@ -1,12 +1,15 @@
-import styled from "styled-components";
-import ReadMoreButton from "../readMoreButton/readMoreButton";
+import styled, { withTheme } from "styled-components";
 import { StyledReadMoreButton } from "../readMoreButton/styled";
 
-type StyledPromoCardProps = {
+type StyledCardAreaProps = {
   $area: string;
 };
 
-export const StyledCard = styled.a`
+type StyledCardTypeProps = {
+  $type: string;
+};
+
+export const StyledCard = styled.a<StyledCardTypeProps>`
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -14,7 +17,12 @@ export const StyledCard = styled.a`
   width: 370px;
   height: 410px;
   border-radius: 20px;
-  background-color: ${(props) => props.theme.colors.colorMainRed};
+  background-color: ${(props) => {
+    return props.$type === "premium" ? props.theme.colors.colorMainRed : props.theme.colors.colorLightRed;
+  }};
+  color: ${(props) => {
+    return props.$type === "premium" ? props.theme.colors.colorWhite : props.theme.colors.colorBlack;
+  }};
   padding: 20px;
   cursor: pointer;
 `;
@@ -39,7 +47,7 @@ export const StyledCardPlaceIcon = styled.img`
 
 export const StyledCardPlaceText = styled.span`
   font-size: 14px;
-  color: ${(props) => props.theme.colors.colorWhite};
+
 `;
 
 export const StyledCardTitleContainer = styled.div`
@@ -48,14 +56,20 @@ export const StyledCardTitleContainer = styled.div`
   gap: 3px;
 `;
 
-export const StyledCardButton = styled(StyledReadMoreButton)`
+export const StyledCardButton = styled(StyledReadMoreButton)<StyledCardTypeProps>`
   grid-area: button;
   justify-self: end;
   height: 40px;
+
+  background-color: ${(props) => {
+    return props.$type === "premium" ? props.theme.colors.colorWhite : props.theme.colors.colorMainRed;
+  }};
+  color: ${(props) => {
+    return props.$type === "premium" ? props.theme.colors.colorMainRed : props.theme.colors.colorWhite;
+  }};
 `;
 
-export const StyledCardAvaiable = styled.span<StyledPromoCardProps>`
+export const StyledCardAvaiable = styled.span<StyledCardAreaProps>`
   grid-area: ${(props) => props.$area};
   font-size: 12px;
-  color: ${(props) => props.theme.colors.colorWhite};
 `;
