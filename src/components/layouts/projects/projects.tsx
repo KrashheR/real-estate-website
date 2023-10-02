@@ -1,16 +1,15 @@
 import React from "react";
-import Container from "../container/container";
 import { StyledProjects, StyledProjectsContainer } from "./styled";
-import { StyledFilterForm } from "../../forms/filterForm/styled";
+import FilterForm from "../../forms/filterForm/filterForm";
+import ProjectsList from "./projectsList/projectsList";
 
 
 function Projects() {
   return(
     <StyledProjects>
       <StyledProjectsContainer>
-        <StyledFilterForm>
-
-        </StyledFilterForm>
+        <FilterForm />
+        <ProjectsList />
       </StyledProjectsContainer>
     </StyledProjects>
   );
