@@ -9,14 +9,18 @@ type StyledTitleProps = {
 export const StyledTitle = styled.h1<StyledTitleProps>`
   padding: 0;
   color: ${(props) => {
-    return props.$color === TitleColor.GRAY
-      ? props.theme.colors.textGray
-      : props.theme.colors.textPrimary;
+    if(props.$color === TitleColor.GRAY) {
+      return props.theme.colors.colorBlack;
+    } else if (props.$color === TitleColor.WHITE) {
+      return props.theme.colors.colorWhite;
+    }
   }};
   font-size: ${(props) => {
     if (props.$titleType === TitleType.SECTION) {
       return '32px';
     } else if (props.$titleType === TitleType.PROMO) {
+      return '24px';
+    } else if (props.$titleType === TitleType.CARD) {
       return '24px';
     }
   }};
