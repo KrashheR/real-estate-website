@@ -31,20 +31,60 @@ type CardProps = {
   title: string;
   parking: string;
   apartments: string;
+  metro: string;
+  walkTime: number;
 };
 
+interface JsonObject {
+  [key: string]: JsonObject | { num: string; price: string };
+}
+
+function sumField(obj: JsonObject, field: string): number {
+  let sum = 0;
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      let value = obj[key];
+      if (typeof value === 'object') {
+        sum += sumField(value as JsonObject, field);
+      } else if (key === field) {
+        sum += parseInt(value as string, 10);
+      }
+    }
+  }
+  return sum;
+}
+
+function findMinPrice(obj: JsonObject, field: string): number {
+  let minPrice = Infinity;
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      let value = obj[key];
+      if (typeof value === 'object') {
+        minPrice = Math.min(minPrice, findMinPrice(value as JsonObject, field));
+      } else if (key === field) {
+        minPrice = Math.min(minPrice, parseFloat(value as string));
+      }
+    }
+  }
+  return minPrice;
+}
+
 function Card({ data }: Card) {
-
-  let oneRoom = JSON.parse(data.apartments);
-  console.log(oneRoom["1"]);
+  let apartments = JSON.parse(data.apartments);
+  console.log(apartments);
   const parking = JSON.parse(data.parking);
-
+  const numSum = sumField(apartments, 'num');
+  const minPrice = findMinPrice(apartments, 'price');
   return (
     <StyledCard $type={data.type}>
       <StyledCardTitleContainer>
         <Title
           level={TitleLevel.H2}
-          color={data.type === CardType.PREMIUM ? TitleColor.WHITE : TitleColor.GRAY}
+          color={
+            data.type === CardType.PREMIUM ? TitleColor.WHITE : TitleColor.GRAY
+          }
           type={TitleType.CARD}
         >
           {data.title}
@@ -53,17 +93,23 @@ function Card({ data }: Card) {
           <StyledCardPlaceIcon
             src={data.type === CardType.PREMIUM ? metroPremium : metro}
           />
-          <StyledCardPlaceText>Щелковская</StyledCardPlaceText>
+          <StyledCardPlaceText>{data.metro}</StyledCardPlaceText>
           <StyledCardPlaceIcon
             src={data.type === CardType.PREMIUM ? humanPremium : human}
           />
-          <StyledCardPlaceText>от 10 мин.</StyledCardPlaceText>
+          <StyledCardPlaceText>от {data.walkTime} мин.</StyledCardPlaceText>
         </StyledCardPlaceContainer>
       </StyledCardTitleContainer>
       <StyledCardAvaiableContainer>
-        <StyledCardAvaiable $area={'house'}>20 квартир</StyledCardAvaiable>
-        <StyledCardAvaiable $area={'housePrice'}>от 10 млн.</StyledCardAvaiable>
-        <StyledCardAvaiable $area={'parking'}>{parking.num} машиномест</StyledCardAvaiable>
+        <StyledCardAvaiable $area={'house'}>
+          {numSum} квартир
+        </StyledCardAvaiable>
+        <StyledCardAvaiable $area={'housePrice'}>
+          от {minPrice} млн.
+        </StyledCardAvaiable>
+        <StyledCardAvaiable $area={'parking'}>
+          {parking.num} машиномест
+        </StyledCardAvaiable>
         <StyledCardAvaiable $area={'parkingPrice'}>
           от {parking.price} млн.
         </StyledCardAvaiable>
