@@ -8,6 +8,7 @@ import {
   StyledCardPlaceText,
   StyledCardPlaceIcon,
   StyledCardTitleContainer,
+  StyledCardImage,
 } from './styled';
 import Title, { TitleLevel, TitleColor, TitleType } from '../title/title';
 import metroPremium from '../../../assets/images/card/metroPremium.svg';
@@ -72,13 +73,14 @@ function findMinPrice(obj: JsonObject, field: string): number {
 }
 
 function Card({ data }: Card) {
-  let apartments = JSON.parse(data.apartments);
-  console.log(apartments);
-  const parking = JSON.parse(data.parking);
+  const apartments = JSON.parse(data.apartments);
   const numSum = sumField(apartments, 'num');
   const minPrice = findMinPrice(apartments, 'price');
+  const parking = JSON.parse(data.parking);
+
   return (
     <StyledCard $type={data.type}>
+      <StyledCardImage src={data.image}/>
       <StyledCardTitleContainer>
         <Title
           level={TitleLevel.H2}
