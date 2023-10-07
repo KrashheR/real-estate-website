@@ -9,6 +9,7 @@ import {
   StyledCardPlaceIcon,
   StyledCardTitleContainer,
   StyledCardImage,
+  StyledCardDescription,
 } from './styled';
 import Title, { TitleLevel, TitleColor, TitleType } from '../title/title';
 import metroPremium from '../../../assets/images/card/metroPremium.svg';
@@ -81,42 +82,44 @@ function Card({ data }: Card) {
   return (
     <StyledCard $type={data.type}>
       <StyledCardImage src={data.image}/>
-      <StyledCardTitleContainer>
-        <Title
-          level={TitleLevel.H2}
-          color={
-            data.type === CardType.PREMIUM ? TitleColor.WHITE : TitleColor.GRAY
-          }
-          type={TitleType.CARD}
-        >
-          {data.title}
-        </Title>
-        <StyledCardPlaceContainer>
-          <StyledCardPlaceIcon
-            src={data.type === CardType.PREMIUM ? metroPremium : metro}
-          />
-          <StyledCardPlaceText>{data.metro}</StyledCardPlaceText>
-          <StyledCardPlaceIcon
-            src={data.type === CardType.PREMIUM ? humanPremium : human}
-          />
-          <StyledCardPlaceText>от {data.walkTime} мин.</StyledCardPlaceText>
-        </StyledCardPlaceContainer>
-      </StyledCardTitleContainer>
-      <StyledCardAvaiableContainer>
-        <StyledCardAvaiable $area={'house'}>
-          {numSum} квартир
-        </StyledCardAvaiable>
-        <StyledCardAvaiable $area={'housePrice'}>
-          от {minPrice} млн.
-        </StyledCardAvaiable>
-        <StyledCardAvaiable $area={'parking'}>
-          {parking.num} машиномест
-        </StyledCardAvaiable>
-        <StyledCardAvaiable $area={'parkingPrice'}>
-          от {parking.price} млн.
-        </StyledCardAvaiable>
-        <StyledCardButton $type={data.type}>ПОДРОБНЕЕ</StyledCardButton>
-      </StyledCardAvaiableContainer>
+      <StyledCardDescription $type={data.type}>
+        <StyledCardTitleContainer>
+          <Title
+            level={TitleLevel.H2}
+            color={
+              data.type === CardType.PREMIUM ? TitleColor.WHITE : TitleColor.GRAY
+            }
+            type={TitleType.CARD}
+          >
+            {data.title}
+          </Title>
+          <StyledCardPlaceContainer>
+            <StyledCardPlaceIcon
+              src={data.type === CardType.PREMIUM ? metroPremium : metro}
+            />
+            <StyledCardPlaceText>{data.metro}</StyledCardPlaceText>
+            <StyledCardPlaceIcon
+              src={data.type === CardType.PREMIUM ? humanPremium : human}
+            />
+            <StyledCardPlaceText>от {data.walkTime} мин.</StyledCardPlaceText>
+          </StyledCardPlaceContainer>
+        </StyledCardTitleContainer>
+        <StyledCardAvaiableContainer>
+          <StyledCardAvaiable $area={'house'}>
+            {numSum} квартир
+          </StyledCardAvaiable>
+          <StyledCardAvaiable $area={'housePrice'}>
+            от {minPrice} млн.
+          </StyledCardAvaiable>
+          <StyledCardAvaiable $area={'parking'}>
+            {parking.num} машиномест
+          </StyledCardAvaiable>
+          <StyledCardAvaiable $area={'parkingPrice'}>
+            от {parking.price} млн.
+          </StyledCardAvaiable>
+          <StyledCardButton $type={data.type}>ПОДРОБНЕЕ</StyledCardButton>
+        </StyledCardAvaiableContainer>
+      </StyledCardDescription>
     </StyledCard>
   );
 }
