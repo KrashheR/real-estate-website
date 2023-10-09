@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import {
   StyledFormRange,
   StyledFormRangeInput,
@@ -7,9 +7,13 @@ import {
 
 interface FormRangeProps {
   id: string;
+  minPrice: number | null;
+  maxPrice: number | null;
+  onMinPriceChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onMaxPriceChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-function FormRange({ id }: FormRangeProps) {
+function FormRange({ id, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange }: FormRangeProps) {
   return (
     <StyledFormRange id={ id }>
       <StyledFormRangeContainer>
@@ -20,6 +24,8 @@ function FormRange({ id }: FormRangeProps) {
           min="1"
           max="100"
           placeholder="0"
+          value={minPrice ?? ''}
+          onChange={onMinPriceChange}
         />
       </StyledFormRangeContainer>
       <p>-</p>
@@ -31,6 +37,8 @@ function FormRange({ id }: FormRangeProps) {
           min="1"
           max="100"
           placeholder="100"
+          value={maxPrice ?? ''}
+          onChange={onMaxPriceChange}
         />
       </StyledFormRangeContainer>
     </StyledFormRange>
