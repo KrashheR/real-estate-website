@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledFormRange = styled.div`
   display: flex;
   height: 60px;
-  width: 340px;
+  width: 370px;
   border: none;
   border-radius: 15px;
   align-items: center;
@@ -13,7 +13,7 @@ export const StyledFormRange = styled.div`
   transition: all 0.3s ease;
 
   &:hover{
-    border-radius: 30px;
+    border-radius: 25px;
   }
 `;
 
