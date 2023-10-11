@@ -1,26 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React from 'react';
 import { StyledProjectsList } from "./styled";
-import Card, { CardType } from "../../../ui/card/card";
+import Card from "../../../ui/card/card";
+import { ICard } from '../../../../models/ICard';
+import { useAppSelector } from '../../../../hooks/redux';
+import { selectSortedCards } from '../../../../store/reducers/Selectors';
 
-function ProjectsList() {
 
-  const [data, setData] = useState(null);
+interface FilterValues {
+  minPrice: number | null;
+  maxPrice: number | null;
+  objectType: string;
+  deliveryDate: number | null;
+}
 
-  useEffect(() => {
-    fetch("https://www.krashher.ru/real-estate/api/get-cards.php")
-    .then(response => response.json())
-    .then(data => setData(data));
-  },[])
+interface ProjectsListProps {
+  filters: FilterValues;
+}
 
-  return(
+
+const filterData = (data: ICard[], filters: FilterValues): ICard[] => {
+  return data.filter(item => {
+    if (filters.deliveryDate !== null) {
+      const deadlineYear = parseInt(item.deadline, 10);
+      if (deadlineYear !== filters.deliveryDate) {
+        return false;
+      }
+    }
+    return true;
+  });
+};
+
+function ProjectsList({ filters }: ProjectsListProps) {
+  const sortedCards = useAppSelector(selectSortedCards);
+  const filteredData = filterData(sortedCards, filters);
+
+  return (
     <StyledProjectsList>
-      <Card type={CardType.PREMIUM}/>
-      <Card type={CardType.PREMIUM}/>
-      <Card type={CardType.PREMIUM}/>
-      <Card type={CardType.STANDART}/>
-      <Card type={CardType.STANDART}/>
-      <Card type={CardType.STANDART}/>
-      <Card type={CardType.STANDART}/>
+      {filteredData.map((item) => {
+        return (
+          <Card data={item} key={item.id} />
+        );
+      })}
     </StyledProjectsList>
   );
 }
