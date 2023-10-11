@@ -3,18 +3,24 @@ import { ThemeProvider } from 'styled-components';
 import { DefaultTheme } from './assets/theme/defaultTheme';
 import MainPage from './pages/mainPage/mainPage';
 import ErrorBoundary from './components/errorBoundary/errorBoundary';
-import { Provider } from 'react-redux';
-import store from './store';
+import { useAppDispatch } from './hooks/redux';
+import { useEffect } from 'react';
+import { fetchCards } from './store/reducers/ActionCreators';
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(()=> {
+    dispatch(fetchCards());
+  }, [])
+
+
   return (
     <ErrorBoundary>
-      <Provider store={store}>
-        <ThemeProvider theme={DefaultTheme}>
-          <GlobalStyles />
-          <MainPage />
-        </ThemeProvider>
-      </Provider>
+      <ThemeProvider theme={DefaultTheme}>
+        <GlobalStyles />
+        <MainPage />
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }
