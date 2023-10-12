@@ -1,6 +1,6 @@
 export interface ICard {
   apartments: string;
-  deadline: string;
+  deliveryDate: string;
   href: string;
   id: string;
   image: string;
