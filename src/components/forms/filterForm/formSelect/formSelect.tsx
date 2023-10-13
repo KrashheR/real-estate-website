@@ -1,18 +1,19 @@
-import React from "react";
-
-import   {StyledFormSelect,
-StyledFormSelectOption} from "./styled"
+import React, { ChangeEvent } from 'react';
+import { StyledFormSelect, StyledFormSelectOption } from './styled';
 
 interface FormSelectProps {
   id: string;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-function FormSelect({id} : FormSelectProps){
-  return(
-    <StyledFormSelect id={id}>
+function FormSelect({ id, onChange }: FormSelectProps) {
+  return (
+    <StyledFormSelect id={id} onChange={onChange}>
       <StyledFormSelectOption>Все объекты</StyledFormSelectOption>
-      <StyledFormSelectOption>Новостройки</StyledFormSelectOption>
-      <StyledFormSelectOption>Машиноместа</StyledFormSelectOption>
+      <StyledFormSelectOption>Однокомнатная квартира</StyledFormSelectOption>
+      <StyledFormSelectOption>Двухкомнатная квартира</StyledFormSelectOption>
+      <StyledFormSelectOption>Трёхкомнатная квартира</StyledFormSelectOption>
+      <StyledFormSelectOption>Машиноместо</StyledFormSelectOption>
     </StyledFormSelect>
   );
 }
