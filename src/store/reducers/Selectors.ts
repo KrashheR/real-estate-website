@@ -23,49 +23,68 @@ export const selectSortedCards = createSelector(
   }
 );
 
-export const selectFilteredByDateCards = createSelector(
+export const selectFilteredCards = createSelector(
   [selectSortedCards, (state: RootState) => state.cardReducer.filters],
   (sortedCards, filters) => {
-    const { deliveryDate } = filters;
+    const { deliveryDate, objectType, minPrice, maxPrice } = filters;
+    let isMatch: boolean = true;
 
-    if (deliveryDate !== null) {
-      return sortedCards.filter(card => parseInt(card.deliveryDate, 10) === deliveryDate);
-    }
+    const filteredCards = sortedCards.filter((card) => {
+      isMatch = true;
 
-    return sortedCards;
-  }
-);
-
-export const selectFilteredByTypeCards = createSelector(
-  [selectFilteredByDateCards, (state: RootState) => state.cardReducer.filters],
-  (filteredCards, filters) => {
-    const { objectType } = filters;
-
-    if (objectType === 'Все объекты') {
-      return filteredCards;
-    }
-
-    return filteredCards.filter(card => {
-      try {
-        const apartments = JSON.parse(card.apartments);
-        const parking = JSON.parse(card.parking);
-
-        switch (objectType) {
-          case 'Однокомнатная квартира':
-            return Object.values(apartments['1']).some((apartmentType) => (apartmentType as ApartmentType).num > 0);
-          case 'Двухкомнатная квартира':
-            return Object.values(apartments['2']).some((apartmentType) => (apartmentType as ApartmentType).num > 0);
-          case 'Трёхкомнатная квартира':
-            return Object.values(apartments['3']).some((apartmentType) => (apartmentType as ApartmentType).num > 0);
-          case 'Машиноместо':
-            return parking.num > 0;
-          default:
-            return true;
-        }
-      } catch (error) {
-        console.error("Error parsing JSON:", error);
-        return false;
+      if (deliveryDate !== null) {
+        isMatch = parseInt(card.deliveryDate, 10) === deliveryDate ? true : false;
       }
+
+      const apartments = JSON.parse(card.apartments);
+      const parking = JSON.parse(card.parking);
+      let keyToCheck: string | null = null;
+
+      if (objectType !== 'Все объекты' && isMatch) {
+        switch(objectType) {
+          case 'Однокомнатная квартира':
+            isMatch = Object.values(apartments['1']).some((apartmentType) => (apartmentType as ApartmentType).num > 0);
+            keyToCheck = "1";
+            break;
+          case 'Двухкомнатная квартира':
+            isMatch = Object.values(apartments['2']).some((apartmentType) => (apartmentType as ApartmentType).num > 0);
+            keyToCheck = "2";
+            break;
+          case 'Трёхкомнатная квартира':
+            isMatch = Object.values(apartments['3']).some((apartmentType) => (apartmentType as ApartmentType).num > 0);
+            keyToCheck = "3";
+            break;
+          case 'Машиноместо':
+            keyToCheck = "parking";
+            isMatch = parking.num > 0;
+            break;
+        }
+      }
+
+      if (minPrice !== null || maxPrice !== null && isMatch) {
+        const isPriceInRange = (price: number, minPrice?: number, maxPrice?: number): boolean =>
+        price >= (minPrice ?? price) && price <= (maxPrice ?? price);
+
+        const isApartmentAvailable = (apartmentType: ApartmentType): boolean =>
+        apartmentType.num > 0 && isPriceInRange(apartmentType.price, minPrice, maxPrice);
+
+        if (keyToCheck && apartments[keyToCheck]) {
+          isMatch = Object.values(apartments[keyToCheck])
+            .some(apartmentType => isApartmentAvailable(apartmentType as ApartmentType));
+        } else if (keyToCheck === "parking") {
+          isMatch = isPriceInRange(parking.price, minPrice, maxPrice);
+        } else {
+          isMatch = Object.values(apartments).some(apartment =>
+            Object.values(apartment as ApartmentType).some(apartmentType =>
+              isApartmentAvailable(apartmentType as ApartmentType)
+            )
+          );
+        }
+      }
+
+      return isMatch;
     });
+
+    return filteredCards;
   }
 );
