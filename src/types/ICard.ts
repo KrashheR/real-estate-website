@@ -10,3 +10,8 @@ export interface ICard {
   type: string;
   walkTime: number;
 }
+
+export interface ApartmentType {
+  num: number;
+  price: number;
+}
