@@ -5,8 +5,6 @@ interface CardState {
   cards: ICard[];
   isLoading: boolean;
   error: string;
-  minPrice: number;
-  maxPrice: number;
   filters: FilterValues;
 };
 
@@ -21,8 +19,6 @@ const initialState: CardState = {
   cards: [],
   isLoading: false,
   error: "",
-  minPrice: 0,
-  maxPrice: 100,
   filters: {
     minPrice: null,
     maxPrice: null,
