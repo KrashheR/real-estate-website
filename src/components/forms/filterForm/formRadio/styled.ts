@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const StyledFormRadioContainer = styled.span`
   display: flex;
   height: 60px;
-  gap: 10px;
+  justify-content: space-between;
+  width: 370px;
 `;
 
 export const StyledFormRadio = styled.input`
@@ -18,23 +19,24 @@ export const StyledFormRadio = styled.input`
 export const StyledFormRadioLabel = styled.label`
   display: flex;
   height: 100%;
-  width: 100px;
+  width: 84px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 0px 15px;
   line-height: 34px;
   border: none;
-  border-radius: 15px;
+  border-radius: 25px;
   user-select: none;
   background-color: ${(props) => props.theme.colors.colorLightRed};
+  box-shadow: 0px 2px 4px ${(props) => props.theme.colors.boxShadowMain};
   color: ${(props) => props.theme.colors.colorBlack};
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
 
   &:hover {
-    border-radius: 40px;
+    box-shadow: 0px 2px 6px ${(props) => props.theme.colors.boxShadowHover};
   }
 `;
