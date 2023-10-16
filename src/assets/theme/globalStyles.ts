@@ -52,6 +52,7 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box;
+    scrollbar-gutter: stable;
   }
 
   body {
