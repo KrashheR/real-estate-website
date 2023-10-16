@@ -4,16 +4,16 @@ export const StyledFormRange = styled.div`
   display: flex;
   height: 60px;
   width: 370px;
-  border: none;
-  border-radius: 15px;
+  border-radius: 25px;
   align-items: center;
   padding: 0 20px;
   justify-content: space-between;
   background-color: ${(props) => props.theme.colors.colorLightRed};
+  box-shadow: 0px 2px 4px ${(props) => props.theme.colors.boxShadowMain};
   transition: all 0.3s ease;
 
-  &:hover{
-    border-radius: 25px;
+  &:hover {
+    box-shadow: 0px 2px 6px ${(props) => props.theme.colors.boxShadowHover};
   }
 `;
 
