@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { StyledTitle } from './styled';
 
 export enum TitleLevel {
@@ -10,11 +10,6 @@ export enum TitleLevel {
   H6 = '6',
 }
 
-export enum TitleColor {
-  PRIMARY = 'primary',
-  GRAY = 'gray',
-}
-
 export enum TitleType {
   SECTION = 'section',
   CARD = 'card',
@@ -23,14 +18,13 @@ export enum TitleType {
 
 interface TitleProps {
   level: TitleLevel;
-  color: TitleColor;
   type: TitleType;
   children: string;
 }
 
-const Title: React.FC<TitleProps> = ({ level, color, type, children }) => {
+const Title: React.FC<TitleProps> = ({ level, type, children }) => {
   return (
-    <StyledTitle as={`h${level}`} $color={color} $titleType={type}>
+    <StyledTitle as={`h${level}`} $titleType={type}>
       {children}
     </StyledTitle>
   );

@@ -1,20 +1,12 @@
 import styled from 'styled-components';
-import { TitleColor, TitleType } from './title';
+import { TitleType } from './title';
 
 type StyledTitleProps = {
   $titleType: TitleType;
-  $color: TitleColor;
 };
 
 export const StyledTitle = styled.h1<StyledTitleProps>`
   padding: 0;
-  color: ${(props) => {
-    if(props.$color === TitleColor.GRAY) {
-      return props.theme.colors.colorBlack;
-    } else if (props.$color === TitleColor.WHITE) {
-      return props.theme.colors.colorWhite;
-    }
-  }};
   font-size: ${(props) => {
     if (props.$titleType === TitleType.SECTION) {
       return '32px';
