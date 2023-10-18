@@ -1,8 +1,10 @@
 {
-  "name": "react-ts-webpack-styled-components-demo",
+  "name": "real-estate-website",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
+  "homepage": "https://krashher.github.io/real-estate-website",
+  "private": false,
   "scripts": {
     "check-types": "tsc --noEmit --watch",
     "start": "webpack serve --open --config ./webpack.dev.js --node-env development",
