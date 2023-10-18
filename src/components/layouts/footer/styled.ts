@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledContainer } from "../container/styled";
+import { Link } from "react-router-dom";
 
 export const StyledFooter = styled.footer`
   margin-top: 40px;
@@ -26,7 +27,7 @@ export const StyledFooterProject = styled.li`
   font-weight: 400;
 `;
 
-export const StyledFooterProjectLink = styled.a`
+export const StyledFooterProjectLink = styled(Link)`
   text-decoration: none;
   color: ${(props) => props.theme.colors.colorBlack};
   transition: all 0.3s ease;

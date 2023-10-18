@@ -8,7 +8,6 @@ import { selectCards } from "../../../store/reducers/Selectors";
 function Footer() {
   const cards = useAppSelector(selectCards);
 
-
   return(
     <StyledFooter>
       <StyledFooterContainer>
@@ -18,7 +17,7 @@ function Footer() {
           {cards.map((card) => {
             return(
               <StyledFooterProject key={card.id}>
-                <StyledFooterProjectLink href={card.href}>
+                <StyledFooterProjectLink to={"apartments/" + card.title}>
                   {card.title}
                 </StyledFooterProjectLink>
               </StyledFooterProject>
