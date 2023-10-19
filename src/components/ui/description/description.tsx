@@ -1,12 +1,17 @@
-import React, { ReactNode } from 'react';
 import { StyledDescription } from './styled';
 
 interface DescriptionProps {
   children: string;
+  type: DescriptionType;
 }
 
-function Description(props: DescriptionProps) {
-  return <StyledDescription>{props.children}</StyledDescription>;
+export enum DescriptionType {
+  APARTMENT = 'apartment',
+  PROMO = 'apartment',
+}
+
+const Description: React.FC<DescriptionProps> = ({ type, children }) =>  {
+  return <StyledDescription $descriptionType={type}>{children}</StyledDescription>;
 }
 
 export default Description;
