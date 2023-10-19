@@ -18,6 +18,8 @@ export const DefaultTheme = {
     colorSuccess: '#52bc77',
     colorActive: '#1e90ff',
     borderInput: '#ededed',
+    boxShadowMain: '#D2CACA',
+    boxShadowHover: '#C0BDBD',
   },
   deviceSizes: {
     mobileSmall: '375px',

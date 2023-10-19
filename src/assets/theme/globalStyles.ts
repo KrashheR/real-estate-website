@@ -62,6 +62,11 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
+  a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+  }
+
   button, form, select, input {
     font-family: 'RobotoFlex', 'Roboto', sans-serif;
   }
