@@ -4,9 +4,11 @@ export interface ICard {
   href: string;
   id: string;
   image: string;
+  bigImage: string;
   metro: string;
   parking: string;
   title: string;
+  description: string;
   type: string;
   walkTime: number;
 }
