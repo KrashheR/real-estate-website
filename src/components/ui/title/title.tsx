@@ -11,7 +11,8 @@ export enum TitleLevel {
 }
 
 export enum TitleType {
-  SECTION = 'section',
+  APARTMENT = 'apartment',
+  APARTMENTFEATURE = 'apartmentFeature',
   CARD = 'card',
   PROMO = 'promo',
 }
