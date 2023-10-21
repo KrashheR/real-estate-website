@@ -10,13 +10,6 @@ import FormRadio from './formRadio/formRadio';
 import { useAppDispatch } from '../../../hooks/redux';
 import { setFilters } from '../../../store/reducers/CardSlice';
 
-interface FilterValues {
-  minPrice: number | null;
-  maxPrice: number | null;
-  objectType: string;
-  deliveryDate: number | null;
-}
-
 function FilterForm() {
   const dispatch = useAppDispatch();
   const [minPrice, setMinPrice] = useState<number | null>(null);
