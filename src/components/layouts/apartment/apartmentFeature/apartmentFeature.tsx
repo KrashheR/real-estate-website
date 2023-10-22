@@ -1,7 +1,7 @@
 import Description, { DescriptionType } from "../../../ui/description/description";
 import Title, { TitleType, TitleLevel } from "../../../ui/title/title";
 import { StyledApartmentFeature, StyledApartmentFeatureContainer, StyledApartmentFeatureImage } from "./styled";
-import metroImg from "../../../../assets/images/card/metro.svg";
+import metroImg from "../../../../assets/images/apartmentFeatures/metro.svg";
 import hospitalImg from "../../../../assets/images/apartmentFeatures/hospital.svg"
 import locationImg from "../../../../assets/images/apartmentFeatures/location.svg"
 import infrastructureImg from "../../../../assets/images/apartmentFeatures/infrastructure.svg"
@@ -46,7 +46,7 @@ function ApartmentFeature({descriptionText, type}: FeatureProps) {
       <StyledApartmentFeatureImage src={imageSrc}/>
       <StyledApartmentFeatureContainer>
         <Title level={TitleLevel.H3} type={TitleType.APARTMENTFEATURE}>{titleText}</Title>
-        <Description type={DescriptionType.APARTMENT}>{descriptionText}</Description>
+        <Description type={DescriptionType.APARTMENTFEAUTURE}>{descriptionText}</Description>
       </StyledApartmentFeatureContainer>
     </StyledApartmentFeature>
   );

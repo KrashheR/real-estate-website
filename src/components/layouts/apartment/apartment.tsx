@@ -17,7 +17,7 @@ import {
 interface ApartmentFeature {
   type: FeatureType;
   description: string;
-  id: number;
+  id: string;
 }
 
 function Apartment({ data }: { data: ICard }) {

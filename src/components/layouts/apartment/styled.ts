@@ -17,18 +17,21 @@ export const StyledApartmentTitle = styled.span`
 export const StyledApartmentAbout = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 30px;
+  max-height: 450px;
+  margin-top: 30px;
   gap: 200px;
 `;
 
 export const StyledApartmentFeatures = styled.div`
   display:flex;
-
+  justify-content: space-between;
+  margin-top: 80px;
 `;
 
-export const StyledApartmentText = styled.p`
+export const StyledApartmentText = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
 `;
 
@@ -36,5 +39,4 @@ export const StyledApartmentImg = styled.img`
   height: 450px;
   width: 450px;
   border-radius: 30px;
-
 `;
