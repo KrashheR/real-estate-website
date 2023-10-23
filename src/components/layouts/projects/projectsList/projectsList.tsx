@@ -1,11 +1,10 @@
-import React from 'react';
 import { StyledProjectsList } from "./styled";
 import Card from "../../../ui/card/card";
 import { useAppSelector } from '../../../../hooks/redux';
-import { selectFilteredByTypeCards } from '../../../../store/reducers/Selectors';
+import { selectFilteredCards } from '../../../../store/reducers/Selectors';
 
 function ProjectsList() {
-  const filteredCards = useAppSelector(selectFilteredByTypeCards);
+  const filteredCards = useAppSelector(selectFilteredCards);
 
   return (
     <StyledProjectsList>

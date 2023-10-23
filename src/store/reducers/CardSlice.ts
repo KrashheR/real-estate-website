@@ -1,12 +1,12 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ICard } from "../../models/ICard";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { ICard } from '../../types/ICard';
 
 interface CardState {
   cards: ICard[];
   isLoading: boolean;
   error: string;
   filters: FilterValues;
-};
+}
 
 interface FilterValues {
   minPrice: number | null;
@@ -18,14 +18,14 @@ interface FilterValues {
 const initialState: CardState = {
   cards: [],
   isLoading: false,
-  error: "",
+  error: '',
   filters: {
     minPrice: null,
     maxPrice: null,
     objectType: 'Все объекты',
     deliveryDate: null,
-  }
-}
+  },
+};
 
 export const cardSlice = createSlice({
   name: 'card',
@@ -36,7 +36,7 @@ export const cardSlice = createSlice({
     },
     cardsFetchingSuccess(state, action: PayloadAction<ICard[]>) {
       state.isLoading = false;
-      state.error = "";
+      state.error = '';
       state.cards = action.payload;
     },
     cardsFetchingError(state, action: PayloadAction<string>) {
@@ -46,8 +46,12 @@ export const cardSlice = createSlice({
     setFilters: (state, action: PayloadAction<FilterValues>) => {
       state.filters = action.payload;
     },
-  }
-})
+    setMinMaxPrice: (state, action: PayloadAction<{min: number, max: number}>) => {
+      state.filters.minPrice = action.payload.min;
+      state.filters.maxPrice = action.payload.max;
+    },
+  },
+});
 
 export const { setFilters } = cardSlice.actions;
 export default cardSlice.reducer;
