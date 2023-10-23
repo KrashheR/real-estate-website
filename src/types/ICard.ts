@@ -1,8 +1,7 @@
 export interface ICard {
   apartments: string;
   deliveryDate: string;
-  href: string;
-  id: string;
+  id: number;
   image: string;
   bigImage: string;
   metro: string;
@@ -11,6 +10,7 @@ export interface ICard {
   description: string;
   type: string;
   walkTime: number;
+  features: string;
 }
 
 export interface ApartmentType {
