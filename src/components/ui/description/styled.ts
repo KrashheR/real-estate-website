@@ -8,7 +8,13 @@ interface StyledDescriptionProps {
 export const StyledDescription = styled.p<StyledDescriptionProps>`
   margin-block-start: 0;
   font-size: ${(props) => {
-    return props.$descriptionType === DescriptionType.APARTMENT ? '16px' : '14px';
+    if (props.$descriptionType === DescriptionType.APARTMENT) {
+      return '16px';
+    } else if (props.$descriptionType === DescriptionType.APARTMENTFEAUTURE) {
+      return '14px';
+    } else {
+      return '14px';
+    }
   }};
   font-weight: 400;
 
