@@ -4,7 +4,9 @@ import FullSizeImage from '../../ui/fullSizeImage/fullSizeImage';
 import Title, { TitleLevel, TitleType } from '../../ui/title/title';
 import YandexMap from '../../ui/yandexMap/yandexMap';
 import Container from '../container/container';
-import ApartmentFeature, { FeatureType } from './apartmentFeature/apartmentFeature';
+import ApartmentFeature, {
+  FeatureType,
+} from './apartmentFeature/apartmentFeature';
 import {
   StyledApartment,
   StyledApartmentAbout,
@@ -13,6 +15,7 @@ import {
   StyledApartmentText,
   StyledApartmentTitle,
   StyledApartmentTitleContainer,
+  StyledAppartmentMap,
 } from './styled';
 
 interface ApartmentFeature {
@@ -35,7 +38,7 @@ function Apartment({ data }: { data: ICard }) {
         <Container>
           <StyledApartmentTitle>
             <Title level={TitleLevel.H1} type={TitleType.APARTMENT}>
-              {"ЖК «" + data.title + "»"}
+              {'ЖК «' + data.title + '»'}
             </Title>
           </StyledApartmentTitle>
         </Container>
@@ -47,18 +50,33 @@ function Apartment({ data }: { data: ICard }) {
         <StyledApartmentAbout>
           <StyledApartmentText>
             {apartmentDescription.map((item, index) => {
-              const key = `${index}-${item.substring(0,5)}`;
-              return <Description type={DescriptionType.APARTMENT} key={key}>{item}</Description>;
+              const key = `${index}-${item.substring(0, 5)}`;
+              return (
+                <Description type={DescriptionType.APARTMENT} key={key}>
+                  {item}
+                </Description>
+              );
             })}
           </StyledApartmentText>
           <StyledApartmentImg src={data.image} />
         </StyledApartmentAbout>
         <StyledApartmentFeatures>
-          {apartmentFeatures.map((item:ApartmentFeature) => {
-            return<ApartmentFeature type={item.type} descriptionText={item.description} key={item.id}/>
+          {apartmentFeatures.map((item: ApartmentFeature) => {
+            return (
+              <ApartmentFeature
+                type={item.type}
+                descriptionText={item.description}
+                key={item.id}
+              />
+            );
           })}
         </StyledApartmentFeatures>
-        <YandexMap latitude={latitude} longitude={longitude}/>
+        <StyledAppartmentMap>
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTMAP}>
+            Расположение на карте
+          </Title>
+          <YandexMap latitude={latitude} longitude={longitude} />
+        </StyledAppartmentMap>
       </Container>
     </StyledApartment>
   );
