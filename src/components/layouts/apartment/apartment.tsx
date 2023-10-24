@@ -2,6 +2,7 @@ import { ICard } from '../../../types/ICard';
 import Description, { DescriptionType } from '../../ui/description/description';
 import FullSizeImage from '../../ui/fullSizeImage/fullSizeImage';
 import Title, { TitleLevel, TitleType } from '../../ui/title/title';
+import YandexMap from '../../ui/yandexMap/yandexMap';
 import Container from '../container/container';
 import ApartmentFeature, { FeatureType } from './apartmentFeature/apartmentFeature';
 import {
@@ -23,6 +24,9 @@ interface ApartmentFeature {
 function Apartment({ data }: { data: ICard }) {
   const apartmentDescription = data.description.split('<br>');
   const apartmentFeatures = JSON.parse(data.features);
+  const apartmentLocation = JSON.parse(data.location);
+  const latitude = apartmentLocation.latitude;
+  const longitude = apartmentLocation.longitude;
 
   return (
     <StyledApartment>
@@ -54,6 +58,7 @@ function Apartment({ data }: { data: ICard }) {
             return<ApartmentFeature type={item.type} descriptionText={item.description} key={item.id}/>
           })}
         </StyledApartmentFeatures>
+        <YandexMap latitude={latitude} longitude={longitude}/>
       </Container>
     </StyledApartment>
   );
