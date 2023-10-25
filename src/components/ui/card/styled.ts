@@ -9,7 +9,7 @@ type StyledCardTypeProps = {
   $type: string;
 };
 
-export const StyledCard = styled.a<StyledCardTypeProps>`
+export const StyledCard = styled.div<StyledCardTypeProps>`
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -20,6 +20,7 @@ export const StyledCard = styled.a<StyledCardTypeProps>`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 15px;
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
