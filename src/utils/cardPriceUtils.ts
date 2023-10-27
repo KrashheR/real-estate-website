@@ -8,8 +8,9 @@ export const getMinAndMaxApartmentPrice = (cards: ICard[]): [number, number] => 
     const apartments = JSON.parse(card.apartments);
     Object.values(apartments).forEach((apartment) => {
       Object.values(apartment as ApartmentType).forEach(apartmentType => {
-        if (apartmentType.price < minPrice) minPrice = apartmentType.price;
-        if (apartmentType.price > maxPrice) maxPrice = apartmentType.price;
+        const price = parseFloat(apartmentType.price);
+        if (price < minPrice) minPrice = price;
+        if (price > maxPrice) maxPrice = price;
       });
     });
   });
