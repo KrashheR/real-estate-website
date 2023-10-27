@@ -4,6 +4,8 @@ import { ApartmentType } from '../../types/ICard';
 
 export const selectCards = (state: RootState) => state.cardReducer.cards;
 
+export const selectPromos = (state: RootState) => state.promoReducer.promos;
+
 export const selectSortedCards = createSelector([selectCards], (cards) => {
   return [...cards].sort((a, b) => {
     if (a.type === 'premium' && b.type !== 'premium') {
