@@ -11,9 +11,12 @@ export interface ICard {
   type: string;
   walkTime: number;
   features: string;
+  location: string;
+  rooms: string;
 }
 
 export interface ApartmentType {
   num: number;
   price: number;
 }
+
