@@ -1,12 +1,15 @@
-import React from 'react';
 import { StyledPromo, StyledPromoContainer } from './styled';
 import PromoCard from './promoCard/promoCard';
 import carParking from '../../../assets/images/promo/carParking.svg';
 import mortgage from '../../../assets/images/promo/mortgage.svg';
 import CountdownOfferCard from './countdownOfferCard/countdownOfferCard';
 import Slideshow from '../../ui/slideshow/slideshow';
+import { useAppSelector } from '../../../hooks/redux';
+import { selectPromos } from '../../../store/reducers/Selectors';
 
 function Promo() {
+  const slides = useAppSelector(selectPromos);
+
   return (
     <StyledPromo>
       <StyledPromoContainer>
@@ -25,7 +28,7 @@ function Promo() {
           href="#"
           area="cardB"
         />
-        <Slideshow />
+        <Slideshow slides={slides}/>
       </StyledPromoContainer>
     </StyledPromo>
   );
