@@ -6,6 +6,9 @@ export const selectCards = (state: RootState) => state.cardReducer.cards;
 
 export const selectPromos = (state: RootState) => state.promoReducer.promos;
 
+export const selectMinPrice = (state: RootState) => state.cardReducer.filters.minPrice;
+export const selectMaxPrice = (state: RootState) => state.cardReducer.filters.maxPrice;
+
 export const selectSortedCards = createSelector([selectCards], (cards) => {
   return [...cards].sort((a, b) => {
     if (a.type === 'premium' && b.type !== 'premium') {
@@ -70,8 +73,8 @@ export const selectFilteredCards = createSelector(
       if (isMatch) {
         const isPriceInRange = (
           price: number,
-          minPrice: number,
-          maxPrice: number,
+          minPrice: number | null,
+          maxPrice: number | null,
         ): boolean =>
           price >= (minPrice ?? price) && price <= (maxPrice ?? price);
 

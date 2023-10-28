@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import {
   StyledFilterForm,
   StyledFormLabel,
@@ -7,15 +7,28 @@ import {
 import FormSelect from './formSelect/formSelect';
 import FormRange from './formRange/formRange';
 import FormRadio from './formRadio/formRadio';
-import { useAppDispatch } from '../../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { setFilters } from '../../../store/reducers/CardSlice';
+import { selectMaxPrice, selectMinPrice } from '../../../store/reducers/Selectors';
 
 function FilterForm() {
   const dispatch = useAppDispatch();
-  const [minPrice, setMinPrice] = useState<number | null>(null);
-  const [maxPrice, setMaxPrice] = useState<number | null>(null);
+  const initialMinPrice = useAppSelector(selectMinPrice);
+  const initialMaxPrice = useAppSelector(selectMaxPrice);
+
+  const [minPrice, setMinPrice] = useState<number | null>(initialMinPrice);
+  const [maxPrice, setMaxPrice] = useState<number | null>(initialMaxPrice);
   const [deliveryDate, setDeliveryDate] = useState<number | null>(null);
   const [objectType, setObjectType] = useState<string>('Все объекты');
+
+  useEffect(() => {
+    if (initialMinPrice !== null) {
+      setMinPrice(initialMinPrice);
+    }
+    if (initialMaxPrice !== null) {
+      setMaxPrice(initialMaxPrice);
+    }
+  }, [initialMinPrice, initialMaxPrice]);
 
   const handleMinPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMinPrice(parseInt(e.target.value));
