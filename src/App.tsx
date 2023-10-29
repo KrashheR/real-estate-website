@@ -5,9 +5,9 @@ import MainPage from './pages/mainPage/mainPage';
 import ErrorBoundary from './components/errorBoundary/errorBoundary';
 import { useAppDispatch } from './hooks/redux';
 import { useEffect } from 'react';
-import { fetchCards } from './store/reducers/ActionCreators';
+import { fetchCards, fetchPromos } from './store/reducers/ActionCreators';
 import { Routes, Route } from "react-router-dom";
-import ProjectPage from './pages/apartments/apartments' ;
+import ApartmentsPage from './pages/apartmentsPage/apartmentsPage' ;
 import MainLayout from './components/layouts/mainLayout/mainLayout';
 import About from './pages/about/about';
 
@@ -16,6 +16,7 @@ function App() {
 
   useEffect(()=> {
     dispatch(fetchCards());
+    dispatch(fetchPromos());
   }, [])
 
   return (
@@ -25,7 +26,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />} >
             <Route index path='/' element={<MainPage />}/>
-            <Route path='apartments/:id/' element={<ProjectPage />}/>
+            <Route path='apartments' element={<ApartmentsPage />}/>
+            <Route path='apartments/:title/' element={<ApartmentsPage />}/>
             <Route path='*' element={<About />}/>
           </Route>
         </Routes>
