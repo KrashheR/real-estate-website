@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import cardReducer from "./reducers/CardSlice";
+import promoReducer from "./reducers/PromoSlice";
 import { configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
-  cardReducer
+  cardReducer,
+  promoReducer
 });
 
 export const setupStore = () => {
