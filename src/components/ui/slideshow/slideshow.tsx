@@ -1,27 +1,17 @@
-import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSlideshow, StyledSlideshowButton, StyledSlideshowImage, StyledSlideshowLink, StyledSlideshowTitle } from './styled';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { ISlide } from '../../../types/ISlide';
 
 
-interface Slide {
-  href: string;
-  image: string;
-  title: string;
+interface SlideshowProps {
+  slides: ISlide[];
 }
 
-function Slideshow() {
-  const [slides, setSlides] = useState<Slide[]>([]);
-
-  useEffect(() => {
-    fetch('https://krashher.ru/real-estate/api/get-slideshow.php')
-      .then((response) => response.json())
-      .then((data) => setSlides(data))
-      .catch((error) => console.log(error));
-  }, []);
+function Slideshow({slides}: SlideshowProps) {
 
   return (
     <StyledSlideshow>
