@@ -10,10 +10,12 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   font-size: ${(props) => {
     if (props.$titleType === TitleType.APARTMENT) {
       return '60px';
+    } else if (props.$titleType === TitleType.APARTMENTMAP) {
+      return '34px';
     } else if (props.$titleType === TitleType.PROMO || props.$titleType === TitleType.CARD) {
       return '24px';
     } else if (props.$titleType === TitleType.APARTMENTFEATURE) {
-      return '18px';
+      return '16px';
     }
   }};
   font-weight: ${(props) => {
@@ -21,11 +23,11 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
       return 700;
     } else if (
       props.$titleType === TitleType.PROMO ||
-      props.$titleType === TitleType.APARTMENT
+      props.$titleType === TitleType.APARTMENT || props.$titleType === TitleType.APARTMENTMAP
     ) {
       return 600;
     } else if (props.$titleType === TitleType.APARTMENTFEATURE) {
-      return 500;
+      return 600;
     }
   }};
 
