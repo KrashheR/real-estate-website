@@ -15,7 +15,7 @@ interface ShowroomProps {
 }
 
 function Showroom({ slides }: ShowroomProps) {
-  const [selectedRoom, setSelectedRoom] = useState('Гостиная');
+  const [selectedRoom, setSelectedRoom] = useState('livingroom');
   const swiperRef = useRef<SwiperCore | null>(null);
 
   const handleSliderChange = () => {
