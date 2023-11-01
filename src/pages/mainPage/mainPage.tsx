@@ -1,5 +1,5 @@
 import Promo from '../../components/layouts/promo/promo';
-import Projects from '../../components/layouts/projects/projects';
+import Apartments from '../../components/layouts/apartments/apartments';
 import { StyledMainPage } from './styled';
 
 
@@ -7,7 +7,7 @@ function MainPage() {
   return (
     <StyledMainPage>
       <Promo />
-      <Projects />
+      <Apartments />
     </StyledMainPage>
   );
 }

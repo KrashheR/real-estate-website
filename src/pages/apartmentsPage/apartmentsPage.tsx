@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hooks/redux';
 import { selectCardByTitle } from '../../store/reducers/Selectors';
 import Apartment from '../../components/layouts/apartment/apartment';
 import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
-import Projects from '../../components/layouts/projects/projects';
+import Apartments from '../../components/layouts/apartments/apartments';
 import { StyledApartmentsContainer } from './styled';
 
 function ApartmentsPage() {
@@ -21,7 +21,7 @@ function ApartmentsPage() {
       <Title level={TitleLevel.H1} type={TitleType.APARTMENTMAP}>
         Каталог новостроек:
       </Title>
-      <Projects />
+      <Apartments />
     </StyledApartmentsContainer>
   );
 }
