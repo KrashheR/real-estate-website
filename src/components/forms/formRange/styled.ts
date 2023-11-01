@@ -13,7 +13,7 @@ export const StyledFormRange = styled.div`
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0px 2px 6px ${(props) => props.theme.colors.boxShadowHover};
+    box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
   }
 `;
 

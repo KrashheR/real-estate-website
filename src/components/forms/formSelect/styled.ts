@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DropdownArrow from "../../../../assets/images/forms/dropdown-arrow.svg"
+import DropdownArrow from "../../../assets/images/forms/dropdown-arrow.svg"
 
 export const StyledFormSelect = styled.select`
   overflow: hidden;
@@ -23,7 +23,7 @@ export const StyledFormSelect = styled.select`
   outline: none;
 
   &:hover {
-    box-shadow: 0px 2px 6px ${(props) => props.theme.colors.boxShadowHover};
+    box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
   }
 
 `;

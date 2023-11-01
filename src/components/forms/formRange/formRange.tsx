@@ -4,6 +4,8 @@ import {
   StyledFormRangeInput,
   StyledFormRangeContainer,
 } from './styled';
+import { useAppSelector } from '../../../hooks/redux';
+import { selectMinPrice } from '../../../store/reducers/Selectors';
 
 interface FormRangeProps {
   id: string;
@@ -14,6 +16,8 @@ interface FormRangeProps {
 }
 
 function FormRange({ id, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange }: FormRangeProps) {
+  const initialMinPrice = useAppSelector(selectMinPrice);
+
   return (
     <StyledFormRange id={ id }>
       <StyledFormRangeContainer>
@@ -21,7 +25,7 @@ function FormRange({ id, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange 
         <StyledFormRangeInput
           type="number"
           id="price-min"
-          min="1"
+          min={initialMinPrice ?? "1"}
           max="100"
           placeholder="0"
           value={minPrice ?? ''}
