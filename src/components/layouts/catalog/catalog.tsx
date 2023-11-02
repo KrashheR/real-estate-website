@@ -1,15 +1,28 @@
-import Title, { TitleLevel, TitleType } from "../../ui/title/title";
-import Projects from "../projects/projects";
-import { StyledCatalogContainer } from "./styled";
+import { useState } from 'react';
+import CatalogFilterForm from '../../forms/catalogFilterForm/catalogFilterForm';
+import CatalogList from './catalogList/catalogList';
+import {
+  StyledCatalogContainer,
+  StyledCatalogInfo,
+  StyledCatalogSelector,
+} from './styled';
 
-function Catalog() {
-  return(
+
+interface CatalogProps {
+  apartments: string;
+}
+
+function Catalog({apartments}: CatalogProps) {
+  const [selectedRoomType, setSelectedRoomType] = useState<string>("1");
+
+  return (
     <StyledCatalogContainer>
-      <Title level={TitleLevel.H1} type={TitleType.APARTMENTMAP}>
-        Каталог новостроек:
-      </Title>
-      <Projects />
-  </StyledCatalogContainer>
+      <StyledCatalogSelector>
+        <CatalogFilterForm onRoomTypeChange={setSelectedRoomType} />
+        <CatalogList selectedRoomType={selectedRoomType} apartments={JSON.parse(apartments)}/>
+      </StyledCatalogSelector>
+      <StyledCatalogInfo></StyledCatalogInfo>
+    </StyledCatalogContainer>
   );
 }
 
