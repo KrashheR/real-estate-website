@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { FormRadioType } from './formRadio';
+
+type StyledFormRadioProps = {
+  $formRadioType: FormRadioType;
+};
 
 export const StyledFormRadioContainer = styled.span`
   display: flex;
-  height: 60px;
+
   justify-content: space-between;
-  width: 370px;
 `;
 
 export const StyledFormRadio = styled.input`
@@ -16,17 +20,21 @@ export const StyledFormRadio = styled.input`
   }
 `;
 
-export const StyledFormRadioLabel = styled.label`
+export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
   display: flex;
-  height: 100%;
-  width: 84px;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  width: fit-content;
+  min-width: ${(props) => {
+    return props.$formRadioType === FormRadioType.CATALOG ? '55px':'80px';
+  }};
+  height: ${(props) => {
+    return props.$formRadioType === FormRadioType.CATALOG ? '55px':'60px';
+  }};
   padding: 0px 15px;
   line-height: 34px;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   user-select: none;
   background-color: ${(props) => props.theme.colors.colorLightRed};
   box-shadow: 0px 2px 4px ${(props) => props.theme.colors.boxShadowMain};
@@ -35,6 +43,7 @@ export const StyledFormRadioLabel = styled.label`
   text-align: center;
   font-size: 16px;
   font-weight: 500;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};

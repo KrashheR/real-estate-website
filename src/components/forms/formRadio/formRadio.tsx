@@ -6,7 +6,7 @@ import {
 } from './styled';
 
 interface RadioOption {
-  value: string | number;
+  value: string;
   label: string;
   id: string;
 }
@@ -15,9 +15,16 @@ interface FormRadioProps {
   options: RadioOption[];
   name: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  defaultChecked?: string | null;
+  type: FormRadioType;
 }
 
-function FormRadio({ options, name, onChange }: FormRadioProps) {
+export enum FormRadioType {
+  CATALOG = "catalog",
+  APARTMENT = "apartment",
+}
+
+function FormRadio({ options, name, onChange, defaultChecked, type }: FormRadioProps) {
   return (
     <StyledFormRadioContainer id={`form-${name}`} onChange={onChange}>
       {options.map((option) => (
@@ -27,8 +34,9 @@ function FormRadio({ options, name, onChange }: FormRadioProps) {
             id={option.id}
             name={name}
             value={option.value}
+            defaultChecked={defaultChecked === option.value}
           />
-          <StyledFormRadioLabel htmlFor={option.id}>
+          <StyledFormRadioLabel $formRadioType={type} htmlFor={option.id}>
             {option.label}
           </StyledFormRadioLabel>
         </React.Fragment>
