@@ -1,4 +1,5 @@
 import { CatalogDetails } from "../../../../types/ICatalog";
+import { StyledCatalogCard, StyledCatalogCardImage, StyledCatalogCardSize } from "./styled";
 
 interface CatalogCardProps {
   details: CatalogDetails;
@@ -6,12 +7,10 @@ interface CatalogCardProps {
 
 function CatalogCard({ details }: CatalogCardProps) {
   return (
-    <div>
-      <img src={details.image} alt="План квартиры" />
-      <p>Количество квартир: {details.num}</p>
-      <p>Цена: {details.price} млн руб.</p>
-      <p>Площадь: {details.size} м²</p>
-    </div>
+    <StyledCatalogCard>
+      <StyledCatalogCardImage src={details.image} alt="План квартиры" />
+      <StyledCatalogCardSize> {details.size} м²</StyledCatalogCardSize>
+    </StyledCatalogCard>
   );
 }
 
