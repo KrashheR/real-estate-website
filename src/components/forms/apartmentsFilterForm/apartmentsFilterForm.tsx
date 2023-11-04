@@ -6,7 +6,7 @@ import {
 } from './styled';
 import FormSelect from '../formSelect/formSelect';
 import FormRange from '../formRange/formRange';
-import FormRadio from '../formRadio/formRadio';
+import FormRadio, { FormRadioType } from '../formRadio/formRadio';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { setFilters } from '../../../store/reducers/CardSlice';
 import {
@@ -22,7 +22,7 @@ function ApartmentsFilterForm() {
 
   const [minPrice, setMinPrice] = useState<number | null>(initialMinPrice);
   const [maxPrice, setMaxPrice] = useState<number | null>(initialMaxPrice);
-  const [deliveryDate, setDeliveryDate] = useState<number | null>(null);
+  const [deliveryDate, setDeliveryDate] = useState<string | null>(null);
   const [objectType, setObjectType] = useState<string>('Все объекты');
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function ApartmentsFilterForm() {
   };
 
   const handleDeliveryDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setDeliveryDate(parseInt(e.target.value));
+    setDeliveryDate(e.target.value);
   };
 
   useEffect(() => {
@@ -89,6 +89,8 @@ function ApartmentsFilterForm() {
           options={deliveryDateOptions}
           name="form-radio"
           onChange={handleDeliveryDateChange}
+          defaultChecked={""}
+          type={FormRadioType.APARTMENT}
         />
       </StyledApartmentsFormItem>
     </StyledApartmentsFilterForm>

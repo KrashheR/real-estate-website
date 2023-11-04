@@ -14,5 +14,6 @@ export const StyledApartmentsFormLabel = styled.label`
 export const StyledApartmentsFormItem = styled.span`
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 370px;
 `;
+
