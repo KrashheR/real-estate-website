@@ -36,34 +36,34 @@ export const selectFilteredCards = createSelector(
 
       if (deliveryDate !== null) {
         isMatch =
-          parseInt(card.deliveryDate, 10) === deliveryDate ? true : false;
+          card.deliveryDate === deliveryDate ? true : false;
       }
 
       const apartments = JSON.parse(card.apartments);
       const parking = JSON.parse(card.parking);
       let keyToCheck: string | null = null;
 
-      if (objectType !== 'Все объекты' && isMatch) {
+      if (objectType !== 'all' && isMatch) {
         switch (objectType) {
-          case 'Однокомнатная квартира':
+          case 'one-room':
             isMatch = Object.values(apartments['1']).some(
               (apartmentType) => (apartmentType as ApartmentType).num > 0,
             );
             keyToCheck = '1';
             break;
-          case 'Двухкомнатная квартира':
+          case 'two-room':
             isMatch = Object.values(apartments['2']).some(
               (apartmentType) => (apartmentType as ApartmentType).num > 0,
             );
             keyToCheck = '2';
             break;
-          case 'Трёхкомнатная квартира':
+          case 'three-room':
             isMatch = Object.values(apartments['3']).some(
               (apartmentType) => (apartmentType as ApartmentType).num > 0,
             );
             keyToCheck = '3';
             break;
-          case 'Машиноместо':
+          case 'parking-space':
             keyToCheck = 'parking';
             isMatch = parking.num > 0;
             break;

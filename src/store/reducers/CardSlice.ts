@@ -12,7 +12,7 @@ interface FilterValues {
   minPrice: number | null;
   maxPrice: number | null;
   objectType: string;
-  deliveryDate: number | null;
+  deliveryDate: string | null;
 }
 
 const initialState: CardState = {
