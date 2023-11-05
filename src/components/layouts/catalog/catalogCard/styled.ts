@@ -1,19 +1,26 @@
 import styled from "styled-components";
 
-export const StyledCatalogCard = styled.div`
+interface StyledCatalogCardProps {
+  isSelected: boolean;
+}
+
+export const StyledCatalogCard = styled.div<StyledCatalogCardProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
-  gap: 4px;
-  border: 1px solid ${(props) => props.theme.colors.colorMainRed};
+  width: 105px;
+  height: 135px;
+  gap: 10px;
+  border: ${(props) => props.isSelected ? `1px solid ${props.theme.colors.colorMainRed}` : null};
   border-radius: 25px;
+  background-color: ${(props) => props.theme.colors.colorLightRed};
+
+  cursor: pointer;
 `;
 
 export const StyledCatalogCardImage = styled.img`
-  height: 88px;
+  width: 75px;
 `;
 
 export const StyledCatalogCardSize = styled.p`
