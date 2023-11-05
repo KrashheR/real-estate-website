@@ -5,9 +5,11 @@ import { StyledCatalogList } from "./styled";
 interface CatalogListProps {
   apartments: Record<string, Record<string, CatalogDetails>>;
   selectedRoomType: string;
+  onCatalogCardChange: (details: CatalogDetails) => void;
+  selectedApartmentId: string | undefined;
 }
 
-function CatalogList ({ apartments, selectedRoomType }: CatalogListProps) {
+function CatalogList ({ apartments, selectedRoomType, onCatalogCardChange, selectedApartmentId }: CatalogListProps) {
   const roomTypeApartments = apartments[selectedRoomType];
 
   return (
@@ -16,6 +18,8 @@ function CatalogList ({ apartments, selectedRoomType }: CatalogListProps) {
         <CatalogCard
           key={apartmentType}
           details={details}
+          handleCatalogCardChange={() => onCatalogCardChange(details)}
+          isSelected={selectedApartmentId === details.id}
         />
       ))}
     </StyledCatalogList>
