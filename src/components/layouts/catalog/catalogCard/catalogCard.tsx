@@ -3,11 +3,14 @@ import { StyledCatalogCard, StyledCatalogCardImage, StyledCatalogCardSize } from
 
 interface CatalogCardProps {
   details: CatalogDetails;
+  isSelected: boolean;
+  handleCatalogCardChange: () => void;
 }
 
-function CatalogCard({ details }: CatalogCardProps) {
+function CatalogCard({ details, isSelected, handleCatalogCardChange }: CatalogCardProps )  {
+
   return (
-    <StyledCatalogCard>
+    <StyledCatalogCard onClick={handleCatalogCardChange} isSelected={isSelected}>
       <StyledCatalogCardImage src={details.image} alt="План квартиры" />
       <StyledCatalogCardSize> {details.size} м²</StyledCatalogCardSize>
     </StyledCatalogCard>
