@@ -1,12 +1,12 @@
 import { StyledApartments, StyledApartmentsContainer } from "./styled";
-import FilterForm from "../../forms/filterForm/filterForm";
+import ApartmentsFilterForm from "../../forms/apartmentsFilterForm/apartmentsFilterForm";
 import ApartmentsList from "./apartmentsList/apartmentsList";
 
 function Apartments() {
   return (
     <StyledApartments>
       <StyledApartmentsContainer>
-        <FilterForm />
+        <ApartmentsFilterForm />
         <ApartmentsList />
       </StyledApartmentsContainer>
     </StyledApartments>
