@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CatalogFilterForm from '../../forms/catalogFilterForm/catalogFilterForm';
 import CatalogList from './catalogList/catalogList';
 import {
-  StyledCatalogContainer,
+  StyledCatalogContent,
   StyledCatalogSelector,
 } from './styled';
 import { CatalogDetails } from '../../../types/ICatalog';
@@ -21,7 +21,7 @@ function Catalog({ apartments }: CatalogProps) {
   };
 
   return (
-    <StyledCatalogContainer>
+    <StyledCatalogContent>
       <StyledCatalogSelector>
         <CatalogFilterForm
           selectedRoomType={selectedRoomType}
@@ -35,7 +35,8 @@ function Catalog({ apartments }: CatalogProps) {
         />
       </StyledCatalogSelector>
       <CatalogInfo selectedApartment={selectedApartment}/>
-    </StyledCatalogContainer>
+    </StyledCatalogContent>
+
   );
 }
 
