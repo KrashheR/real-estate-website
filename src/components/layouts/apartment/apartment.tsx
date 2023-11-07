@@ -1,6 +1,8 @@
 import { ICard } from '../../../types/ICard';
+import Catalog from '../catalog/catalog';
 import Description, { DescriptionType } from '../../ui/description/description';
 import FullSizeImage from '../../ui/fullSizeImage/fullSizeImage';
+import Showroom from '../../ui/showroom/showroom';
 import Title, { TitleLevel, TitleType } from '../../ui/title/title';
 import YandexMap from '../../ui/yandexMap/yandexMap';
 import Container from '../container/container';
@@ -10,12 +12,15 @@ import ApartmentFeature, {
 import {
   StyledApartment,
   StyledApartmentAbout,
+  StyledApartmentCatalog,
   StyledApartmentFeatures,
   StyledApartmentImg,
+  StyledApartmentShowroom,
   StyledApartmentText,
   StyledApartmentTitle,
   StyledApartmentTitleContainer,
   StyledAppartmentMap,
+  StyledCatalogContainer,
 } from './styled';
 
 interface ApartmentFeature {
@@ -30,6 +35,7 @@ function Apartment({ data }: { data: ICard }) {
   const apartmentLocation = JSON.parse(data.location);
   const latitude = apartmentLocation.latitude;
   const longitude = apartmentLocation.longitude;
+  const rooms = JSON.parse(data.rooms);
 
   return (
     <StyledApartment>
@@ -77,7 +83,21 @@ function Apartment({ data }: { data: ICard }) {
           </Title>
           <YandexMap latitude={latitude} longitude={longitude} />
         </StyledAppartmentMap>
+        <StyledApartmentShowroom>
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTMAP}>
+            Отделка квартиры
+          </Title>
+          <Showroom slides={rooms}/>
+        </StyledApartmentShowroom>
       </Container>
+      <StyledApartmentCatalog>
+        <StyledCatalogContainer>
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTMAP}>
+            Выберите квартиру
+          </Title>
+          <Catalog apartments={data.apartments}/>
+        </StyledCatalogContainer>
+      </StyledApartmentCatalog>
     </StyledApartment>
   );
 }
