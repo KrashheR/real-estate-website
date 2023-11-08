@@ -1,11 +1,11 @@
 import CatalogCard from "../catalogCard/catalogCard";
-import { CatalogDetails } from "../../../../types/ICatalog";
 import { StyledCatalogList } from "./styled";
+import { ApartmentType } from "../../../../types/ICard";
 
 interface CatalogListProps {
-  apartments: Record<string, Record<string, CatalogDetails>>;
+  apartments: Record<string, Record<string, ApartmentType>>;
   selectedRoomType: string;
-  onCatalogCardChange: (details: CatalogDetails) => void;
+  onCatalogCardChange: (details: ApartmentType) => void;
   selectedApartmentId: string | undefined;
 }
 

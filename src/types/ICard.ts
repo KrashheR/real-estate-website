@@ -5,7 +5,6 @@ export interface ICard {
   image: string;
   bigImage: string;
   metro: string;
-  parking: string;
   title: string;
   description: string;
   type: string;
@@ -16,7 +15,23 @@ export interface ICard {
 }
 
 export interface ApartmentType {
+  id: string;
   num: number;
   price: number;
+  size: string;
+  image: string;
+  floor: string;
 }
 
+export function isApartmentType(apartment: any): apartment is ApartmentType {
+  return (
+    apartment &&
+    typeof apartment === 'object' &&
+    'id' in apartment &&
+    'num' in apartment &&
+    'price' in apartment &&
+    'size' in apartment &&
+    'image' in apartment &&
+    'floor' in apartment
+  );
+}
