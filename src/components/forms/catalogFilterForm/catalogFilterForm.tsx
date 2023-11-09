@@ -1,19 +1,22 @@
 import { ChangeEvent } from "react";
-import FormRadio from "../formRadio/formRadio";
+import FormRadio, { FormRadioType } from "../formRadio/formRadio";
 import { StyledCatalogFilterForm } from "./styled";
 import { catalogOptions } from "./catalogFormConfig";
 
-function CatalogFilterForm() {
+interface CatalogFilterFormProps {
+  setSelectedRoomType: (roomType: string) => void;
+  selectedRoomType: string;
+}
+
+function CatalogFilterForm({ setSelectedRoomType }: CatalogFilterFormProps) {
 
   const handleObjectTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("Выбрать тип, соответсвующий кнопке")
+    setSelectedRoomType(e.target.value);
   };
 
-  return(
+  return (
     <StyledCatalogFilterForm>
-      <FormRadio options={catalogOptions} name="catalogRadio" onChange={handleObjectTypeChange}>
-
-      </FormRadio>
+      <FormRadio options={catalogOptions} name="catalogRadio" onChange={handleObjectTypeChange} defaultChecked={"1"} type={FormRadioType.CATALOG}/>
     </StyledCatalogFilterForm>
   );
 }
