@@ -14,16 +14,22 @@ export interface ICard {
   rooms: string;
 }
 
-export interface ApartmentType {
+export interface ApartmentData {
   id: string;
   num: number;
   price: number;
+}
+
+export interface ParkingDetails extends ApartmentData {}
+
+export interface ResidentialDetails extends ApartmentData {
   size: string;
   image: string;
   floor: string;
+  roomNum: string;
 }
 
-export function isApartmentType(apartment: any): apartment is ApartmentType {
+export function isResidentialtType(apartment: any): apartment is ResidentialDetails {
   return (
     apartment &&
     typeof apartment === 'object' &&
@@ -32,6 +38,7 @@ export function isApartmentType(apartment: any): apartment is ApartmentType {
     'price' in apartment &&
     'size' in apartment &&
     'image' in apartment &&
-    'floor' in apartment
+    'floor' in apartment &&
+    'roomNum' in apartment
   );
 }
