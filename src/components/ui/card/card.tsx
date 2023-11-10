@@ -15,7 +15,7 @@ import metroPremium from '../../../assets/images/card/metroPremium.svg';
 import humanPremium from '../../../assets/images/card/humanPremium.svg';
 import metro from '../../../assets/images/card/metro.svg';
 import human from '../../../assets/images/card/human.svg';
-import { ICard } from '../../../types/ICard';
+import { ApartmentData, ICard } from '../../../types/ICard';
 import { Link } from 'react-router-dom';
 
 export enum CardType {
@@ -27,61 +27,27 @@ interface Card {
   data: ICard;
 }
 
-interface JsonObject {
-  [key: string]: JsonObject | { num: string; price: string };
+function sumApartmentsNum(apartmentData: ApartmentData[]):number {
+  return apartmentData.reduce((acc, item) => {
+    return Number(item.num) + acc;
+  }, 0);
 }
 
-function sumField(obj: JsonObject, field: string): number {
-  let sum = 0;
-
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      let value = obj[key];
-      if (typeof value === 'object') {
-        sum += sumField(value as JsonObject, field);
-      } else if (key === field) {
-        sum += parseInt(value as string, 10);
-      }
-    }
-  }
-  return sum;
-}
-
-function findExtremePrice(
-  obj: JsonObject,
-  field: string,
-  findMax: boolean,
-): number {
-  let extremePrice = findMax ? -Infinity : Infinity;
-
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      let value = obj[key];
-      if (typeof value === 'object') {
-        extremePrice = findMax
-          ? Math.max(
-              extremePrice,
-              findExtremePrice(value as JsonObject, field, findMax),
-            )
-          : Math.min(
-              extremePrice,
-              findExtremePrice(value as JsonObject, field, findMax),
-            );
-      } else if (key === field) {
-        extremePrice = findMax
-          ? Math.max(extremePrice, parseFloat(value as string))
-          : Math.min(extremePrice, parseFloat(value as string));
-      }
-    }
-  }
-  return extremePrice;
+function findMinPrice(apartmentData: ApartmentData[]): number {
+  const result = apartmentData.sort((itemA, itemB) => {
+    return itemA.price - itemB.price;
+  })
+  return result[0].price;
 }
 
 function Card({ data }: Card) {
-  const apartments = JSON.parse(data.apartments);
-  const numSum = sumField(apartments, 'num');
-  const minPrice = findExtremePrice(apartments, 'price', false);
-  const parking = JSON.parse(data.parking);
+  const dataApartments = JSON.parse(data.apartments);
+  const apartmentItems = dataApartments.apartments;
+  const parkingItems = dataApartments.parking;
+  const appartmentSum = sumApartmentsNum(apartmentItems);
+  const parkingSum = sumApartmentsNum(parkingItems);
+  const apartmentMinPrice = findMinPrice(apartmentItems);
+  const parkingMinPrice = findMinPrice(parkingItems);
   const link = `${window.location.origin}/apartments/${data.title}`;
 
   return (
@@ -106,16 +72,16 @@ function Card({ data }: Card) {
           </StyledCardTitleContainer>
           <StyledCardAvaiableContainer>
             <StyledCardAvaiable $area={'house'}>
-              {numSum} квартир
+              {appartmentSum} квартир
             </StyledCardAvaiable>
             <StyledCardAvaiable $area={'housePrice'}>
-              от {minPrice} млн.
+              от {apartmentMinPrice} млн.
             </StyledCardAvaiable>
             <StyledCardAvaiable $area={'parking'}>
-              {parking.num} машиномест
+              {parkingSum} машиномест
             </StyledCardAvaiable>
             <StyledCardAvaiable $area={'parkingPrice'}>
-              от {parking.price} млн.
+              от {parkingMinPrice} млн.
             </StyledCardAvaiable>
             <StyledCardButton $type={data.type}>ПОДРОБНЕЕ</StyledCardButton>
           </StyledCardAvaiableContainer>
