@@ -1,25 +1,27 @@
 import CatalogCard from "../catalogCard/catalogCard";
 import { StyledCatalogList } from "./styled";
-import { ApartmentType } from "../../../../types/ICard";
+import { ApartmentData } from "../../../../types/ICard";
 
 interface CatalogListProps {
-  apartments: Record<string, Record<string, ApartmentType>>;
+  apartments: ApartmentData[];
   selectedRoomType: string;
-  onCatalogCardChange: (details: ApartmentType) => void;
+  onCatalogCardChange: (details: ApartmentData) => void;
   selectedApartmentId: string | undefined;
 }
 
 function CatalogList ({ apartments, selectedRoomType, onCatalogCardChange, selectedApartmentId }: CatalogListProps) {
-  const roomTypeApartments = apartments[selectedRoomType];
+  let filteredItems = [];
+
+  filteredItems = apartments.filter(apartment => apartment.roomNum === selectedRoomType);
 
   return (
     <StyledCatalogList>
-      {roomTypeApartments && Object.entries(roomTypeApartments).map(([apartmentType, details]) => (
+      {filteredItems.map(item => (
         <CatalogCard
-          key={apartmentType}
-          details={details}
-          handleCatalogCardChange={() => onCatalogCardChange(details)}
-          isSelected={selectedApartmentId === details.id}
+          key={item.id}
+          details={item}
+          handleCatalogCardChange={() => onCatalogCardChange(item)}
+          isSelected={selectedApartmentId === item.id}
         />
       ))}
     </StyledCatalogList>
