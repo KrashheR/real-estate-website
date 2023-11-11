@@ -18,18 +18,13 @@ export interface ApartmentData {
   id: string;
   num: number;
   price: number;
-}
-
-export interface ParkingDetails extends ApartmentData {}
-
-export interface ResidentialDetails extends ApartmentData {
   size: string;
   image: string;
   floor: string;
   roomNum: string;
 }
 
-export function isResidentialtType(apartment: any): apartment is ResidentialDetails {
+export function isResidentialtType(apartment: any): apartment is ApartmentData {
   return (
     apartment &&
     typeof apartment === 'object' &&

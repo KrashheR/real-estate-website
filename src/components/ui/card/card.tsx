@@ -27,27 +27,39 @@ interface Card {
   data: ICard;
 }
 
-function sumApartmentsNum(apartmentData: ApartmentData[]):number {
-  return apartmentData.reduce((acc, item) => {
-    return Number(item.num) + acc;
-  }, 0);
+function sumApartmentsNum(apartmentData: ApartmentData[]):number[] {
+  let apartmentSum = 0;
+  let parkingSum = 0;
+
+  apartmentData.forEach((item) => {
+    if (item.roomNum === "parking") {
+      parkingSum += item.num;
+    } else {
+      apartmentSum += item.num;
+    }
+  })
+
+  return [apartmentSum, parkingSum]
 }
 
-function findMinPrice(apartmentData: ApartmentData[]): number {
-  const result = apartmentData.sort((itemA, itemB) => {
-    return itemA.price - itemB.price;
+function findMinPrice(apartmentData: ApartmentData[]): number[] {
+  let apartmentMin = 999;
+  let parkingMin = 999;
+
+  apartmentData.forEach((item) => {
+    if (item.roomNum === "parking") {
+      parkingMin = Math.min(parkingMin, item.price);
+    } else {
+      apartmentMin = Math.min(apartmentMin, item.price);
+    }
   })
-  return result[0].price;
+  return [apartmentMin, parkingMin]
 }
 
 function Card({ data }: Card) {
   const dataApartments = JSON.parse(data.apartments);
-  const apartmentItems = dataApartments.apartments;
-  const parkingItems = dataApartments.parking;
-  const appartmentSum = sumApartmentsNum(apartmentItems);
-  const parkingSum = sumApartmentsNum(parkingItems);
-  const apartmentMinPrice = findMinPrice(apartmentItems);
-  const parkingMinPrice = findMinPrice(parkingItems);
+  const [appartmentSum, parkingSum] = sumApartmentsNum(dataApartments);
+  const [apartmentMinPrice, parkingMinPrice] = findMinPrice(dataApartments);
   const link = `${window.location.origin}/apartments/${data.title}`;
 
   return (

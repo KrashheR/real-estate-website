@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { RootState } from '../store';
-import { ResidentialDetails, ParkingDetails } from '../../types/ICard';
+import { ApartmentData } from '../../types/ICard';
 
 export const selectCards = (state: RootState) => state.cardReducer.cards;
 
@@ -33,60 +33,43 @@ export const selectFilteredCards = createSelector(
     const { deliveryDate, objectType, minPrice, maxPrice } = filters;
 
     const filteredCards = sortedCards.filter((card) => {
-      let isMatch: boolean =
-        deliveryDate === null || card.deliveryDate === deliveryDate;
+      let isMatch: boolean = deliveryDate === null || card.deliveryDate === deliveryDate;
 
-      const cardApartments = JSON.parse(card.apartments);
-      const residentialItems = cardApartments.apartments;
-      const parkingItems = cardApartments.parking;
+      const cardApartments: ApartmentData[] = JSON.parse(card.apartments);
 
       const isPriceInRange = (
         price: number,
         minPrice: number | null,
         maxPrice: number | null,
-      ): boolean =>
-        price >= (minPrice ?? price) && price <= (maxPrice ?? price);
+      ): boolean => price >= (minPrice ?? price) && price <= (maxPrice ?? price);
 
-      const isApartmentAvailable = (
-        apartment: ResidentialDetails | ParkingDetails,
-      ): boolean =>
-        apartment.num > 0 &&
-        isPriceInRange(apartment.price, minPrice, maxPrice);
+      const isApartmentAvailable = (apartment: ApartmentData): boolean =>
+        apartment.num > 0 && isPriceInRange(apartment.price, minPrice, maxPrice);
 
       if (isMatch) {
         switch (objectType) {
           case 'one-room':
-            isMatch = residentialItems.some(
-              (residential: ResidentialDetails) =>
-                residential.roomNum === '1' &&
-                isApartmentAvailable(residential),
+            isMatch = cardApartments.some(
+              (apartment) => apartment.roomNum === '1' && isApartmentAvailable(apartment),
             );
             break;
           case 'two-room':
-            isMatch = residentialItems.some(
-              (residential: ResidentialDetails) =>
-                residential.roomNum === '2' &&
-                isApartmentAvailable(residential),
+            isMatch = cardApartments.some(
+              (apartment) => apartment.roomNum === '2' && isApartmentAvailable(apartment),
             );
             break;
           case 'three-room':
-            isMatch = residentialItems.some(
-              (residential: ResidentialDetails) =>
-                residential.roomNum === '3' &&
-                isApartmentAvailable(residential),
+            isMatch = cardApartments.some(
+              (apartment) => apartment.roomNum === '3' && isApartmentAvailable(apartment),
             );
             break;
           case 'parking-space':
-            isMatch =
-              parkingItems &&
-              parkingItems.some((parking: ParkingDetails) =>
-                isApartmentAvailable(parking),
-              );
+            isMatch = cardApartments.some(
+              (apartment) => apartment.roomNum === 'parking' && isApartmentAvailable(apartment),
+            );
             break;
           default:
-            isMatch =
-              residentialItems.some(isApartmentAvailable) ||
-              (parkingItems && parkingItems.some(isApartmentAvailable));
+            isMatch = cardApartments.some(isApartmentAvailable);
             break;
         }
       }
