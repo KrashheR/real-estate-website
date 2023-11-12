@@ -12,9 +12,11 @@ import ApartmentFeature, {
 import {
   StyledApartment,
   StyledApartmentAbout,
+  StyledApartmentAboutInfo,
   StyledApartmentCatalog,
   StyledApartmentFeatures,
   StyledApartmentImg,
+  StyledApartmentMapContainer,
   StyledApartmentShowroom,
   StyledApartmentText,
   StyledApartmentTitle,
@@ -22,6 +24,7 @@ import {
   StyledAppartmentMap,
   StyledCatalogContainer,
 } from './styled';
+import Documents from '../documents/documents';
 
 interface ApartmentFeature {
   type: FeatureType;
@@ -50,54 +53,63 @@ function Apartment({ data }: { data: ICard }) {
         </Container>
       </StyledApartmentTitleContainer>
       <Container>
-        <Title level={TitleLevel.H2} type={TitleType.APARTMENT}>
-          О проекте
-        </Title>
         <StyledApartmentAbout>
-          <StyledApartmentText>
-            {apartmentDescription.map((item, index) => {
-              const key = `${index}-${item.substring(0, 5)}`;
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
+            О проекте
+          </Title>
+          <StyledApartmentAboutInfo>
+            <StyledApartmentText>
+              {apartmentDescription.map((item, index) => {
+                const key = `${index}-${item.substring(0, 5)}`;
+                return (
+                  <Description type={DescriptionType.APARTMENT} key={key}>
+                    {item}
+                  </Description>
+                );
+              })}
+            </StyledApartmentText>
+            <StyledApartmentImg src={data.image} />
+          </StyledApartmentAboutInfo>
+          <StyledApartmentFeatures>
+            {apartmentFeatures.map((item: ApartmentFeature) => {
               return (
-                <Description type={DescriptionType.APARTMENT} key={key}>
-                  {item}
-                </Description>
+                <ApartmentFeature
+                  type={item.type}
+                  descriptionText={item.description}
+                  key={item.id}
+                />
               );
             })}
-          </StyledApartmentText>
-          <StyledApartmentImg src={data.image} />
+          </StyledApartmentFeatures>
         </StyledApartmentAbout>
-        <StyledApartmentFeatures>
-          {apartmentFeatures.map((item: ApartmentFeature) => {
-            return (
-              <ApartmentFeature
-                type={item.type}
-                descriptionText={item.description}
-                key={item.id}
-              />
-            );
-          })}
-        </StyledApartmentFeatures>
-        <StyledAppartmentMap>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTMAP}>
+      </Container>
+      <StyledAppartmentMap>
+        <StyledApartmentMapContainer>
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
             Расположение на карте
           </Title>
           <YandexMap latitude={latitude} longitude={longitude} />
-        </StyledAppartmentMap>
+        </StyledApartmentMapContainer>
+      </StyledAppartmentMap>
+      <Container>
         <StyledApartmentShowroom>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTMAP}>
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
             Отделка квартиры
           </Title>
-          <Showroom slides={rooms}/>
+          <Showroom slides={rooms} />
         </StyledApartmentShowroom>
       </Container>
       <StyledApartmentCatalog>
         <StyledCatalogContainer>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTMAP}>
+          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
             Выберите квартиру
           </Title>
-          <Catalog apartments={data.apartments}/>
+          <Catalog apartments={data.apartments} />
         </StyledCatalogContainer>
       </StyledApartmentCatalog>
+      <Container>
+        <Documents />
+      </Container>
     </StyledApartment>
   );
 }
