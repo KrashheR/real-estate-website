@@ -8,6 +8,7 @@ interface DescriptionProps {
 export enum DescriptionType {
   APARTMENT = 'apartment',
   APARTMENTFEAUTURE = 'apartmentFeature',
+  DOCUMENTS = 'dociments',
   PROMO = 'apartment',
 }
 

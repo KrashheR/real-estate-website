@@ -6,12 +6,13 @@ interface StyledDescriptionProps {
 }
 
 export const StyledDescription = styled.p<StyledDescriptionProps>`
+  width: ${(props) => props.$descriptionType === DescriptionType.DOCUMENTS ? "40%": "auto"};
   margin-block-start: 0;
   font-size: ${(props) => {
     if (props.$descriptionType === DescriptionType.APARTMENT) {
       return '16px';
-    } else if (props.$descriptionType === DescriptionType.APARTMENTFEAUTURE) {
-      return '14px';
+    } else if (props.$descriptionType === DescriptionType.DOCUMENTS) {
+      return '16px';
     } else {
       return '14px';
     }

@@ -14,6 +14,8 @@ export enum TitleType {
   APARTMENT = 'apartment',
   APARTMENTFEATURE = 'apartmentFeature',
   APARTMENTMAP = 'apartmentMap',
+  APARTMENTSECTION = 'apartmentSection',
+  DOCUMENTSCARD = 'documentscard',
   CARD = 'card',
   PROMO = 'promo',
 }
