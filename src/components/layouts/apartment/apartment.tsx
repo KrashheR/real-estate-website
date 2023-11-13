@@ -1,36 +1,23 @@
 import { ICard } from '../../../types/ICard';
 import Catalog from '../catalog/catalog';
-import Description, { DescriptionType } from '../../ui/description/description';
 import FullSizeImage from '../../ui/fullSizeImage/fullSizeImage';
 import Showroom from '../../ui/showroom/showroom';
 import Title, { TitleLevel, TitleType } from '../../ui/title/title';
 import YandexMap from '../../ui/yandexMap/yandexMap';
 import Container from '../container/container';
-import ApartmentFeature, {
-  FeatureType,
-} from './apartmentFeature/apartmentFeature';
 import {
   StyledApartment,
-  StyledApartmentAbout,
-  StyledApartmentAboutInfo,
   StyledApartmentCatalog,
-  StyledApartmentFeatures,
-  StyledApartmentImg,
   StyledApartmentMapContainer,
   StyledApartmentShowroom,
-  StyledApartmentText,
   StyledApartmentTitle,
   StyledApartmentTitleContainer,
   StyledAppartmentMap,
   StyledCatalogContainer,
 } from './styled';
 import Documents from '../documents/documents';
-
-interface ApartmentFeature {
-  type: FeatureType;
-  description: string;
-  id: string;
-}
+import ApartmentAbout from './apartmentAbout/apartmentAbout';
+import ApartmentFeaturesList from './apartmentFeaturesList/apartmentFeaturesList';
 
 function Apartment({ data }: { data: ICard }) {
   const apartmentDescription = data.description.split('<br>');
@@ -53,35 +40,13 @@ function Apartment({ data }: { data: ICard }) {
         </Container>
       </StyledApartmentTitleContainer>
       <Container>
-        <StyledApartmentAbout>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
-            О проекте
-          </Title>
-          <StyledApartmentAboutInfo>
-            <StyledApartmentText>
-              {apartmentDescription.map((item, index) => {
-                const key = `${index}-${item.substring(0, 5)}`;
-                return (
-                  <Description type={DescriptionType.APARTMENT} key={key}>
-                    {item}
-                  </Description>
-                );
-              })}
-            </StyledApartmentText>
-            <StyledApartmentImg src={data.image} />
-          </StyledApartmentAboutInfo>
-          <StyledApartmentFeatures>
-            {apartmentFeatures.map((item: ApartmentFeature) => {
-              return (
-                <ApartmentFeature
-                  type={item.type}
-                  descriptionText={item.description}
-                  key={item.id}
-                />
-              );
-            })}
-          </StyledApartmentFeatures>
-        </StyledApartmentAbout>
+        <ApartmentAbout
+          apartmentDescription={apartmentDescription}
+          apartmentImage={data.image}
+        />
+      </Container>
+      <Container>
+        <ApartmentFeaturesList apartmentFeatures={apartmentFeatures}/>
       </Container>
       <StyledAppartmentMap>
         <StyledApartmentMapContainer>
@@ -108,7 +73,7 @@ function Apartment({ data }: { data: ICard }) {
         </StyledCatalogContainer>
       </StyledApartmentCatalog>
       <Container>
-        <Documents />
+        <Documents documents={data.documents} />
       </Container>
     </StyledApartment>
   );

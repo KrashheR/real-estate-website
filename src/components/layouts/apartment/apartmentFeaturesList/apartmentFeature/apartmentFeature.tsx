@@ -1,10 +1,10 @@
-import Description, { DescriptionType } from "../../../ui/description/description";
-import Title, { TitleType, TitleLevel } from "../../../ui/title/title";
+import Description, { DescriptionType } from "../../../../ui/description/description";
+import Title, { TitleType, TitleLevel } from "../../../../ui/title/title";
 import { StyledApartmentFeature, StyledApartmentFeatureContainer, StyledApartmentFeatureImage } from "./styled";
-import metroImg from "../../../../assets/images/apartmentFeatures/metro.svg";
-import hospitalImg from "../../../../assets/images/apartmentFeatures/hospital.svg"
-import locationImg from "../../../../assets/images/apartmentFeatures/location.svg"
-import infrastructureImg from "../../../../assets/images/apartmentFeatures/infrastructure.svg"
+import metroImg from "../../../../../assets/images/apartmentFeatures/metro.svg";
+import hospitalImg from "../../../../../assets/images/apartmentFeatures/hospital.svg"
+import locationImg from "../../../../../assets/images/apartmentFeatures/location.svg"
+import infrastructureImg from "../../../../../assets/images/apartmentFeatures/infrastructure.svg"
 
 export enum FeatureType {
   METRO = 'metro',
@@ -14,7 +14,7 @@ export enum FeatureType {
 }
 
 interface FeatureProps {
-  type: FeatureType;
+  type: string;
   descriptionText: string;
 }
 
