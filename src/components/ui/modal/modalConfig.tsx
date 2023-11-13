@@ -11,7 +11,7 @@ export const ModalContent = {
   },
   "error": {
     "title": "Ошибка в номере!",
-    "description": "Номер должен начинаться с +7 или 8 и содержать 10 цифр",
+    "description": "Номер должен начинаться с +7 или 8 и содержать 10 цифр!",
     "inputPhone": true
   }
 };

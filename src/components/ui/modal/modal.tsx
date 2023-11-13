@@ -37,7 +37,7 @@ function Modal({ onClose, isModalOpen, inputHandler, onFormSubmit, modalType }: 
   };
 
   return (
-    <StyledModalBackdrop onClick={handleBackdropClick}>
+    <StyledModalBackdrop onMouseDown={handleBackdropClick}>
       <StyledModalForm>
         <StyledModalHeader>
           <StyledModalTitle modalType={modalType}>{title}</StyledModalTitle>
