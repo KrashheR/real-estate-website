@@ -1,23 +1,12 @@
 import { ICard } from '../../../types/ICard';
-import Catalog from '../catalog/catalog';
-import FullSizeImage from '../../ui/fullSizeImage/fullSizeImage';
-import Showroom from '../../ui/showroom/showroom';
-import Title, { TitleLevel, TitleType } from '../../ui/title/title';
-import YandexMap from '../../ui/yandexMap/yandexMap';
-import Container from '../container/container';
-import {
-  StyledApartment,
-  StyledApartmentCatalog,
-  StyledApartmentMapContainer,
-  StyledApartmentShowroom,
-  StyledApartmentTitle,
-  StyledApartmentTitleContainer,
-  StyledAppartmentMap,
-  StyledCatalogContainer,
-} from './styled';
-import Documents from '../documents/documents';
+import { StyledApartment } from './styled';
 import ApartmentAbout from './apartmentAbout/apartmentAbout';
 import ApartmentFeaturesList from './apartmentFeaturesList/apartmentFeaturesList';
+import ApartmentMap from './apartmentMap/apartmentMap';
+import ApartmentShowroom from './apartmentShowroom/apartmentShowroom';
+import ApartmentCatalog from './apartmentCatalog/apartmentCatalog';
+import ApartmentDocuments from './apartmentDocuments/apartmentDocuments';
+import ApartmentHeader from './apartmentHeader/apartmentHeader';
 
 function Apartment({ data }: { data: ICard }) {
   const apartmentDescription = data.description.split('<br>');
@@ -29,52 +18,16 @@ function Apartment({ data }: { data: ICard }) {
 
   return (
     <StyledApartment>
-      <StyledApartmentTitleContainer>
-        <FullSizeImage imageSrc={data.bigImage} />
-        <Container>
-          <StyledApartmentTitle>
-            <Title level={TitleLevel.H1} type={TitleType.APARTMENT}>
-              {'ЖК «' + data.title + '»'}
-            </Title>
-          </StyledApartmentTitle>
-        </Container>
-      </StyledApartmentTitleContainer>
-      <Container>
-        <ApartmentAbout
-          apartmentDescription={apartmentDescription}
-          apartmentImage={data.image}
-        />
-      </Container>
-      <Container>
-        <ApartmentFeaturesList apartmentFeatures={apartmentFeatures}/>
-      </Container>
-      <StyledAppartmentMap>
-        <StyledApartmentMapContainer>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
-            Расположение на карте
-          </Title>
-          <YandexMap latitude={latitude} longitude={longitude} />
-        </StyledApartmentMapContainer>
-      </StyledAppartmentMap>
-      <Container>
-        <StyledApartmentShowroom>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
-            Отделка квартиры
-          </Title>
-          <Showroom slides={rooms} />
-        </StyledApartmentShowroom>
-      </Container>
-      <StyledApartmentCatalog>
-        <StyledCatalogContainer>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
-            Выберите квартиру
-          </Title>
-          <Catalog apartments={data.apartments} />
-        </StyledCatalogContainer>
-      </StyledApartmentCatalog>
-      <Container>
-        <Documents documents={data.documents} />
-      </Container>
+      <ApartmentHeader title={data.title} bigImage={data.bigImage} />
+      <ApartmentAbout
+        apartmentDescription={apartmentDescription}
+        apartmentImage={data.image}
+      />
+      <ApartmentFeaturesList apartmentFeatures={apartmentFeatures} />
+      <ApartmentMap latitude={latitude} longitude={longitude} />
+      <ApartmentShowroom rooms={rooms} />
+      <ApartmentCatalog apartments={data.apartments} />
+      <ApartmentDocuments documents={data.documents} />
     </StyledApartment>
   );
 }

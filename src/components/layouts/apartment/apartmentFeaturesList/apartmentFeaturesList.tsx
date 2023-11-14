@@ -1,4 +1,5 @@
 import { IApartmentFeature } from '../../../../types/ICard';
+import Container from '../../container/container';
 import ApartmentFeature from './apartmentFeature/apartmentFeature';
 import { StyledApartmentFeaturesList } from './styled';
 
@@ -6,19 +7,23 @@ interface ApartmentFeaturesListProps {
   apartmentFeatures: IApartmentFeature[];
 }
 
-function ApartmentFeaturesList({apartmentFeatures}:ApartmentFeaturesListProps) {
+function ApartmentFeaturesList({
+  apartmentFeatures,
+}: ApartmentFeaturesListProps) {
   return (
-    <StyledApartmentFeaturesList>
-      {apartmentFeatures.map((item: IApartmentFeature) => {
-        return (
-          <ApartmentFeature
-            type={item.type}
-            descriptionText={item.description}
-            key={item.id}
-          />
-        );
-      })}
-    </StyledApartmentFeaturesList>
+    <Container>
+      <StyledApartmentFeaturesList>
+        {apartmentFeatures.map((item: IApartmentFeature) => {
+          return (
+            <ApartmentFeature
+              type={item.type}
+              descriptionText={item.description}
+              key={item.id}
+            />
+          );
+        })}
+      </StyledApartmentFeaturesList>
+    </Container>
   );
 }
 
