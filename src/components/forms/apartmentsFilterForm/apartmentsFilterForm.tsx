@@ -3,6 +3,7 @@ import {
   StyledApartmentsFilterForm,
   StyledApartmentsFormLabel,
   StyledApartmentsFormItem,
+  StyledApartmentFormRadios,
 } from './styled';
 import FormSelect from '../formSelect/formSelect';
 import FormRange from '../formRange/formRange';
@@ -14,6 +15,7 @@ import {
   selectMinPrice,
 } from '../../../store/reducers/Selectors';
 import { deliveryDateOptions, objectTypesOptions } from './apartmentFormConfig';
+import React from 'react';
 
 function ApartmentsFilterForm() {
   const dispatch = useAppDispatch();
@@ -35,11 +37,11 @@ function ApartmentsFilterForm() {
   }, [initialMinPrice, initialMaxPrice]);
 
   const handleMinPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setMinPrice(parseInt(e.target.value));
+    setMinPrice(parseFloat(e.target.value));
   };
 
   const handleMaxPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setMaxPrice(parseInt(e.target.value));
+    setMaxPrice(parseFloat(e.target.value));
   };
 
   const handleObjectTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -49,6 +51,8 @@ function ApartmentsFilterForm() {
   const handleDeliveryDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     setDeliveryDate(e.target.value);
   };
+
+  const defaultChecked = '';
 
   useEffect(() => {
     dispatch(
@@ -67,7 +71,11 @@ function ApartmentsFilterForm() {
         <StyledApartmentsFormLabel htmlFor="form-object-type">
           Тип объекта
         </StyledApartmentsFormLabel>
-        <FormSelect id="form-object-type" options={objectTypesOptions} onChange={handleObjectTypeChange} />
+        <FormSelect
+          id="form-object-type"
+          options={objectTypesOptions}
+          onChange={handleObjectTypeChange}
+        />
       </StyledApartmentsFormItem>
       <StyledApartmentsFormItem>
         <StyledApartmentsFormLabel htmlFor="form-object-price">
@@ -85,13 +93,23 @@ function ApartmentsFilterForm() {
         <StyledApartmentsFormLabel htmlFor="form-object-date">
           Сдача объекта
         </StyledApartmentsFormLabel>
-        <FormRadio
-          options={deliveryDateOptions}
-          name="form-radio"
-          onChange={handleDeliveryDateChange}
-          defaultChecked={""}
-          type={FormRadioType.APARTMENT}
-        />
+        <StyledApartmentFormRadios>
+          {deliveryDateOptions.map((option) => {
+            return (
+              <React.Fragment key={option.id}>
+                <FormRadio
+                  id={option.id}
+                  name={'catalogRadio'}
+                  value={option.value}
+                  defaultChecked={defaultChecked === option.value}
+                  onChange={handleDeliveryDateChange}
+                  radioType={FormRadioType.APARTMENT}
+                  label={option.label}
+                />
+              </React.Fragment>
+            );
+          })}
+        </StyledApartmentFormRadios>
       </StyledApartmentsFormItem>
     </StyledApartmentsFilterForm>
   );
