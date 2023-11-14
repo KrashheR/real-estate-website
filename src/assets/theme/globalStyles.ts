@@ -64,7 +64,6 @@ const GlobalStyles = createGlobalStyle`
 
   a:-webkit-any-link {
   text-decoration: none;
-  color: inherit;
   }
 
   button, form, select, input {
