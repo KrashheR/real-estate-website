@@ -15,7 +15,10 @@ export const StyledCard = styled.div<StyledCardTypeProps>`
   justify-content: end;
   width: 370px;
   height: 410px;
-  color: ${(props) => props.$type === 'premium' ? props.theme.colors.colorWhite : props.theme.colors.colorBlack};
+  color: ${(props) =>
+    props.$type === 'premium'
+      ? props.theme.colors.colorWhite
+      : props.theme.colors.colorBlack};
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -24,6 +27,19 @@ export const StyledCard = styled.div<StyledCardTypeProps>`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    width: 320px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    width: 85vw;
+    height: 400px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    height: 380px;
   }
 `;
 
@@ -34,6 +50,14 @@ export const StyledCardImage = styled.img`
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 253px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    height: 223px;
+  }
 `;
 
 export const StyledCardDescription = styled.div<StyledCardTypeProps>`
@@ -44,7 +68,10 @@ export const StyledCardDescription = styled.div<StyledCardTypeProps>`
   height: 147px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: ${(props) => props.$type === 'premium' ? props.theme.colors.colorMainRed : props.theme.colors.colorLightRed};
+  background-color: ${(props) =>
+    props.$type === 'premium'
+      ? props.theme.colors.colorMainRed
+      : props.theme.colors.colorLightRed};
 `;
 
 export const StyledCardAvaiableContainer = styled.div`
@@ -54,6 +81,15 @@ export const StyledCardAvaiableContainer = styled.div`
     'parking parkingPrice button';
   align-items: center;
   padding: 0 20px 20px 20px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    padding: 0 10px 20px 10px;
+  }
+`;
+
+export const StyledCardAvaiable = styled.span<StyledCardAreaProps>`
+  grid-area: ${(props) => props.$area};
+  font-size: 12px;
 `;
 
 export const StyledCardPlaceContainer = styled.div`
@@ -75,6 +111,10 @@ export const StyledCardTitleContainer = styled.div`
   flex-direction: column;
   gap: 3px;
   padding: 0 20px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    padding: 0 10px;
+  }
 `;
 
 export const StyledCardButton = styled(
@@ -94,9 +134,10 @@ export const StyledCardButton = styled(
       ? props.theme.colors.colorMainRed
       : props.theme.colors.colorWhite;
   }};
-`;
 
-export const StyledCardAvaiable = styled.span<StyledCardAreaProps>`
-  grid-area: ${(props) => props.$area};
-  font-size: 12px;
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 35px;
+    width: 90px;
+    font-size: 12px;
+  }
 `;

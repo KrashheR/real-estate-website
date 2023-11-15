@@ -15,4 +15,14 @@ export const StyledShowroomButton = styled.button<StyledShowroomButtonProps>`
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    font-size: 14px;
+    border-radius: 15px;
+    height: 40px;
+  }
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    width: 120px;
+  }
 `;

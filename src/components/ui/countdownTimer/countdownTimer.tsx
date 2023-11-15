@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   StyledCountdownTimerContainer,
   StyledCountdownTimerValue,
@@ -39,7 +39,7 @@ function convertDifferenceToTime(difference: number): Countdown {
   };
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ endDate }) => {
+function CountdownTimer({ endDate } : CountdownTimerProps){
   const getRemainingTime = (targetDate: Date) => {
     const difference = getDifference(targetDate);
     return convertDifferenceToTime(difference);

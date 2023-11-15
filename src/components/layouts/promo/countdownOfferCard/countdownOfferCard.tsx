@@ -1,38 +1,36 @@
-import React from 'react';
 import {
   StyledCountdownOfferCard,
-  StyledCountdownOfferCardSubtitle,
   StyledCountdownOfferCardContainer,
+  StyledCountdownOfferCardText,
 } from './styled';
-import Title, {
-  TitleLevel,
-  TitleColor,
-  TitleType,
-} from '../../../ui/title/title';
+import Title, { TitleLevel, TitleType } from '../../../ui/title/title';
 import ReadMoreButton from '../../../ui/readMoreButton/readMoreButton';
 import CountdownTimer from '../../../ui/countdownTimer/countdownTimer';
+import Description, {
+  DescriptionType,
+} from '../../../ui/description/description';
 
-function CountdownOfferCard() {
+interface CountodwnOfferCardProps {
+  toDate: string;
+}
+
+function CountdownOfferCard({ toDate }: CountodwnOfferCardProps) {
   return (
     <StyledCountdownOfferCard>
-      <Title
-        level={TitleLevel.H2}
-        color={TitleColor.PRIMARY}
-        type={TitleType.PROMO}
-      >
+      <Title level={TitleLevel.H2} type={TitleType.PROMOCOUNTER}>
         Первоначальный взнос всего 15% вместо 20%!
       </Title>
-      <StyledCountdownOfferCardSubtitle>
+      <Description type={DescriptionType.PROMOCOUNTDOWN}>
         Не упусти уникальную возможность стать собственником нового жилья.
         Ипотека на выгодных условиях ждёт именно тебя!
-      </StyledCountdownOfferCardSubtitle>
+      </Description>
       <StyledCountdownOfferCardContainer>
-        <StyledCountdownOfferCardSubtitle>
+        <StyledCountdownOfferCardText>
           До окончания предложения:
-        </StyledCountdownOfferCardSubtitle>
-        <CountdownTimer endDate={new Date('30 October 2023 00:00:00')} />
+        </StyledCountdownOfferCardText>
+        <CountdownTimer endDate={new Date(toDate)} />
       </StyledCountdownOfferCardContainer>
-      <ReadMoreButton href="#">Подробнее</ReadMoreButton>
+      <ReadMoreButton>Подробнее</ReadMoreButton>
     </StyledCountdownOfferCard>
   );
 }

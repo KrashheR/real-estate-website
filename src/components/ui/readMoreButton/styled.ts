@@ -18,4 +18,11 @@ export const StyledReadMoreButton = styled.button`
   &:hover{
     border-radius: 30px;
   }
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    font-size: 12px;
+    padding: 6px;
+    width: 80px;
+    border-radius: 30px;
+  }
 `;

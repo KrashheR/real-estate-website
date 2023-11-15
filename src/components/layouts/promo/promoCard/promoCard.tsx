@@ -1,11 +1,9 @@
-import React, { ReactNode } from 'react';
 import { StyledPromoCard, StyledPromoImg } from './styled';
 import Title, {
   TitleLevel,
-  TitleColor,
   TitleType,
 } from '../../../ui/title/title';
-import Description from '../../../ui/description/description';
+import Description, { DescriptionType } from '../../../ui/description/description';
 
 interface PromoCardProps {
   title: string;
@@ -20,12 +18,11 @@ function PromoCard(props: PromoCardProps) {
     <StyledPromoCard href={props.href} $area={props.area}>
       <Title
         level={TitleLevel.H2}
-        color={TitleColor.PRIMARY}
-        type={TitleType.PROMO}
+        type={TitleType.PROMOCARD}
       >
         {props.title}
       </Title>
-      <Description>{props.description}</Description>
+      <Description type={DescriptionType.PROMOCARD}>{props.description}</Description>
       <StyledPromoImg src={props.img} />
     </StyledPromoCard>
   );

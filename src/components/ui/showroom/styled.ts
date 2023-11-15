@@ -21,6 +21,10 @@ export const StyledShowroom = styled.div`
     width: 100%;
     height: 700px;
     border-radius: 25px;
+
+    @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+      height: 85vw;
+  }
   }
 
   .swiper-button-prev,
@@ -64,6 +68,12 @@ export const StyledShowroom = styled.div`
 export const StyledShowroomButtons = styled.div`
   display: flex;
   gap: 10px;
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    place-items: center;
+  }
 `;
 
 export const StyledShowroomImage = styled.img`

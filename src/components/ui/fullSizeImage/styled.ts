@@ -9,4 +9,8 @@ export const StyledFullSizeImage = styled.img`
     content: "";
     background-color: red;
   }
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    height: calc(100vh - 110px);
+  }
 `;

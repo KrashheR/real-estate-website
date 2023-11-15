@@ -8,15 +8,16 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   display: flex;
   flex-direction: column;
   grid-area: ${(props) => props.$area};
-  padding: 25px;
+  align-items: center;
   width: 280px;
   height: 240px;
   border-radius: 25px;
   gap: 10px;
+  padding: 25px;
   color: ${(props) => props.theme.colors.colorBlack};
   background-color: ${(props) => props.theme.colors.colorWhite};
   text-decoration: none;
-  box-shadow: 0px 0px 8px 4px rgba(238, 228, 228, 0.2);
+  box-shadow: 0px 0px 2px ${(props) => props.theme.colors.boxShadowMain};
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -24,8 +25,30 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
 
   &:hover {
     color: ${(props) => props.theme.colors.colorMainRed};
-    transform: scale3d(1.01, 1.01, 1) translateY(-2px);
-    box-shadow: 0px 2px 8px 4px rgba(238, 228, 228, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0px 3px 8px ${(props) => props.theme.colors.boxShadowHover};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    padding: 20px;
+    width: 20vw;
+
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 100%;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    text-align: center;
+    width: 40vw;
+    height: 200px;
+    padding: 15px;
+    gap: 5px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    height: 120px;
   }
 `;
 
@@ -33,4 +56,24 @@ export const StyledPromoImg = styled.img`
   width: 200px;
   height: 80px;
   margin-top: auto;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    width: 10vw;
+    height: 70px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    width: 12vw;
+    height: 12vw;
+  }
 `;

@@ -4,14 +4,11 @@ import { StyledShowroom, StyledShowroomButtons, StyledShowroomImage } from './st
 import ShowroomButton from './showroomButton/showroomButton';
 import { useState, useRef } from 'react';
 import SwiperCore from 'swiper';
+import { IRoomSlides } from '../../../types/ICard';
 
-interface SlideType {
-  type: string;
-  image: string;
-}
 
-interface ShowroomProps {
-  slides: SlideType[];
+export interface ShowroomProps {
+  slides: IRoomSlides[];
 }
 
 function Showroom({ slides }: ShowroomProps) {

@@ -22,17 +22,45 @@ export const StyledCountdownOfferCard = styled.a`
 
   &:hover {
     transform: scale3d(1.01, 1.01, 1) translateY(-2px);
-    box-shadow: 0px 2px 8px 4px rgba(238, 228, 228, 0.7);
+    box-shadow: 0px 2px 4px 2px rgba(184, 41, 57, 0.4);
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    padding: 15px;
+    width: 45vw;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 90vw;
+    height: 240px;
+  }
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    gap: 5px;
+    height: 200px;
   }
 `;
 
-export const StyledCountdownOfferCardSubtitle = styled.p`
+export const StyledCountdownOfferCardText = styled.p`
   color: ${(props) => props.theme.colors.colorLightRed};
   font-size: 16px;
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    font-size: 14px;
+  }
 `;
 
 export const StyledCountdownOfferCardContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    gap: 10px;
+  }
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;

@@ -13,7 +13,7 @@ function Promo() {
   return (
     <StyledPromo>
       <StyledPromoContainer>
-        <CountdownOfferCard />
+        <CountdownOfferCard toDate={'30 November 2023 00:00:00'}/>
         <PromoCard
           title="Выгодная ипотека"
           description="Начните копить на первоначальный взнос с Целепортом под 9% годовых"
