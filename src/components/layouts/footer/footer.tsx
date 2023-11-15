@@ -3,6 +3,7 @@ import Logo from "../../ui/logo/logo";
 import logoImage from '../../../assets/images/logo.svg';
 import { useAppSelector } from "../../../hooks/redux";
 import { selectCards } from "../../../store/reducers/Selectors";
+import { ICard } from "../../../types/ICard";
 
 function Footer() {
   const cards = useAppSelector(selectCards);
@@ -13,7 +14,7 @@ function Footer() {
         <Logo srcImage={logoImage} />
         <StyledFooterProjectsList>
           <StyledFooterTitle>Наши проекты:</StyledFooterTitle>
-          {cards.map((card) => {
+          {cards.map((card: ICard) => {
             return(
               <StyledFooterProject key={card.id}>
                 <StyledFooterProjectLink to={"apartments/" + card.title}>
@@ -29,7 +30,6 @@ function Footer() {
           <StyledFooterPhone href={"tel:+7123456789"}>+7123456789</StyledFooterPhone>
           <StyledFooterPhoneTime>Ежедневно с 8:00 до 22:00</StyledFooterPhoneTime>
         </StyledFooterAbout>
-
       </StyledFooterContainer>
     </StyledFooter>
   );
