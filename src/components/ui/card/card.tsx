@@ -15,7 +15,7 @@ import metroPremium from '../../../assets/images/card/metroPremium.svg';
 import humanPremium from '../../../assets/images/card/humanPremium.svg';
 import metro from '../../../assets/images/card/metro.svg';
 import human from '../../../assets/images/card/human.svg';
-import { ApartmentData, ICard } from '../../../types/ICard';
+import { IApartmentData, ICard } from '../../../types/ICard';
 import { Link } from 'react-router-dom';
 
 export enum CardType {
@@ -27,7 +27,7 @@ interface Card {
   data: ICard;
 }
 
-function sumApartmentsNum(apartmentData: ApartmentData[]):number[] {
+function sumApartmentsNum(apartmentData: IApartmentData[]):number[] {
   let apartmentSum = 0;
   let parkingSum = 0;
 
@@ -42,7 +42,7 @@ function sumApartmentsNum(apartmentData: ApartmentData[]):number[] {
   return [apartmentSum, parkingSum]
 }
 
-function findMinPrice(apartmentData: ApartmentData[]): number[] {
+function findMinPrice(apartmentData: IApartmentData[]): number[] {
   let apartmentMin = 999;
   let parkingMin = 999;
 

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { RootState } from '../store';
-import { ApartmentData } from '../../types/ICard';
+import { IApartmentData } from '../../types/ICard';
 
 export const selectCards = (state: RootState) => state.cardReducer.cards;
 
@@ -35,7 +35,7 @@ export const selectFilteredCards = createSelector(
     const filteredCards = sortedCards.filter((card) => {
       let isMatch: boolean = deliveryDate === null || card.deliveryDate === deliveryDate;
 
-      const cardApartments: ApartmentData[] = JSON.parse(card.apartments);
+      const cardApartments: IApartmentData[] = JSON.parse(card.apartments);
 
       const isPriceInRange = (
         price: number,
@@ -43,7 +43,7 @@ export const selectFilteredCards = createSelector(
         maxPrice: number | null,
       ): boolean => price >= (minPrice ?? price) && price <= (maxPrice ?? price);
 
-      const isApartmentAvailable = (apartment: ApartmentData): boolean =>
+      const isApartmentAvailable = (apartment: IApartmentData): boolean =>
         apartment.num > 0 && isPriceInRange(apartment.price, minPrice, maxPrice);
 
       if (isMatch) {

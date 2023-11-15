@@ -1,4 +1,4 @@
-import { DocumentsData } from '../../../../types/ICard';
+import { IDocumentsData } from '../../../../types/ICard';
 import Description, {
   DescriptionType,
 } from '../../../ui/description/description';
@@ -16,7 +16,7 @@ interface ApartmentDocumentsProps {
 }
 
 function ApartmentDocuments({ documents }: ApartmentDocumentsProps) {
-  const documentsData: DocumentsData[] = JSON.parse(documents);
+  const documentsData: IDocumentsData[] = JSON.parse(documents);
 
   return (
     <Container>

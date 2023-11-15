@@ -12,9 +12,16 @@ export interface ICard {
   features: string;
   location: string;
   rooms: string;
+  documents: string;
 }
 
-export interface ApartmentData {
+export interface IApartmentFeature {
+  type: string;
+  description: string;
+  id: string;
+}
+
+export interface IApartmentData {
   id: string;
   num: number;
   price: number;
@@ -24,7 +31,20 @@ export interface ApartmentData {
   roomNum: string;
 }
 
-export function isResidentialtType(apartment: any): apartment is ApartmentData {
+export interface IRoomSlides {
+  type: string;
+  image: string;
+}
+
+export interface IDocumentsData {
+  documentId: string;
+  title: string;
+  downloadText: string;
+  downloadLink: string;
+  imageSrc: string;
+}
+
+export function isResidentialtType(apartment: any): apartment is IApartmentData {
   return (
     apartment &&
     typeof apartment === 'object' &&
