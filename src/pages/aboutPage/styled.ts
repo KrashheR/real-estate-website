@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { StyledContainer } from '../../components/layouts/container/styled';
 
 export const StyledAboutContainer = styled(StyledContainer)`
-  margin: 40px 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  min-height: calc(100vh - 280px)
 `;
 
 export const StyledAboutHeader = styled.div`

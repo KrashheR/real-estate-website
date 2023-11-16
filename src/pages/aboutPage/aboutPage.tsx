@@ -43,7 +43,7 @@ function About() {
   return (
     <StyledAboutContainer>
       <StyledAboutHeader>
-        <Title level={TitleLevel.H1} type={TitleType.APARTMENTMAP}>
+        <Title level={TitleLevel.H1} type={TitleType.PAGETITLE}>
           Наш офис на карте
         </Title>
         <AboutButton onClick={handleOpenModal} />
