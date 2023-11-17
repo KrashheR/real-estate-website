@@ -80,3 +80,25 @@ export const selectFilteredCards = createSelector(
     return filteredCards;
   },
 );
+
+
+const selectNewsState = (state: RootState) => state.newsReducer;
+
+export const selectNews = createSelector(
+  [selectNewsState],
+  (newsState) => newsState.news
+);
+
+export const selectNewsById = (state: RootState, id: number) => {
+  return state.newsReducer.news.find((item) => item.id == id);
+}
+
+export const selectNewsCount = createSelector(
+  [selectNewsState],
+  (newsState) => newsState.count
+);
+
+export const selectNewsLoading = createSelector (
+  [selectNewsState],
+  (newsState) => newsState.isLoading
+)
