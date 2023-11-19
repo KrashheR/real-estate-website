@@ -1,17 +1,22 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledUl = styled.ul`
+export const StyledNavigationUl = styled.ul`
   display: flex;
   gap: 20px;
   list-style: none;
   margin-right: auto;
-  font-size: 16px;
-  color: ${(props) => props.theme.colors.colorBlack};
-  font-variation-settings: 'wght' 400;
+  font-size: 14px;
+  font-variation-settings: 'wght' 600;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    display: none;
+  }
 `;
 
-export const StyledLi = styled.li`
+export const StyledNavigationLi = styled.li`
   position: relative;
+  padding: 2px 0;
   transition: all 0.3s ease;
 
   &:before {
@@ -37,6 +42,16 @@ export const StyledLi = styled.li`
   }
 `;
 
-export const StyledA = styled.a`
+export const StyledNavigationNavLink = styled(NavLink)`
   cursor: pointer;
+  transition: all 0.3s ease;
+  color: ${(props) => props.theme.colors.colorBlack};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.colorMainRed};
+  }
+
+  &.active {
+    color: ${(props) => props.theme.colors.colorMainRed};
+  }
 `;
