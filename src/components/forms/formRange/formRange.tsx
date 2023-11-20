@@ -1,11 +1,12 @@
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import {
   StyledFormRange,
   StyledFormRangeInput,
   StyledFormRangeContainer,
 } from './styled';
 import { useAppSelector } from '../../../hooks/redux';
-import { selectMinPrice } from '../../../store/reducers/Selectors';
+import { selectFilteredCards } from '../../../store/reducers/Selectors';
+import { getMinAndMaxApartmentPrice } from '../../../utils/cardPriceUtils';
 
 interface FormRangeProps {
   id: string;
@@ -15,17 +16,24 @@ interface FormRangeProps {
   onMaxPriceChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-function FormRange({ id, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange }: FormRangeProps) {
-  const initialMinPrice = useAppSelector(selectMinPrice);
+function FormRange({
+  id,
+  minPrice,
+  maxPrice,
+  onMinPriceChange,
+  onMaxPriceChange,
+}: FormRangeProps) {
+  const cards = useAppSelector(selectFilteredCards);
+  const [initialMinPrice, initialMaxPrice] = getMinAndMaxApartmentPrice(cards);
 
   return (
-    <StyledFormRange id={ id }>
+    <StyledFormRange id={id}>
       <StyledFormRangeContainer>
         <label htmlFor="price-min">От</label>
         <StyledFormRangeInput
           type="number"
           id="price-min"
-          min={initialMinPrice ?? "1"}
+          min={initialMinPrice}
           max="100"
           placeholder="0"
           value={minPrice ?? ''}
@@ -39,7 +47,7 @@ function FormRange({ id, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange 
           type="number"
           id="price-max"
           min="1"
-          max="100"
+          max={initialMaxPrice}
           placeholder="100"
           value={maxPrice ?? ''}
           onChange={onMaxPriceChange}

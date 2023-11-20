@@ -26,6 +26,17 @@ export const StyledFormSelect = styled.select`
     box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
   }
 
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    width: 28vw;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 80vw;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    font-size: 14px;
+  }
 `;
 
 export const StyledFormSelectOption = styled.option`

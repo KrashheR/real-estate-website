@@ -7,7 +7,6 @@ type StyledFormRadioProps = {
 
 export const StyledFormRadioContainer = styled.span`
   display: flex;
-
   justify-content: space-between;
 `;
 
@@ -26,15 +25,17 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
   justify-content: center;
   width: fit-content;
   min-width: ${(props) => {
-    return props.$formRadioType === FormRadioType.CATALOG ? '55px':'80px';
+    return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '80px';
   }};
   height: ${(props) => {
-    return props.$formRadioType === FormRadioType.CATALOG ? '55px':'60px';
+    return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '60px';
   }};
   padding: 0px 15px;
   line-height: 34px;
   border: none;
-  border-radius: 30px;
+  border-radius: ${(props) => {
+    return props.$formRadioType === FormRadioType.CATALOG ? '30px' : '25px';
+  }};
   user-select: none;
   background-color: ${(props) => props.theme.colors.colorLightRed};
   box-shadow: 0px 2px 4px ${(props) => props.theme.colors.boxShadowMain};
@@ -47,5 +48,38 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
 
   &:hover {
     box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    min-width: ${(props) => {
+      return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '50px';
+    }};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    min-width: ${(props) => {
+      return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '90px';
+    }};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    min-width: ${(props) => {
+      return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '70px';
+    }};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    min-width: ${(props) => {
+      return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '50px';
+    }};
+    padding: ${(props) => {
+      return props.$formRadioType === FormRadioType.CATALOG
+        ? '0px 15px'
+        : '0px 10px';
+    }};
+    height: ${(props) => {
+      return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '60px';
+    }};
+    font-size: 14px;
   }
 `;

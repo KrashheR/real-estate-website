@@ -15,6 +15,15 @@ export const StyledFormRange = styled.div`
   &:hover {
     box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
   }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    width: 28vw;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 80vw;
+  }
+
 `;
 
 export const StyledFormRangeContainer = styled.span`
@@ -24,6 +33,10 @@ export const StyledFormRangeContainer = styled.span`
   height: 100%;
   font-size: 16px;
   gap: 4px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    font-size: 14px;
+  }
 `;
 
 export const StyledFormRangeInput = styled.input`
@@ -36,4 +49,8 @@ export const StyledFormRangeInput = styled.input`
   font-weight: 500;
   padding-left: 5px;
   color: ${(props) => props.theme.colors.colorBlack};
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    font-size: 14px;
+  }
 `;
