@@ -1,5 +1,5 @@
 
-import { ApartmentType } from '../../../../types/ICard';
+import { IApartmentData } from '../../../../types/ICard';
 import {
   StyledCatalogInfoApartment,
   StyledCatalogInfoData,
@@ -12,7 +12,7 @@ import {
 } from './styled';
 
 interface CatalogInfoProps {
-  selectedApartment: ApartmentType | null;
+  selectedApartment: IApartmentData | null;
 }
 
 function CatalogInfo({ selectedApartment }: CatalogInfoProps) {

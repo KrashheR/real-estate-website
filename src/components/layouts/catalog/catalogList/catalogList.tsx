@@ -1,11 +1,11 @@
 import CatalogCard from "../catalogCard/catalogCard";
 import { StyledCatalogList } from "./styled";
-import { ApartmentData } from "../../../../types/ICard";
+import { IApartmentData } from "../../../../types/ICard";
 
 interface CatalogListProps {
-  apartments: ApartmentData[];
+  apartments: IApartmentData[];
   selectedRoomType: string;
-  onCatalogCardChange: (details: ApartmentData) => void;
+  onCatalogCardChange: (details: IApartmentData) => void;
   selectedApartmentId: string | undefined;
 }
 

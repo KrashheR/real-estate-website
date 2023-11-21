@@ -9,14 +9,25 @@ export const StyledCatalogCard = styled.div<StyledCatalogCardProps>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 105px;
-  height: 135px;
+  width: 100px;
+  height: 130px;
   gap: 10px;
   border: ${(props) => props.isSelected ? `1px solid ${props.theme.colors.colorMainRed}` : null};
   border-radius: 25px;
   background-color: ${(props) => props.theme.colors.colorLightRed};
-
   cursor: pointer;
+  box-shadow: 0px 2px 4px ${(props) => props.theme.colors.boxShadowMain};
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
+  }
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    gap: 5px;
+    padding: 10px;
+    height: 120px;
+  }
 `;
 
 export const StyledCatalogCardImage = styled.img`

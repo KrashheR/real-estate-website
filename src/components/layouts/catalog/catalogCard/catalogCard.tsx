@@ -1,8 +1,8 @@
-import { ApartmentType } from "../../../../types/ICard";
+import { IApartmentData } from "../../../../types/ICard";
 import { StyledCatalogCard, StyledCatalogCardImage, StyledCatalogCardSize } from "./styled";
 
 interface CatalogCardProps {
-  details: ApartmentType;
+  details: IApartmentData;
   isSelected: boolean;
   handleCatalogCardChange: () => void;
 }
