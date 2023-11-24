@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import cardReducer from "./reducers/CardSlice";
+import buildingReducer from "./reducers/BuildingSlice";
 import promoReducer from "./reducers/PromoSlice";
 import newsReducer from "./reducers/NewsSlice";
 import { configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
-  cardReducer,
+  buildingReducer,
   promoReducer,
   newsReducer
 });

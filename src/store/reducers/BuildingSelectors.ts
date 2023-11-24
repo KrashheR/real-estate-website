@@ -1,20 +1,19 @@
 import { createSelector } from 'reselect';
 import { RootState } from '../store';
-import { IApartmentData } from '../../types/ICard';
+import { IApartmentData } from '../../types/IBuilding';
 
-export const selectCards = (state: RootState) => state.cardReducer.cards;
+export const selectBuildings = (state: RootState) => state.buildingReducer.buildings;
 
-export const selectCardById = (state: RootState, id: string) => {
-  console.log();
-  return state.cardReducer.cards.find((card) => card.id === id);
+export const selectBuildingById = (state: RootState, id: string) => {
+  return state.buildingReducer.buildings.find((building) => building.id === id);
 };
 
 export const selectMinPrice = (state: RootState) =>
-  state.cardReducer.filters.minPrice;
+  state.buildingReducer.filters.minPrice;
 export const selectMaxPrice = (state: RootState) =>
-  state.cardReducer.filters.maxPrice;
+  state.buildingReducer.filters.maxPrice;
 
-export const selectSortedCards = createSelector([selectCards], (cards) => {
+export const selectSortedBuildings = createSelector([selectBuildings], (cards) => {
   return [...cards].sort((a, b) => {
     if (a.type === 'premium' && b.type !== 'premium') {
       return -1;
@@ -26,16 +25,15 @@ export const selectSortedCards = createSelector([selectCards], (cards) => {
   });
 });
 
-export const selectFilteredCards = createSelector(
-  [selectSortedCards, (state: RootState) => state.cardReducer.filters],
-  (sortedCards, filters) => {
-    const { deliveryDate, objectType, minPrice, maxPrice } = filters;
+export const selectFilteredBuildings = createSelector(
+  [selectSortedBuildings, (state: RootState) => state.buildingReducer.filters],
+  (sortedBuildings, filters) => {
+    const { completionDate, objectType, minPrice, maxPrice } = filters;
 
-    const filteredCards = sortedCards.filter((card) => {
+    const filteredCards = sortedBuildings.filter((building) => {
       let isMatch: boolean =
-        deliveryDate === null || card.deliveryDate === deliveryDate;
-
-      const cardApartments: IApartmentData[] = JSON.parse(card.apartments);
+      completionDate === null || building.completionDate === completionDate;
+      const buildingApartments: IApartmentData[] = JSON.parse(building.apartments);
 
       const isPriceInRange = (
         price: number,
@@ -51,36 +49,35 @@ export const selectFilteredCards = createSelector(
       if (isMatch) {
         switch (objectType) {
           case 'one-room':
-            isMatch = cardApartments.some(
+            isMatch = buildingApartments.some(
               (apartment) =>
                 apartment.roomNum === '1' && isApartmentAvailable(apartment),
             );
             break;
           case 'two-room':
-            isMatch = cardApartments.some(
+            isMatch = buildingApartments.some(
               (apartment) =>
                 apartment.roomNum === '2' && isApartmentAvailable(apartment),
             );
             break;
           case 'three-room':
-            isMatch = cardApartments.some(
+            isMatch = buildingApartments.some(
               (apartment) =>
                 apartment.roomNum === '3' && isApartmentAvailable(apartment),
             );
             break;
           case 'parking-space':
-            isMatch = cardApartments.some(
+            isMatch = buildingApartments.some(
               (apartment) =>
                 apartment.roomNum === 'parking' &&
                 isApartmentAvailable(apartment),
             );
             break;
           default:
-            isMatch = cardApartments.some(isApartmentAvailable);
+            isMatch = buildingApartments.some(isApartmentAvailable);
             break;
         }
       }
-
       return isMatch;
     });
 

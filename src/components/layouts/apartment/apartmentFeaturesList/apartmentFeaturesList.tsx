@@ -1,4 +1,4 @@
-import { IApartmentFeature } from '../../../../types/ICard';
+import { IApartmentFeature } from '../../../../types/IBuilding';
 import Container from '../../container/container';
 import ApartmentFeature from './apartmentFeature/apartmentFeature';
 import { StyledApartmentFeaturesList } from './styled';

@@ -1,7 +1,7 @@
-export interface ICard {
+export interface IBuilding {
   apartments: string;
-  deliveryDate: string;
-  id: number;
+  completionDate: string;
+  id: string;
   image: string;
   bigImage: string;
   metro: string;
@@ -36,24 +36,10 @@ export interface IRoomSlides {
   image: string;
 }
 
-export interface IDocumentsData {
+export interface IApartmentDocumentsData {
   documentId: string;
   title: string;
   downloadText: string;
   downloadLink: string;
   imageSrc: string;
-}
-
-export function isResidentialtType(apartment: any): apartment is IApartmentData {
-  return (
-    apartment &&
-    typeof apartment === 'object' &&
-    'id' in apartment &&
-    'num' in apartment &&
-    'price' in apartment &&
-    'size' in apartment &&
-    'image' in apartment &&
-    'floor' in apartment &&
-    'roomNum' in apartment
-  );
 }

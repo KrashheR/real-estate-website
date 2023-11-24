@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import {
   StyledApartmentsFilterForm,
-  StyledApartmentsFormLabel,
+  StyledApartmentsFormSubtitle,
   StyledApartmentsFormItem,
   StyledApartmentFormRadios,
 } from './styled';
@@ -9,12 +9,12 @@ import FormSelect from '../formSelect/formSelect';
 import FormRange from '../formRange/formRange';
 import FormRadio, { FormRadioType } from '../formRadio/formRadio';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { setFilters } from '../../../store/reducers/CardSlice';
+import { setFilters } from '../../../store/reducers/BuildingSlice';
 import {
   selectMaxPrice,
   selectMinPrice,
-} from '../../../store/reducers/Selectors';
-import { deliveryDateOptions, objectTypesOptions } from './apartmentFormConfig';
+} from '../../../store/reducers/BuildingSelectors';
+import { completionDateOptions, objectTypesOptions } from './apartmentFormConfig';
 import React from 'react';
 
 function ApartmentsFilterForm() {
@@ -24,7 +24,7 @@ function ApartmentsFilterForm() {
 
   const [minPrice, setMinPrice] = useState<number | null>(initialMinPrice);
   const [maxPrice, setMaxPrice] = useState<number | null>(initialMaxPrice);
-  const [deliveryDate, setDeliveryDate] = useState<string | null>(null);
+  const [completionDate, setCompletionDate] = useState<string | null>(null);
   const [objectType, setObjectType] = useState<string>('Все объекты');
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function ApartmentsFilterForm() {
   };
 
   const handleDeliveryDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setDeliveryDate(e.target.value);
+    setCompletionDate(e.target.value);
   };
 
   const defaultChecked = '';
@@ -60,17 +60,17 @@ function ApartmentsFilterForm() {
         minPrice,
         maxPrice,
         objectType,
-        deliveryDate,
+        completionDate,
       }),
     );
-  }, [minPrice, maxPrice, objectType, deliveryDate, dispatch]);
+  }, [minPrice, maxPrice, objectType, completionDate, dispatch]);
 
   return (
     <StyledApartmentsFilterForm>
       <StyledApartmentsFormItem>
-        <StyledApartmentsFormLabel htmlFor="form-object-type">
+        <StyledApartmentsFormSubtitle>
           Тип объекта
-        </StyledApartmentsFormLabel>
+        </StyledApartmentsFormSubtitle>
         <FormSelect
           id="form-object-type"
           options={objectTypesOptions}
@@ -78,9 +78,9 @@ function ApartmentsFilterForm() {
         />
       </StyledApartmentsFormItem>
       <StyledApartmentsFormItem>
-        <StyledApartmentsFormLabel htmlFor="form-object-price">
+        <StyledApartmentsFormSubtitle>
           Стоимость объекта, млн. руб.
-        </StyledApartmentsFormLabel>
+        </StyledApartmentsFormSubtitle>
         <FormRange
           id="form-object-price"
           minPrice={minPrice}
@@ -90,11 +90,11 @@ function ApartmentsFilterForm() {
         />
       </StyledApartmentsFormItem>
       <StyledApartmentsFormItem>
-        <StyledApartmentsFormLabel htmlFor="form-object-date">
+        <StyledApartmentsFormSubtitle>
           Сдача объекта
-        </StyledApartmentsFormLabel>
+        </StyledApartmentsFormSubtitle>
         <StyledApartmentFormRadios>
-          {deliveryDateOptions.map((option) => {
+          {completionDateOptions.map((option) => {
             return (
               <React.Fragment key={option.id}>
                 <FormRadio

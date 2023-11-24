@@ -1,15 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
-import { selectCardByTitle } from '../../store/reducers/Selectors';
+import { selectBuildingById } from '../../store/reducers/BuildingSelectors';
 import Apartment from '../../components/layouts/apartment/apartment';
 import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
 import Apartments from '../../components/layouts/apartments/apartments';
 import { StyledApartmentsContainer } from './styled';
 
 function ApartmentsPage() {
-  let { title } = useParams<{ title: string }>();
+  let { id } = useParams<{ id: string }>();
+
   const card = useAppSelector((state) =>
-    selectCardByTitle(state, title as string),
+    selectBuildingById(state, id as string),
   );
 
   if (card) {
@@ -18,7 +19,7 @@ function ApartmentsPage() {
 
   return (
     <StyledApartmentsContainer>
-      <Title level={TitleLevel.H1} type={TitleType.APARTMENTMAP}>
+      <Title level={TitleLevel.H1} type={TitleType.PAGETITLE}>
         Каталог новостроек:
       </Title>
       <Apartments />

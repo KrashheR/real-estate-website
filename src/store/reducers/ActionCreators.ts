@@ -1,29 +1,29 @@
 import { Action, ThunkAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../store";
-import { cardSlice } from "./CardSlice";
+import { buildingSlice } from "./BuildingSlice";
 import { promoSlice } from "./PromoSlice";
-import { getMinAndMaxApartmentPrice } from "../../utils/cardPriceUtils";
+import { getMinAndMaxApartmentPrice } from "../../utils/buildingPriceUtils";
 import { getCardsUrl, getSlideshowUrl, getNewsUrl  } from "../routes";
 import axios from "axios";
 
-export const fetchCards = () => {
+export const fetchBuildings = () => {
   return (dispatch: AppDispatch) => {
-    dispatch(cardSlice.actions.cardsFetching());
+    dispatch(buildingSlice.actions.buildingsFetching());
     fetch(getCardsUrl)
       .then(response => response.json())
       .then(data => {
-        dispatch(cardSlice.actions.cardsFetchingSuccess(data));
+        dispatch(buildingSlice.actions.buildingsFetchingSuccess(data));
         dispatch(updateMinMaxPrices());
       })
-      .catch(error => dispatch(cardSlice.actions.cardsFetchingError(error.toString())));
+      .catch(error => dispatch(buildingSlice.actions.buildingsFetchingError(error.toString())));
   }
 }
 
 export const updateMinMaxPrices = (): ThunkAction<void, RootState, unknown, Action<string>> => {
   return (dispatch, getState) => {
-    const { cards } = getState().cardReducer;
-    const [minPrice, maxPrice] = getMinAndMaxApartmentPrice(cards);
-    dispatch(cardSlice.actions.setMinMaxPrice({ min: minPrice, max: maxPrice }));
+    const { buildings } = getState().buildingReducer;
+    const [minPrice, maxPrice] = getMinAndMaxApartmentPrice(buildings);
+    dispatch(buildingSlice.actions.setMinMaxPrice({ min: minPrice, max: maxPrice }));
   }
 }
 
@@ -37,24 +37,21 @@ export const fetchPromos = () => {
   }
 }
 
-// export const fetchNews = () => {
-//   return (dispatch: AppDispatch) => {
-//     dispatch(newsSlice.actions.newsFetching());
-//     fetch(getSlideshowUrl)
-//       .then(response => response.json())
-//       .then(data => dispatch(newsSlice.actions.newsFetchingSuccess(data)))
-//       .catch(error => dispatch(newsSlice.actions.newsFetchingError(error.toString())));
-//   }
-// }
+interface FetchNewsArgs {
+  page: number;
+  pageSize: number;
+}
 
 export const fetchNews = createAsyncThunk(
   'news/fetchNews',
-  async (count: number, { rejectWithValue }) => {
+  async ({page, pageSize}: FetchNewsArgs, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${getNewsUrl}?limit=${count}`);
+      const offset = (page - 1) * pageSize;
+      const response = await axios.get(`${getNewsUrl}?limit=${pageSize}&offset=${offset}`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
   }
 );
+

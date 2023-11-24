@@ -1,4 +1,4 @@
-export const deliveryDateOptions = [
+export const completionDateOptions = [
   { value: '0', label: 'Заселён', id: 'radio-already' },
   { value: '2023', label: '2023', id: 'radio-2023' },
   { value: '2024', label: '2024', id: 'radio-2024' },

@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ICard } from '../../types/ICard';
+import { IBuilding } from '../../types/IBuilding';
 
-interface CardState {
-  cards: ICard[];
+interface BuildingState {
+  buildings: IBuilding[];
   isLoading: boolean;
   error: string;
   filters: FilterValues;
@@ -12,34 +12,34 @@ interface FilterValues {
   minPrice: number | null;
   maxPrice: number | null;
   objectType: string;
-  deliveryDate: string | null;
+  completionDate: string | null;
 }
 
-const initialState: CardState = {
-  cards: [],
+const initialState: BuildingState = {
+  buildings: [],
   isLoading: false,
   error: '',
   filters: {
     minPrice: null,
     maxPrice: null,
     objectType: 'Все объекты',
-    deliveryDate: null,
+    completionDate: null,
   },
 };
 
-export const cardSlice = createSlice({
-  name: 'card',
+export const buildingSlice = createSlice({
+  name: 'building',
   initialState,
   reducers: {
-    cardsFetching(state) {
+    buildingsFetching(state) {
       state.isLoading = true;
     },
-    cardsFetchingSuccess(state, action: PayloadAction<ICard[]>) {
+    buildingsFetchingSuccess(state, action: PayloadAction<IBuilding[]>) {
       state.isLoading = false;
       state.error = '';
-      state.cards = action.payload;
+      state.buildings = action.payload;
     },
-    cardsFetchingError(state, action: PayloadAction<string>) {
+    buildingsFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },
@@ -53,5 +53,5 @@ export const cardSlice = createSlice({
   },
 });
 
-export const { setFilters } = cardSlice.actions;
-export default cardSlice.reducer;
+export const { setFilters } = buildingSlice.actions;
+export default buildingSlice.reducer;
