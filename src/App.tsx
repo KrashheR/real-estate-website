@@ -5,7 +5,7 @@ import MainPage from './pages/mainPage/mainPage';
 import ErrorBoundary from './utils/errorBoundary/errorBoundary';
 import { useAppDispatch } from './hooks/redux';
 import { useEffect } from 'react';
-import { fetchCards, fetchPromos } from './store/reducers/ActionCreators';
+import { fetchBuildings, fetchPromos } from './store/reducers/ActionCreators';
 import { Routes, Route } from "react-router-dom";
 import ApartmentsPage from './pages/apartmentsPage/apartmentsPage' ;
 import MainLayout from './components/layouts/mainLayout/mainLayout';
@@ -18,7 +18,7 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(()=> {
-    dispatch(fetchCards());
+    dispatch(fetchBuildings());
     dispatch(fetchPromos());
   }, [])
 

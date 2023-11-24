@@ -5,8 +5,8 @@ import {
   StyledFormRangeContainer,
 } from './styled';
 import { useAppSelector } from '../../../hooks/redux';
-import { selectFilteredCards } from '../../../store/reducers/Selectors';
-import { getMinAndMaxApartmentPrice } from '../../../utils/cardPriceUtils';
+import { selectFilteredBuildings } from '../../../store/reducers/BuildingSelectors';
+import { getMinAndMaxApartmentPrice } from '../../../utils/buildingPriceUtils';
 
 interface FormRangeProps {
   id: string;
@@ -23,7 +23,7 @@ function FormRange({
   onMinPriceChange,
   onMaxPriceChange,
 }: FormRangeProps) {
-  const cards = useAppSelector(selectFilteredCards);
+  const cards = useAppSelector(selectFilteredBuildings);
   const [initialMinPrice, initialMaxPrice] = getMinAndMaxApartmentPrice(cards);
 
   return (

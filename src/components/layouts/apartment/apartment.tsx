@@ -1,4 +1,4 @@
-import { ICard } from '../../../types/ICard';
+import { IBuilding } from '../../../types/IBuilding';
 import { StyledApartment } from './styled';
 import ApartmentAbout from './apartmentAbout/apartmentAbout';
 import ApartmentFeaturesList from './apartmentFeaturesList/apartmentFeaturesList';
@@ -8,7 +8,7 @@ import ApartmentCatalog from './apartmentCatalog/apartmentCatalog';
 import ApartmentDocuments from './apartmentDocuments/apartmentDocuments';
 import ApartmentHeader from './apartmentHeader/apartmentHeader';
 
-function Apartment({ data }: { data: ICard }) {
+function Apartment({ data }: { data: IBuilding }) {
   const apartmentDescription = data.description.split('<br>');
   const apartmentFeatures = JSON.parse(data.features);
   const apartmentLocation = JSON.parse(data.location);
