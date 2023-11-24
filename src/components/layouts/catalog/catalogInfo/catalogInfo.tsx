@@ -1,5 +1,5 @@
 
-import { IApartmentData } from '../../../../types/ICard';
+import { IApartmentData } from '../../../../types/IBuilding';
 import {
   StyledCatalogInfoApartment,
   StyledCatalogInfoData,

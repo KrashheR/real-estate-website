@@ -1,4 +1,4 @@
-import { IApartmentData } from "../../../../types/ICard";
+import { IApartmentData } from "../../../../types/IBuilding";
 import { StyledCatalogCard, StyledCatalogCardImage, StyledCatalogCardSize } from "./styled";
 
 interface CatalogCardProps {

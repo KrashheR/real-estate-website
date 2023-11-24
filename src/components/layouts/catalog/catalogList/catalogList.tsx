@@ -1,6 +1,6 @@
 import CatalogCard from "../catalogCard/catalogCard";
 import { StyledCatalogList } from "./styled";
-import { IApartmentData } from "../../../../types/ICard";
+import { IApartmentData } from "../../../../types/IBuilding";
 
 interface CatalogListProps {
   apartments: IApartmentData[];
