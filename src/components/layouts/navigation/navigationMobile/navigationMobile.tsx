@@ -15,10 +15,29 @@ import constructorActive from '../../../../assets/images/mobileNavigation/constr
 import aboutUsActive from '../../../../assets/images/mobileNavigation/aboutUsActive.svg';
 import projectsActive from '../../../../assets/images/mobileNavigation/projectsActive.svg';
 import homeActive from '../../../../assets/images/mobileNavigation/homeActive.svg';
+import { useEffect, useState } from 'react';
 
 function NavigationMobile() {
+  const [isNavVisible, setIsNavVisible] = useState(false);
+
+  const handleScroll = () => {
+    const footerHeight = 60;
+    const distanceFromTop = window.scrollY;
+    const distanceFromBottom = document.body.scrollHeight - window.innerHeight - window.scrollY;
+
+    setIsNavVisible(distanceFromTop > 20 && distanceFromBottom > footerHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <StyledNavigationMobile>
+    <StyledNavigationMobile isVisible={isNavVisible}>
       <StyledNavigationMobileItem>
         <StyledNavigationMobileLink to="/">
           {({ isActive }) => (
@@ -30,7 +49,7 @@ function NavigationMobile() {
         </StyledNavigationMobileLink>
       </StyledNavigationMobileItem>
       <StyledNavigationMobileItem>
-        <StyledNavigationMobileLink to="/apartments">
+        <StyledNavigationMobileLink to="/buildings">
           {({ isActive }) => (
             <>
               <StyledNavigationMobileImage
