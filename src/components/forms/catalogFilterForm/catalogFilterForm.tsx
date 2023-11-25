@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import FormRadio, { FormRadioType } from '../formRadio/formRadio';
+import FormRadio, { FormRadioType } from '../formsComponents/formRadio/formRadio';
 import { StyledCatalogFilterForm } from './styled';
 import { catalogOptions } from './catalogFormConfig';
 import React from 'react';

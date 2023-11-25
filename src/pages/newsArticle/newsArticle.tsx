@@ -4,7 +4,7 @@ import Description, {
 } from '../../components/ui/description/description';
 import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
 import { useAppSelector } from '../../hooks/redux';
-import { selectNewsById } from '../../store/reducers/Selectors';
+import { selectNewsById } from '../../store/reducers/news/NewsSelectors';
 import {
   StyledNewsArticle,
   StyledNewsContainer,

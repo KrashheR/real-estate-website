@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEventHandler } from 'react';
 import { IConstructor, UserChoices } from '../../../../types/IConstructor';
-import FormRadio, { FormRadioType } from '../../../forms/formRadio/formRadio';
+import FormRadio, { FormRadioType } from '../../../forms/formsComponents/formRadio/formRadio';
 import Title, { TitleLevel, TitleType } from '../../title/title';
 import {
   StyledConstructorButton,

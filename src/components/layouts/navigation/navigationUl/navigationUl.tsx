@@ -4,7 +4,7 @@ function NavigationUl() {
   return (
     <StyledNavigationUl>
       <StyledNavigationLi>
-        <StyledNavigationNavLink to="/apartments">Новостройки</StyledNavigationNavLink>
+        <StyledNavigationNavLink to="/buildings">Новостройки</StyledNavigationNavLink>
       </StyledNavigationLi>
       <StyledNavigationLi>
         <StyledNavigationNavLink to="/constructor/">Конструктор</StyledNavigationNavLink>

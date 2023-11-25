@@ -1,13 +1,17 @@
 import Promo from '../../components/layouts/promo/promo';
-import Apartments from '../../components/layouts/apartments/apartments';
-import { StyledMainPage } from './styled';
+import { StyledMainPage, StyledMainPageBuildings } from './styled';
+import BuildingsList from '../buildingsPage/buildingsList/buildingsList';
+import BuildingsFilterForm from '../../components/forms/buildingsFilterForm/buildingsFilterForm';
 
 
 function MainPage() {
   return (
     <StyledMainPage>
       <Promo />
-      <Apartments />
+      <StyledMainPageBuildings>
+        <BuildingsFilterForm />
+        <BuildingsList />
+      </StyledMainPageBuildings>
     </StyledMainPage>
   );
 }

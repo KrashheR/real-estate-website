@@ -1,7 +1,7 @@
 import { Action, ThunkAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../store";
-import { buildingSlice } from "./BuildingSlice";
-import { promoSlice } from "./PromoSlice";
+import { buildingSlice } from "./buildings/BuildingSlice";
+import { promoSlice } from "./promo/PromoSlice";
 import { getMinAndMaxApartmentPrice } from "../../utils/buildingPriceUtils";
 import { getCardsUrl, getSlideshowUrl, getNewsUrl  } from "../routes";
 import axios from "axios";

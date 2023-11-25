@@ -1,14 +1,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { StyledSlideshow, StyledSlideshowButton, StyledSlideshowImage, StyledSlideshowLink, StyledSlideshowTitle } from './styled';
+import { StyledSlideshow, StyledSlideshowButton, StyledSlideshowImage, StyledSlideshowLink } from './styled';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { ISlide } from '../../../types/ISlide';
+import { IPromo } from '../../../types/IPromo';
 
 
 interface SlideshowProps {
-  slides: ISlide[];
+  slides: IPromo[];
 }
 
 function Slideshow({slides}: SlideshowProps) {
@@ -27,9 +27,6 @@ function Slideshow({slides}: SlideshowProps) {
           return (
             <SwiperSlide key={index}>
               <StyledSlideshowLink  href={slide.href}>
-              <StyledSlideshowTitle>
-                {slide.title}
-              </StyledSlideshowTitle>
               <StyledSlideshowImage src={slide.image} alt={slide.title} />
               <StyledSlideshowButton>Подробнее</StyledSlideshowButton>
               </StyledSlideshowLink>

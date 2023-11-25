@@ -5,7 +5,7 @@ import mortgage from '../../../assets/images/promo/mortgage.svg';
 import CountdownOfferCard from './countdownOfferCard/countdownOfferCard';
 import Slideshow from '../../ui/slideshow/slideshow';
 import { useAppSelector } from '../../../hooks/redux';
-import { selectPromos } from '../../../store/reducers/Selectors';
+import { selectPromos } from '../../../store/reducers/promo/PromoSelectors';
 
 function Promo() {
   const slides = useAppSelector(selectPromos);

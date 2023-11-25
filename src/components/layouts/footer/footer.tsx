@@ -1,24 +1,38 @@
-import { StyledFooter, StyledFooterProjectsList, StyledFooterProject, StyledFooterProjectLink, StyledFooterContainer, StyledFooterTitle, StyledFooterAbout, StyledFooterAdress, StyledFooterPhone, StyledFooterPhoneTime } from "./styled";
-import Logo from "../../ui/logo/logo";
+import {
+  StyledFooter,
+  StyledFooterProjectsList,
+  StyledFooterProject,
+  StyledFooterProjectLink,
+  StyledFooterContainer,
+  StyledFooterTitle,
+  StyledFooterAbout,
+  StyledFooterAdress,
+  StyledFooterPhone,
+  StyledFooterPhoneTime,
+} from './styled';
+import Logo from '../../ui/logo/logo';
 import logoImage from '../../../assets/images/logo.svg';
-import { useAppSelector } from "../../../hooks/redux";
-import { selectCards } from "../../../store/reducers/Selectors";
-import { ICard } from "../../../types/ICard";
+import { useAppSelector } from '../../../hooks/redux';
+import { selectBuildings } from '../../../store/reducers/buildings/BuildingSelectors';
+import { IBuilding } from '../../../types/IBuilding';
+import { Link } from 'react-router-dom';
 
 function Footer() {
-  const cards = useAppSelector(selectCards);
+  const buildings = useAppSelector(selectBuildings);
 
-  return(
+  return (
     <StyledFooter>
       <StyledFooterContainer>
-        <Logo srcImage={logoImage} />
+        <Link to="/">
+          <Logo srcImage={logoImage} />
+        </Link>
         <StyledFooterProjectsList>
           <StyledFooterTitle>Наши проекты:</StyledFooterTitle>
-          {cards.map((card: ICard) => {
-            return(
-              <StyledFooterProject key={card.id}>
-                <StyledFooterProjectLink to={"apartments/" + card.title}>
-                  {card.title}
+          {buildings.map((building: IBuilding) => {
+            return (
+              <StyledFooterProject key={building.id}>
+                <StyledFooterProjectLink to={'apartment/' + building.id}>
+                  {building.title}
                 </StyledFooterProjectLink>
               </StyledFooterProject>
             );
@@ -26,9 +40,15 @@ function Footer() {
         </StyledFooterProjectsList>
         <StyledFooterAbout>
           <StyledFooterTitle>О компании</StyledFooterTitle>
-          <StyledFooterAdress>127238, г. Москва, Дмитровское шоссе, 73Б</StyledFooterAdress>
-          <StyledFooterPhone href={"tel:+7123456789"}>+7123456789</StyledFooterPhone>
-          <StyledFooterPhoneTime>Ежедневно с 8:00 до 22:00</StyledFooterPhoneTime>
+          <StyledFooterAdress>
+            105064, г. Москва, ул. Покровка, 50/2
+          </StyledFooterAdress>
+          <StyledFooterPhone href={'tel:+7123456789'}>
+            +7123456789
+          </StyledFooterPhone>
+          <StyledFooterPhoneTime>
+            Ежедневно с 8:00 до 22:00
+          </StyledFooterPhoneTime>
         </StyledFooterAbout>
       </StyledFooterContainer>
     </StyledFooter>
