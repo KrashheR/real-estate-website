@@ -1,13 +1,18 @@
-import Container from '../container/container';
 import Navigation from '../navigation/navigation';
-import { StyledHeader } from './styled';
+import { StyledHeader, StyledHeaderContainer } from './styled';
+import Logo from '../../ui/logo/logo';
+import logoImage from '../../../assets/images/logo.svg';
+import { Link } from 'react-router-dom';
+import Phone, { PhoneType } from '../../ui/phone/phone';
 
 function Header() {
   return (
     <StyledHeader>
-      <Container>
+      <StyledHeaderContainer>
+        <Link to="/"><Logo srcImage={logoImage} /></Link>
         <Navigation />
-      </Container>
+        <Phone phoneType={PhoneType.HEADER}/>
+      </StyledHeaderContainer>
     </StyledHeader>
   );
 }
