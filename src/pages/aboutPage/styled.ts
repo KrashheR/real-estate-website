@@ -4,7 +4,11 @@ import { StyledContainer } from '../../components/layouts/container/styled';
 export const StyledAboutContainer = styled(StyledContainer)`
   margin-top: 40px;
   margin-bottom: 40px;
-  min-height: calc(100vh - 280px)
+  min-height: calc(100vh - 280px);
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    min-height: calc(100vh - 160px);
+  }
 `;
 
 export const StyledAboutHeader = styled.div`

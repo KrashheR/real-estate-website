@@ -16,7 +16,7 @@ export const StyledNewsCard = styled.a`
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    width: 320px;
+    width: 400px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {

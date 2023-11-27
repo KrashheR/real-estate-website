@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledNavigationMobile = styled.ul`
+interface StyledNavigationMobileProps {
+  isVisible: boolean;
+}
+
+export const StyledNavigationMobile = styled.ul<StyledNavigationMobileProps>`
   display: none;
   position: fixed;
-  bottom: 0;
+  bottom: ${(props) => (props.isVisible ? '0' : '-100px')};
   left: 0;
   width: 100%;
   height: 70px;
@@ -13,8 +17,8 @@ export const StyledNavigationMobile = styled.ul`
   padding: 10px 40px;
   list-style: none;
   background-color: ${(props) => props.theme.colors.colorWhite};
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); // Добавление тени
-  transition: bottom 0.3s;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  transition: bottom 0.4s;
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     display: flex;
@@ -52,9 +56,7 @@ export const StyledNavigationMobileImage = styled.img`
 
 export const StyledNavigationMobileText = styled.p`
   font-size: 12px;
-
   font-weight: 400;
-
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
     font-size: 10px;

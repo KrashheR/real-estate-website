@@ -8,7 +8,6 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   display: flex;
   flex-direction: column;
   grid-area: ${(props) => props.$area};
-  align-items: center;
   width: 280px;
   height: 240px;
   border-radius: 25px;
@@ -32,11 +31,11 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
     padding: 20px;
     width: 20vw;
-
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     width: 100%;
+    align-items: center;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
@@ -56,6 +55,7 @@ export const StyledPromoImg = styled.img`
   width: 200px;
   height: 80px;
   margin-top: auto;
+  align-self: center;
 
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
     width: 10vw;

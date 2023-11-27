@@ -30,4 +30,9 @@ export const StyledPaginationButton = styled.button`
   &:hover{
     border-color:${(props) => props.theme.colors.colorMainRed};
   }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 50px;
+    height: 50px;
+  }
 `;

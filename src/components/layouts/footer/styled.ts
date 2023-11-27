@@ -4,9 +4,18 @@ import { Link } from 'react-router-dom';
 
 export const StyledFooter = styled.footer`
   padding: 20px 0;
-  height: 100%;
+  height: 140px;
   width: 100%;
   background-color: ${(props) => props.theme.colors.colorLightRed};
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    padding: 15px 0;
+    height: fit-content;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+
+  }
 `;
 
 export const StyledFooterContainer = styled(StyledContainer)`
@@ -24,9 +33,9 @@ export const StyledFooterProjectsList = styled.ul`
   grid-template-columns: repeat(3, 150px);
   gap: 10px;
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     grid-template-columns: repeat(2, 150px);
-    gap: 5px;
+    gap: 10px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
@@ -90,5 +99,9 @@ export const StyledFooterProjectLink = styled(Link)`
 
   &:hover {
     color: ${(props) => props.theme.colors.colorMainRed};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    font-size: 14px;
   }
 `;
