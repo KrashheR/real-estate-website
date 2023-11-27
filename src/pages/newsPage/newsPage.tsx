@@ -4,26 +4,33 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchNews } from '../../store/reducers/ActionCreators';
 import {
   selectNews,
-  selectNewsCount,
   selectNewsLoading,
-} from '../../store/reducers/Selectors';
+  selectCurrentPage,
+  selectPageSize,
+  selectTotalNews
+} from '../../store/reducers/news/NewsSelectors';
 import NewsList from './newsList/newsList';
-import { StyledNewsPage, StyledNewsButton } from './styled';
-import LoadMoreButton from '../../components/ui/loadMoreButton/loadMoreButton';
+import { StyledNewsPage } from './styled';
+import Pagination, { PaginationType } from '../../components/ui/pagination/pagintaion';
+import { updateCurrentPage } from '../../store/reducers/news/NewsSlice';
 
 function NewsPage() {
   const dispatch = useAppDispatch();
   const news = useAppSelector(selectNews);
-  const count = useAppSelector(selectNewsCount);
   const isLoading = useAppSelector(selectNewsLoading);
-
-  const loadMoreNews = () => {
-    dispatch(fetchNews(count));
-  };
+  const currentPage = useAppSelector(selectCurrentPage);
+  const pageSize = useAppSelector(selectPageSize);
+  const totalNews = useAppSelector(selectTotalNews);
 
   useEffect(() => {
-    dispatch(fetchNews(count));
-  }, [dispatch]);
+    dispatch(fetchNews({ page: currentPage, pageSize }));
+  }, [dispatch, currentPage, pageSize]);
+
+
+  const handlePageChange = (newPage: number) => {
+    dispatch(updateCurrentPage(newPage));
+    dispatch(fetchNews({ page: newPage, pageSize }));
+  };
 
   return (
     <StyledNewsPage>
@@ -31,10 +38,14 @@ function NewsPage() {
         Наши новости
       </Title>
       <NewsList news={news} />
-      <StyledNewsButton>
-      <LoadMoreButton isLoading={isLoading} onClick={loadMoreNews}/>
-      </StyledNewsButton>
-
+      {isLoading ?? <p>Загрузка...</p>}
+      <Pagination
+          total={totalNews}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          paginationType={PaginationType.NEWS}
+        />
     </StyledNewsPage>
   );
 }
