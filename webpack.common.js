@@ -1,5 +1,6 @@
   const _resolve = require('path').resolve;
   const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
   module.exports = {
     entry: _resolve(__dirname, './src/index.tsx'),
@@ -64,6 +65,10 @@
       new HtmlWebpackPlugin({
         title: 'Real estate website',
         template: _resolve(__dirname, './public/index.html'),
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'server',
+        openAnalyzer: true,
       }),
     ],
   };
