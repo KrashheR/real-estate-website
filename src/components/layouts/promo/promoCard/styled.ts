@@ -22,10 +22,12 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
     box-shadow 0.3s ease,
     color 0.1s ease;
 
-  &:hover {
-    color: ${(props) => props.theme.colors.colorMainRed};
-    transform: translateY(-2px);
-    box-shadow: 0px 3px 8px ${(props) => props.theme.colors.boxShadowHover};
+  @media (min-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    &:hover {
+      color: ${(props) => props.theme.colors.colorMainRed};
+      transform: translateY(-2px);
+      box-shadow: 0px 3px 8px ${(props) => props.theme.colors.boxShadowHover};
+    }
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
@@ -34,7 +36,7 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
-    width: 100%;
+    width: 42vw;
     align-items: center;
   }
 

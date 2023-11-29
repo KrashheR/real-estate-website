@@ -23,14 +23,11 @@ export const StyledPromoContainer = styled(StyledContainer)`
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
-    grid-gap: 20px;
+    grid-gap: 10px;
+    row-gap: 30px;
     grid-template-areas:
     'countdown countdown'
     'slideshow slideshow'
     'cardA cardB';
-  }
-
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    grid-gap: 10px;
   }
 `;

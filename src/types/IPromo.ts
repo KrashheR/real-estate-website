@@ -1,5 +1,7 @@
 export interface IPromo {
-  href: string;
+  id: string;
   title: string;
+  href: string;
   image: string;
+  imageMobile: string;
 }
