@@ -3,7 +3,7 @@ import { AppDispatch, RootState } from "../store";
 import { buildingSlice } from "./buildings/BuildingSlice";
 import { promoSlice } from "./promo/PromoSlice";
 import { getMinAndMaxApartmentPrice } from "../../utils/buildingPriceUtils";
-import { getCardsUrl, getSlideshowUrl, getNewsUrl  } from "../routes";
+import { getCardsUrl, getPromoUrl, getNewsUrl  } from "../routes";
 import axios from "axios";
 
 export const fetchBuildings = () => {
@@ -30,7 +30,7 @@ export const updateMinMaxPrices = (): ThunkAction<void, RootState, unknown, Acti
 export const fetchPromos = () => {
   return (dispatch: AppDispatch) => {
     dispatch(promoSlice.actions.promosFetching());
-    fetch(getSlideshowUrl)
+    fetch(getPromoUrl)
       .then(response => response.json())
       .then(data => dispatch(promoSlice.actions.promosFetchingSuccess(data)))
       .catch(error => dispatch(promoSlice.actions.promosFetchingError(error.toString())));

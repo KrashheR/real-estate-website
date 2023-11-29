@@ -1,4 +1,4 @@
-export const getSlideshowUrl = "https://krashher.ru/real-estate/api/get-slideshow.php";
+export const getPromoUrl = "https://krashher.ru/real-estate/api/get-promo.php";
 
 export const getCardsUrl = "https://www.krashher.ru/real-estate/api/get-cards.php";
 
