@@ -14,7 +14,7 @@ export const constructorOptions = [
     id: 1,
     type: 'question',
     question: 'Выберите желаемую дату сдачи дома',
-    filter: 'deliveryDate',
+    filter: 'completionDate',
     variants: [
       { answer: 'Дом уже сдан', value: '0' },
       { answer: 'Сдаётся в этому году', value: '2023' },
