@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCatalogList = styled.div`
+export const StyledCatalogList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 100px);
   width: 340px;
@@ -47,5 +47,13 @@ export const StyledCatalogList = styled.div`
   @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     gap: 15px;
   }
+`;
+
+export const StyledCatalogNoOptionsMessage = styled.p`
+  grid-column: 1 / -1;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  font-size: 16px;
 `;
 

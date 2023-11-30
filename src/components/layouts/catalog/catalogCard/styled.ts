@@ -4,7 +4,7 @@ interface StyledCatalogCardProps {
   isSelected: boolean;
 }
 
-export const StyledCatalogCard = styled.div<StyledCatalogCardProps>`
+export const StyledCatalogCard = styled.li<StyledCatalogCardProps>`
   display: flex;
   flex-direction: column;
   align-items: center;

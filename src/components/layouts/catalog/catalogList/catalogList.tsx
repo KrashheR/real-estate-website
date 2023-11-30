@@ -1,5 +1,5 @@
 import CatalogCard from "../catalogCard/catalogCard";
-import { StyledCatalogList } from "./styled";
+import { StyledCatalogList, StyledCatalogNoOptionsMessage } from "./styled";
 import { IApartmentData } from "../../../../types/IBuilding";
 
 interface CatalogListProps {
@@ -16,14 +16,18 @@ function CatalogList ({ apartments, selectedRoomType, onCatalogCardChange, selec
 
   return (
     <StyledCatalogList>
-      {filteredItems.map(item => (
-        <CatalogCard
-          key={item.id}
-          details={item}
-          handleCatalogCardChange={() => onCatalogCardChange(item)}
-          isSelected={selectedApartmentId === item.id}
-        />
-      ))}
+      {filteredItems.length > 0 ? (
+        filteredItems.map(item => (
+          <CatalogCard
+            key={item.id}
+            details={item}
+            handleCatalogCardChange={() => onCatalogCardChange(item)}
+            isSelected={selectedApartmentId === item.id}
+          />
+        ))
+      ) : (
+        <StyledCatalogNoOptionsMessage>Нет свободных вариантов</StyledCatalogNoOptionsMessage>
+      )}
     </StyledCatalogList>
   );
 };
