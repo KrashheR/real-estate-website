@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { StyledReadMoreButton } from '../../../components/ui/readMoreButton/styled';
+import { Link } from 'react-router-dom';
 
 type StyledBuildingsCardAreaProps = {
   $area: string;
@@ -9,7 +10,7 @@ type StyledBuildingsCardTypeProps = {
   $type: string;
 };
 
-export const StyledBuildingsCard = styled.div<StyledBuildingsCardTypeProps>`
+export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -24,40 +25,55 @@ export const StyledBuildingsCard = styled.div<StyledBuildingsCardTypeProps>`
   transition: all 0.3s ease-in-out;
   border-radius: 15px;
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+  @media (min-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+    }
   }
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    width: 320px;
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 80vw;
+    height: 500px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    width: 85vw;
     height: 400px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
-    height: 380px;
+    height: 350px;
   }
 `;
 
-export const StyledBuildingsCardImage = styled.img`
+export const StyledBuildingsCardPicture = styled.picture`
   display: block;
   height: 263px;
   width: 100%;
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    height: 233px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    height: 353px;
+  }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     height: 253px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
-    height: 223px;
+    height: 193px;
   }
+`;
+
+export const StyledBuildingsCardImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 `;
 
 export const StyledBuildingsCardDescription = styled.div<StyledBuildingsCardTypeProps>`

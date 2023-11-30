@@ -10,7 +10,6 @@ function BuildingsPage() {
         <Title level={TitleLevel.H1} type={TitleType.PAGETITLE}>
           Каталог новостроек:
         </Title>
-
         <BuildingsFilterForm />
         <BuildingsList />
       </StyledBuildingsContainer>

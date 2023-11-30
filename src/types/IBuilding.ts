@@ -3,6 +3,7 @@ export interface IBuilding {
   completionDate: string;
   id: string;
   image: string;
+  imageMobile: string;
   bigImage: string;
   metro: string;
   title: string;
