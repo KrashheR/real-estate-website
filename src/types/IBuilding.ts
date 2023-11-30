@@ -5,6 +5,7 @@ export interface IBuilding {
   image: string;
   imageMobile: string;
   bigImage: string;
+  bigMobileImage: string;
   metro: string;
   title: string;
   description: string;
@@ -35,6 +36,7 @@ export interface IApartmentData {
 export interface IRoomSlides {
   type: string;
   image: string;
+  imageMobile: string;
 }
 
 export interface IApartmentDocumentsData {
