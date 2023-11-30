@@ -12,29 +12,28 @@ export const StyledApartmentAboutText = styled.div`
 `;
 
 export const StyledApartmentAboutInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   max-height: 450px;
   margin-top: 30px;
-  gap: 200px;
+  grid-template-columns: 3fr 1fr;
+  gap: 80px;
 
   @media(max-width: ${(props) => props.theme.deviceSizes.laptop}) {
     max-height: fit-content;
-    gap: 80px;
   }
 
   @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    display: flex;
     flex-direction: column;
     max-height: fit-content;
     gap: 40px;
   }
 `
 
-export const StyledApartmentAboutImg = styled.img`
-align-self: center;
+export const StyledApartmentAboutPicture = styled.picture`
+  align-self: center;
   height: 450px;
   width: 450px;
-  border-radius: 30px;
 
   @media(max-width: ${(props) => props.theme.deviceSizes.laptop}) {
     height: 350px;
@@ -50,4 +49,11 @@ align-self: center;
     height: 90vw;
     width: 90vw;
   }
+`;
+
+export const StyledApartmentAboutImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
 `;

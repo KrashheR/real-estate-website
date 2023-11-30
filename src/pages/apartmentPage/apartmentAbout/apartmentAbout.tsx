@@ -5,19 +5,22 @@ import Title, { TitleLevel, TitleType } from '../../../components/ui/title/title
 import Container from '../../../components/layouts/container/container';
 import {
   StyledApartmentAbout,
-  StyledApartmentAboutImg,
+  StyledApartmentAboutPicture,
   StyledApartmentAboutInfo,
   StyledApartmentAboutText,
+  StyledApartmentAboutImage,
 } from './styled';
 
 interface ApartmentAboutProps {
   apartmentDescription: string[];
   apartmentImage: string;
+  apartmentImageMobile: string;
 }
 
 function ApartmentAbout({
   apartmentDescription,
   apartmentImage,
+  apartmentImageMobile,
 }: ApartmentAboutProps) {
   return (
     <Container>
@@ -36,7 +39,10 @@ function ApartmentAbout({
               );
             })}
           </StyledApartmentAboutText>
-          <StyledApartmentAboutImg src={apartmentImage} />
+          <StyledApartmentAboutPicture>
+            <source srcSet={apartmentImageMobile} media='(max-width: 576px)'/>
+            <StyledApartmentAboutImage src={apartmentImage}/>
+          </StyledApartmentAboutPicture>
         </StyledApartmentAboutInfo>
       </StyledApartmentAbout>
     </Container>
