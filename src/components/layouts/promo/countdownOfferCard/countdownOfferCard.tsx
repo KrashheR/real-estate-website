@@ -9,14 +9,16 @@ import CountdownTimer from '../../../ui/countdownTimer/countdownTimer';
 import Description, {
   DescriptionType,
 } from '../../../ui/description/description';
+import { Link } from 'react-router-dom';
 
 interface CountodwnOfferCardProps {
   toDate: string;
+  link: string;
 }
 
-function CountdownOfferCard({ toDate }: CountodwnOfferCardProps) {
+function CountdownOfferCard({ toDate, link }: CountodwnOfferCardProps) {
   return (
-    <StyledCountdownOfferCard>
+    <StyledCountdownOfferCard as={Link} to={link}>
       <Title level={TitleLevel.H2} type={TitleType.PROMOCOUNTER}>
         Первоначальный взнос всего 15% вместо 20%!
       </Title>

@@ -13,19 +13,19 @@ function Promo() {
   return (
     <StyledPromo>
       <StyledPromoContainer>
-        <CountdownOfferCard toDate={'30 November 2023 00:00:00'}/>
+        <CountdownOfferCard toDate={'31 December 2023 23:59:59'} link='/buildings'/>
         <PromoCard
-          title="Выгодная ипотека"
-          description="Начните копить на первоначальный взнос с Целепортом под 9% годовых"
+          title="Подбор квартиры"
+          description="Подберите жильё, соответствующее вашим требованиям"
           img={mortgage}
-          href="#"
+          href="/constructor"
           area="cardA"
         />
         <PromoCard
           title="Машиноместа"
-          description="Начните копить на первоначальный взнос с Целепортом под 9% годовых"
+          description="Купите квартиру и получите машиноместо в подарок"
           img={carParking}
-          href="#"
+          href="/buildings"
           area="cardB"
         />
         <Slideshow slides={slides}/>

@@ -4,6 +4,7 @@ import Title, {
   TitleType,
 } from '../../../ui/title/title';
 import Description, { DescriptionType } from '../../../ui/description/description';
+import { Link } from 'react-router-dom';
 
 interface PromoCardProps {
   title: string;
@@ -15,7 +16,7 @@ interface PromoCardProps {
 
 function PromoCard(props: PromoCardProps) {
   return (
-    <StyledPromoCard href={props.href} $area={props.area}>
+    <StyledPromoCard as={Link} to={props.href} $area={props.area}>
       <Title
         level={TitleLevel.H2}
         type={TitleType.PROMOCARD}
