@@ -13,7 +13,6 @@ export const StyledApartmentAboutText = styled.div`
 
 export const StyledApartmentAboutInfo = styled.div`
   display: grid;
-  max-height: 450px;
   margin-top: 30px;
   grid-template-columns: 3fr 1fr;
   gap: 80px;

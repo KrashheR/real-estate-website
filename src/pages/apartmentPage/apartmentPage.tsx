@@ -34,10 +34,11 @@ function ApartmentPage() {
 
   return (
     <StyledApartment>
-      <ApartmentHeader title={data.title} bigImage={data.bigImage} />
+      <ApartmentHeader title={data.title} bigImage={data.bigImage} bigMobileImage={data.bigMobileImage}/>
       <ApartmentAbout
         apartmentDescription={apartmentDescription}
         apartmentImage={data.image}
+        apartmentImageMobile={data.imageMobile}
       />
       <ApartmentFeaturesList apartmentFeatures={apartmentFeatures} />
       <ApartmentMap latitude={latitude} longitude={longitude} />

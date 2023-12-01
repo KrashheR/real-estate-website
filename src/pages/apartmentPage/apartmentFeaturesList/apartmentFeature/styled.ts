@@ -5,19 +5,20 @@ export const StyledApartmentFeature = styled.div`
   background-color: ${(props) => props.theme.colors.colorLightRed};
   padding: 20px;
   width: 270px;
-  height: 100px;
+  height: 110px;
   gap: 20px;
-  align-items: center;
+  align-items: top;
   border-radius: 25px;
+  overflow: hidden;
 
   @media(max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    width: 33vw;
-    height: 150px;
+    width: 35vw;
+    align-items: center;
   }
 
   @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     gap: 10px;
-    width: 35vw;
+    width: 40vw;
     height: 160px;
   }
 
