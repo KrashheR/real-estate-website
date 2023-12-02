@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledBuildingsFilterForm = styled.form`
   display: flex;
@@ -10,8 +10,8 @@ export const StyledBuildingsFilterForm = styled.form`
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     align-items: center;
   }
@@ -25,7 +25,6 @@ export const StyledBuildingsFormSubtitle = styled.p`
 export const StyledBuildingsFormItem = styled.span`
   display: flex;
   flex-direction: column;
-  width: 370px;
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     width: 100%;
@@ -48,4 +47,3 @@ export const StyledBuildingsFormRadios = styled.div`
     gap: 10px;
   }
 `;
-

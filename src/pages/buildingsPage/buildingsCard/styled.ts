@@ -32,6 +32,10 @@ export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
     }
   }
 
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    height: 380px;
+  }
+
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     width: 80vw;
     height: 500px;

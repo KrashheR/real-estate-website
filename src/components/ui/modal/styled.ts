@@ -18,7 +18,7 @@ export const StyledModalBackdrop = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
-export const StyledModalForm = styled.form`
+export const StyledModalForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
