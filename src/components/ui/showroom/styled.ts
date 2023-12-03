@@ -76,6 +76,11 @@ export const StyledShowroomButtons = styled.div`
   }
 `;
 
+export const StyledShowroomPicture = styled.picture`
+  width: 100%;
+  height: 100%;
+`;
+
 export const StyledShowroomImage = styled.img`
   width: 100%;
   height: 100%;

@@ -60,11 +60,15 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
       if (props.$formRadioType === FormRadioType.CATALOG) {
         return '55px';
       } else if (props.$formRadioType === FormRadioType.APARTMENT) {
-        return '50px';
+        return '40px';
       } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
         return '45vw';
       }
     }};
+    padding: ${(props) => {
+      if (props.$formRadioType === FormRadioType.APARTMENT) {
+        return '0 10px';
+      }}}
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
