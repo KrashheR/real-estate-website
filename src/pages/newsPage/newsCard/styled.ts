@@ -4,7 +4,7 @@ export const StyledNewsCard = styled.a`
   display: flex;
   flex-direction: column;
   width: 360px;
-  height: 300px;
+  height: 320px;
   background-color: ${(props) => props.theme.colors.colorLightRed};
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

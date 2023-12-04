@@ -14,7 +14,7 @@ function NewsCard({ data }: NewsCardProps) {
   const link = `${window.location.origin}/news/${data.id}`;
   return (
     <StyledNewsCard as={Link} to={link}>
-      <StyledNewsCardImage src={data.image} />
+      <StyledNewsCardImage src={data.imageMobile} />
       <StyledNewsCardTextContainer>
       <Title level={TitleLevel.H2} type={TitleType.NEWSCARD}>
         {data.title}
