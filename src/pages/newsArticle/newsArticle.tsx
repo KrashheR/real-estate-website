@@ -9,6 +9,7 @@ import {
   StyledNewsArticle,
   StyledNewsContainer,
   StyledNewsImage,
+  StyledNewsPicture,
   StyledNewsText,
 } from './styled';
 
@@ -27,7 +28,10 @@ function NewsArticle() {
   return (
     <StyledNewsArticle>
       <StyledNewsContainer>
-        <StyledNewsImage src={data.image} />
+        <StyledNewsPicture>
+          <source srcSet={data.imageMobile} media='(max-width: 576px)'/>
+          <StyledNewsImage src={data.image}/>
+        </StyledNewsPicture>
         <Title level={TitleLevel.H2} type={TitleType.NEWS}>
           {data.title}
         </Title>
