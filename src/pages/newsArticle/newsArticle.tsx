@@ -15,9 +15,7 @@ import {
 
 function NewsArticle() {
   const { id } = useParams<{ id: string }>();
-  const data = useAppSelector((state) =>
-    selectNewsById(state, parseInt(id as string)),
-  );
+  const data = useAppSelector((state) => selectNewsById(state, id as string));
 
   if (!data) {
     return <p>Новость не найдена</p>;
@@ -29,8 +27,8 @@ function NewsArticle() {
     <StyledNewsArticle>
       <StyledNewsContainer>
         <StyledNewsPicture>
-          <source srcSet={data.imageMobile} media='(max-width: 576px)'/>
-          <StyledNewsImage src={data.image}/>
+          <source srcSet={data.imageMobile} media="(max-width: 576px)" />
+          <StyledNewsImage src={data.image} />
         </StyledNewsPicture>
         <Title level={TitleLevel.H2} type={TitleType.NEWS}>
           {data.title}

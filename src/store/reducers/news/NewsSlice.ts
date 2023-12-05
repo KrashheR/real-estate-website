@@ -3,20 +3,20 @@ import { INews } from '../../../types/INews';
 import { fetchNews } from '../ActionCreators';
 
 interface NewsState {
-  news: INews[];
+  newsByPage: { [page: number]: INews[] };
   isLoading: boolean;
   error: string;
-  currentPage: number; // текущая страница
-  pageSize: number; // размер страницы
-  total: number; // общее количество новостей
+  currentPage: number;
+  pageSize: number;
+  total: number;
 }
 
 const initialState: NewsState = {
-  news: [],
+  newsByPage: {},
   isLoading: false,
   error: '',
   currentPage: 1,
-  pageSize: 6, // можно настроить в зависимости от ваших требований
+  pageSize: 6,
   total: 0,
 };
 
@@ -32,19 +32,17 @@ export const newsSlice = createSlice({
     builder
       .addCase(fetchNews.pending, (state) => {
         state.isLoading = true;
-        state.news = [];
       })
       .addCase(fetchNews.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.news = action.payload.data;
-        state.total = action.payload.total;
-    })
-
+        const { page, news, total } = action.payload;
+        state.newsByPage[page] = news;
+        state.total = total;
+      })
       .addCase(fetchNews.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload as string;
       });
-
   },
 });
 
