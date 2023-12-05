@@ -12,11 +12,10 @@ import Title, {
 import Description, {
   DescriptionType,
 } from '../../../components/ui/description/description';
-import bossVasiliySpeech from "../../../assets/sounds/Boss_Vasiliy_speech.m4a"
+import bossVasiliySpeech from '../../../assets/sounds/bossVasiliySpeech.m4a';
 import { useRef } from 'react';
 
 function AboutPerson() {
-
   const audioRef = useRef(new Audio(bossVasiliySpeech));
 
   const handleMouseEnter = () => {
@@ -28,13 +27,14 @@ function AboutPerson() {
   };
 
   return (
-    <StyledAboutPerson onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}>
+    <StyledAboutPerson
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <StyledAboutPersonPhotoContainer>
         <StyledAboutPersonPhoto src={BossPhoto} />
       </StyledAboutPersonPhotoContainer>
-      <StyledAboutPersonInfo
-              >
+      <StyledAboutPersonInfo>
         <Description type={DescriptionType.CONTACTS}>
           Меня зовут Василий Мурзыченко. Я отвечаю за постройку домов в компании
           real-estate. Как видите, в моих лапах достаточно сил, чтобы держать не
