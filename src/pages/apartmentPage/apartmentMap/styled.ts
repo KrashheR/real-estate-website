@@ -4,7 +4,6 @@ import { StyledContainer } from '../../../components/layouts/container/styled';
 export const StyledApartmentMap = styled.section`
   padding: 30px 0;
   gap: 40px;
-  margin-top: 60px;
   background-color: ${(props) => props.theme.colors.colorLightRed};
 `;
 

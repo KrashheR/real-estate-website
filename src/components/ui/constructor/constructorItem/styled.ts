@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
-
 interface StyledConstructorProps {
   isActive: boolean;
 }
+
+export const StyledConstructorItemTitle = styled.span`
+  text-align: center;
+`;
 
 export const StyledConstructorItem = styled.li<StyledConstructorProps>`
   display: ${(props) => props.isActive ? "flex": "none"};
   flex-direction: column;
   gap: 40px;
-  height: 660px;
+  min-height: calc(100vh - 300px);
   width: 100%;
   background-color: ${(props) => props.theme.colors.colorWhite};
   color: ${(props) => props.theme.colors.colorBlack};
@@ -24,6 +27,11 @@ export const StyledConstructorVariants = styled.div`
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    gap: 10px;
   }
 `;
 
@@ -52,6 +60,10 @@ export const StyledConstructorButton = styled.button`
     background-color: ${(props) => props.theme.colors.colorMainRed};
     color: ${(props) => props.theme.colors.colorWhite};
     box-shadow: 0px 2px 8px ${(props) => props.theme.colors.boxShadowHover};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    font-size: 14px;
   }
 `;
 

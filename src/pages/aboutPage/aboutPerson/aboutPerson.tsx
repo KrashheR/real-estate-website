@@ -7,10 +7,11 @@ import {
 import BossPhoto from '../../../assets/images/about/boss_photo.webp';
 import Title, {
   TitleLevel,
-  TitleType,
+  TitleSize,
+  TitleWeight
 } from '../../../components/ui/title/title';
 import Description, {
-  DescriptionType,
+  DescriptionSize,
 } from '../../../components/ui/description/description';
 import bossVasiliySpeech from '../../../assets/sounds/bossVasiliySpeech.m4a';
 import { useRef } from 'react';
@@ -35,13 +36,17 @@ function AboutPerson() {
         <StyledAboutPersonPhoto src={BossPhoto} />
       </StyledAboutPersonPhotoContainer>
       <StyledAboutPersonInfo>
-        <Description type={DescriptionType.CONTACTS}>
+        <Description size={DescriptionSize.S}>
           Меня зовут Василий Мурзыченко. Я отвечаю за постройку домов в компании
           real-estate. Как видите, в моих лапах достаточно сил, чтобы держать не
           только молоток и уровень, но и контроль над всем строительством. То,
           что у меня лапки - не оправдание.
         </Description>
-        <Title level={TitleLevel.H2} type={TitleType.CONTACTS}>
+        <Title
+          level={TitleLevel.H2}
+          size={TitleSize.L}
+          weight={TitleWeight.BOLD}
+        >
           Василий Мурзыченко
         </Title>
       </StyledAboutPersonInfo>

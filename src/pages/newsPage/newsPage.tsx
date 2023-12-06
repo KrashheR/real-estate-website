@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../components/ui/title/title';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchNews } from '../../store/reducers/ActionCreators';
 import {
@@ -34,7 +34,11 @@ function NewsPage() {
 
   return (
     <StyledNewsPage>
-      <Title level={TitleLevel.H1} type={TitleType.PAGETITLE}>
+              <Title
+          level={TitleLevel.H2}
+          size={TitleSize.XL}
+          weight={TitleWeight.BOLD}
+        >
         Наши новости
       </Title>
       <NewsList news={news} />

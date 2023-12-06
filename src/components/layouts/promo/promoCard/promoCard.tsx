@@ -1,9 +1,16 @@
-import { StyledPromoCard, StyledPromoImg } from './styled';
+import {
+  StyledPromoCard,
+  StyledPromoCardDescriptionContainer,
+  StyledPromoCardImg,
+} from './styled';
 import Title, {
   TitleLevel,
-  TitleType,
+  TitleSize,
+  TitleWeight,
 } from '../../../ui/title/title';
-import Description, { DescriptionType } from '../../../ui/description/description';
+import Description, {
+  DescriptionSize,
+} from '../../../ui/description/description';
 import { Link } from 'react-router-dom';
 
 interface PromoCardProps {
@@ -19,12 +26,15 @@ function PromoCard(props: PromoCardProps) {
     <StyledPromoCard as={Link} to={props.href} $area={props.area}>
       <Title
         level={TitleLevel.H2}
-        type={TitleType.PROMOCARD}
+        size={TitleSize.M}
+        weight={TitleWeight.SEMIBOLD}
       >
         {props.title}
       </Title>
-      <Description type={DescriptionType.PROMOCARD}>{props.description}</Description>
-      <StyledPromoImg src={props.img} />
+      <StyledPromoCardDescriptionContainer>
+        <Description size={DescriptionSize.XS}>{props.description}</Description>
+      </StyledPromoCardDescriptionContainer>
+      <StyledPromoCardImg src={props.img} />
     </StyledPromoCard>
   );
 }

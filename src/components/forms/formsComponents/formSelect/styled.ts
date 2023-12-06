@@ -34,8 +34,10 @@ export const StyledFormSelect = styled.select`
     width: 80vw;
   }
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 50px;
     font-size: 14px;
+    padding: 10px 20px;
   }
 `;
 

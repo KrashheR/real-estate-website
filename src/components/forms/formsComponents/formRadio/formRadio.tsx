@@ -17,7 +17,7 @@ interface FormRadioProps {
 
 export enum FormRadioType {
   CATALOG = "catalog",
-  APARTMENT = "apartment",
+  BUILDING = "apartment",
   CONSTRUCTOR = "constructor",
 }
 

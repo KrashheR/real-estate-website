@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { StyledReadMoreButton } from '../../../ui/readMoreButton/styled';
+import CountdownTimer from '../../../ui/countdownTimer/countdownTimer';
 
 export const StyledCountdownOfferCard = styled.a`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 10px;
   width: 620px;
   height: 240px;
@@ -26,8 +27,8 @@ export const StyledCountdownOfferCard = styled.a`
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    padding: 15px;
     width: 45vw;
+    padding: 20px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
@@ -35,32 +36,61 @@ export const StyledCountdownOfferCard = styled.a`
     height: 240px;
   }
 
-  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    gap: 5px;
-    height: 200px;
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 190px;
   }
 `;
 
 export const StyledCountdownOfferCardText = styled.p`
   color: ${(props) => props.theme.colors.colorLightRed};
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  grid-area: text;
 
-  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
     font-size: 14px;
   }
 `;
 
 export const StyledCountdownOfferCardContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    'text button'
+    'timer button';
   align-items: center;
-  gap: 20px;
+  gap: 5px;
+  margin-top: auto;
 
-  @media(max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    gap: 10px;
-  }
-
-  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 5px;
+  }
+`;
+
+export const StyledCountdownOfferButton = styled(StyledReadMoreButton)`
+  display: block;
+  grid-area: button;
+  justify-self: flex-end;
+  height: 100%;
+  border-radius: 20px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    align-self: flex-end;
+  }
+`;
+
+export const StyledCountdownOfferTimer = styled(CountdownTimer)`
+  grid-area: timer;
+`;
+
+export const StyledCountdownOfferDescriptionContainer = styled.div`
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    display: none;
   }
 `;

@@ -1,11 +1,12 @@
 import { ChangeEvent, MouseEventHandler } from 'react';
 import { IConstructor, UserChoices } from '../../../../types/IConstructor';
 import FormRadio, { FormRadioType } from '../../../forms/formsComponents/formRadio/formRadio';
-import Title, { TitleLevel, TitleType } from '../../title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../title/title';
 import {
   StyledConstructorButton,
   StyledConstructorButtonsContainer,
   StyledConstructorItem,
+  StyledConstructorItemTitle,
   StyledConstructorVariants,
 } from './styled';
 
@@ -37,9 +38,12 @@ function ConstructorItem({
 
   return (
     <StyledConstructorItem isActive={dataItem.id === questionNumber}>
-      <Title level={TitleLevel.H2} type={TitleType.CONSTRUCTOR}>
-        {dataItem.question}
-      </Title>
+      <StyledConstructorItemTitle>
+        <Title level={TitleLevel.H2} size={TitleSize.XL} weight={TitleWeight.SEMIBOLD}>
+          {dataItem.question}
+        </Title>
+      </StyledConstructorItemTitle>
+
       {dataItem.variants.length > 0 && (
         <StyledConstructorVariants>
           {dataItem.variants.map((item, index) => (

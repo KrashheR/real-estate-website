@@ -1,24 +1,25 @@
 import Description, {
-  DescriptionType,
+  DescriptionSize,
 } from '../../../components/ui/description/description';
 import Phone, { PhoneType } from '../../../components/ui/phone/phone';
 import Title, {
   TitleLevel,
-  TitleType,
+  TitleSize,
+  TitleWeight,
 } from '../../../components/ui/title/title';
 import { StyledAboutContact } from './styled';
 
 function AboutContact() {
   return (
     <StyledAboutContact>
-      <Title level={TitleLevel.H2} type={TitleType.CONTACTS}>
+      <Title level={TitleLevel.H2} size={TitleSize.L} weight={TitleWeight.BOLD}>
         Связаться с нами
       </Title>
-      <Description type={DescriptionType.CONTACTS}>
+      <Description size={DescriptionSize.S}>
         При возникновении каких-либо вопросов, Вы всегда можете связаться с нами
         по следующему номеру:
       </Description>
-      <Phone phoneType={PhoneType.CONTACTS}/>
+      <Phone phoneType={PhoneType.CONTACTS} />
     </StyledAboutContact>
   );
 }

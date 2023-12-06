@@ -1,5 +1,5 @@
 import FullSizeImage from '../../../components/ui/fullSizeImage/fullSizeImage';
-import Title, { TitleLevel, TitleType } from '../../../components/ui/title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../../components/ui/title/title';
 import Container from '../../../components/layouts/container/container';
 import { StyledApartmentTitleContainer, StyledApartmentTitle } from './styled';
 
@@ -15,7 +15,11 @@ function ApartmentHeader({ bigImage, bigMobileImage, title }: ApartmentHeaderPro
       <FullSizeImage imageSrc={bigImage} imageMobileSrc={bigMobileImage}/>
       <Container>
         <StyledApartmentTitle>
-          <Title level={TitleLevel.H1} type={TitleType.APARTMENT}>
+        <Title
+          level={TitleLevel.H2}
+          size={TitleSize.XXL}
+          weight={TitleWeight.BOLD}
+        >
             {'ЖК «' + title + '»'}
           </Title>
         </StyledApartmentTitle>

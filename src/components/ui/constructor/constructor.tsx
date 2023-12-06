@@ -24,12 +24,10 @@ function Constructor({ data }: ConstructorProps) {
 
   const handleNext = () => {
     setQuestionNumber(questionNumber + 1);
-    console.log(userChoices);
   };
 
   const handleBack = () => {
     setQuestionNumber(questionNumber - 1);
-
   };
 
   useEffect(() => {

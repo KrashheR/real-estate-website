@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledApartmentAbout = styled.section`
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
 `;
 
 export const StyledApartmentAboutText = styled.div`
@@ -13,7 +14,7 @@ export const StyledApartmentAboutText = styled.div`
 
 export const StyledApartmentAboutInfo = styled.div`
   display: grid;
-  margin-top: 30px;
+  margin-top: 20px;
   grid-template-columns: 3fr 1fr;
   gap: 80px;
 

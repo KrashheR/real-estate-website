@@ -1,8 +1,9 @@
 import { useAppSelector } from '../../../../hooks/redux';
 import { selectFilteredBuildings } from '../../../../store/reducers/buildings/BuildingSelectors';
 import BuildingsCard from '../../../../pages/buildingsPage/buildingsCard/buildingsCard';
-import Title, { TitleLevel, TitleType } from '../../title/title';
-import { StyledConstructorResult, StyledConstructorResultEmpty, StyledConstructorResultList } from './styled';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../title/title';
+import { StyledConstructorResult, StyledConstructorResultEmpty} from './styled';
+import { StyledBuildingsList } from '../../../../pages/buildingsPage/buildingsList/styled';
 
 interface ConstructorResultProps {
   isActive: boolean;
@@ -13,14 +14,14 @@ function ConstructorResult({ isActive }: ConstructorResultProps) {
 
   return (
     <StyledConstructorResult isActive={isActive}>
-      <Title level={TitleLevel.H2} type={TitleType.CONSTRUCTOR}>
+      <Title level={TitleLevel.H2} size={TitleSize.XL} weight={TitleWeight.BOLD}>
         Вам подходят эти дома
       </Title>
-      <StyledConstructorResultList>
+      <StyledBuildingsList>
         {filteredBuildings.map((item) => {
           return <BuildingsCard data={item} key={item.id} />;
         })}
-      </StyledConstructorResultList>
+      </StyledBuildingsList>
       {filteredBuildings.length === 0 && (
         <StyledConstructorResultEmpty>Нет квартир, соответствующих вашим фильтрам.</StyledConstructorResultEmpty>
       )}

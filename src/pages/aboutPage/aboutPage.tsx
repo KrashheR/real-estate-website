@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { z } from 'zod';
 import Modal, { ModalType } from '../../components/ui/modal/modal';
-import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../components/ui/title/title';
 import YandexMap from '../../components/ui/yandexMap/yandexMap';
 import AboutButton from './aboutButton/aboutButton';
 import {
@@ -43,7 +43,11 @@ function About() {
   return (
     <StyledAboutContainer>
       <StyledAboutHeader>
-        <Title level={TitleLevel.H1} type={TitleType.PAGETITLE}>
+      <Title
+        level={TitleLevel.H2}
+        size={TitleSize.XL}
+        weight={TitleWeight.BOLD}
+      >
           Наш офис на карте
         </Title>
         <AboutButton onClick={handleOpenModal} />

@@ -13,9 +13,8 @@ type StyledBuildingsCardTypeProps = {
 export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
   display: flex;
   flex-direction: column;
-  justify-content: end;
   width: 370px;
-  height: 410px;
+  height: 400px;
   color: ${(props) =>
     props.$type === 'premium'
       ? props.theme.colors.colorWhite
@@ -32,10 +31,6 @@ export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
     }
   }
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    height: 380px;
-  }
-
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     width: 80vw;
     height: 500px;
@@ -46,29 +41,25 @@ export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
-    height: 350px;
+    height: 340px;
   }
 `;
 
 export const StyledBuildingsCardPicture = styled.picture`
   display: block;
-  height: 263px;
+  height: 260px;
   width: 100%;
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    height: 233px;
-  }
-
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
-    height: 353px;
+    height: 360px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    height: 253px;
+    height: 270px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
-    height: 193px;
+    height: 210px;
   }
 `;
 
@@ -85,13 +76,17 @@ export const StyledBuildingsCardDescription = styled.div<StyledBuildingsCardType
   flex-direction: column;
   justify-content: end;
   gap: 20px;
-  height: 147px;
+  height: 140px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: ${(props) =>
     props.$type === 'premium'
       ? props.theme.colors.colorMainRed
       : props.theme.colors.colorLightRed};
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 130px;
+  }
 `;
 
 export const StyledBuildingsCardAvaiableContainer = styled.div`
@@ -110,6 +105,10 @@ export const StyledBuildingsCardAvaiableContainer = styled.div`
 export const StyledBuildingsCardAvaiable = styled.span<StyledBuildingsCardAreaProps>`
   grid-area: ${(props) => props.$area};
   font-size: 12px;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    font-size: 10px;
+  }
 `;
 
 export const StyledBuildingsCardPlaceContainer = styled.div`
@@ -129,7 +128,7 @@ export const StyledBuildingsCardPlaceText = styled.span`
 export const StyledBuildingsCardTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
   padding: 0 20px;
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
@@ -159,5 +158,10 @@ export const StyledBuildingsCardButton = styled(
     height: 35px;
     width: 90px;
     font-size: 12px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    width: 78px;
+    padding: 0;
   }
 `;

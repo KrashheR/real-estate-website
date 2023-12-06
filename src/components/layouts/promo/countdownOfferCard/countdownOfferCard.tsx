@@ -2,12 +2,17 @@ import {
   StyledCountdownOfferCard,
   StyledCountdownOfferCardContainer,
   StyledCountdownOfferCardText,
+  StyledCountdownOfferButton,
+  StyledCountdownOfferTimer,
+  StyledCountdownOfferDescriptionContainer,
 } from './styled';
-import Title, { TitleLevel, TitleType } from '../../../ui/title/title';
-import ReadMoreButton from '../../../ui/readMoreButton/readMoreButton';
-import CountdownTimer from '../../../ui/countdownTimer/countdownTimer';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../ui/title/title';
 import Description, {
-  DescriptionType,
+  DescriptionSize,
 } from '../../../ui/description/description';
 import { Link } from 'react-router-dom';
 
@@ -19,20 +24,27 @@ interface CountodwnOfferCardProps {
 function CountdownOfferCard({ toDate, link }: CountodwnOfferCardProps) {
   return (
     <StyledCountdownOfferCard as={Link} to={link}>
-      <Title level={TitleLevel.H2} type={TitleType.PROMOCOUNTER}>
+      <Title
+        level={TitleLevel.H2}
+        size={TitleSize.M}
+        weight={TitleWeight.SEMIBOLD}
+      >
         Первоначальный взнос всего 15% вместо 20%!
       </Title>
-      <Description type={DescriptionType.PROMOCOUNTDOWN}>
-        Не упусти уникальную возможность стать собственником нового жилья.
-        Ипотека на выгодных условиях ждёт именно тебя!
-      </Description>
+      <StyledCountdownOfferDescriptionContainer>
+        <Description size={DescriptionSize.XS}>
+          Только в этом месяце! Не упусти уникальную возможность стать
+          собственником нового жилья в лучших ЖК города! Ипотека со сниженным
+          первоначальным взносом ждёт именно тебя!
+        </Description>
+      </StyledCountdownOfferDescriptionContainer>
       <StyledCountdownOfferCardContainer>
         <StyledCountdownOfferCardText>
           До окончания предложения:
         </StyledCountdownOfferCardText>
-        <CountdownTimer endDate={new Date(toDate)} />
+        <StyledCountdownOfferTimer endDate={new Date(toDate)} />
+        <StyledCountdownOfferButton>Подробнее</StyledCountdownOfferButton>
       </StyledCountdownOfferCardContainer>
-      <ReadMoreButton>Подробнее</ReadMoreButton>
     </StyledCountdownOfferCard>
   );
 }

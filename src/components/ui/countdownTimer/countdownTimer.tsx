@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
+  StyledCountdownTimer,
   StyledCountdownTimerContainer,
   StyledCountdownTimerValue,
   StyledCountdownTimerLabel,
@@ -58,7 +59,7 @@ function CountdownTimer({ endDate } : CountdownTimerProps){
   }, [endDate]);
 
   return (
-    <div>
+    <StyledCountdownTimer>
       <StyledCountdownTimerContainer>
         <StyledCountdownTimerValue>{timeLeft.days}</StyledCountdownTimerValue>
         <StyledCountdownTimerLabel>дней</StyledCountdownTimerLabel>
@@ -79,7 +80,7 @@ function CountdownTimer({ endDate } : CountdownTimerProps){
         </StyledCountdownTimerValue>
         <StyledCountdownTimerLabel>секунд</StyledCountdownTimerLabel>
       </StyledCountdownTimerContainer>
-    </div>
+    </StyledCountdownTimer>
   );
 };
 

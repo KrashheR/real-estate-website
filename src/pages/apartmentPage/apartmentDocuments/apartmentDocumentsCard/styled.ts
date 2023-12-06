@@ -18,14 +18,18 @@ export const StyledApartmentDocumentsCard = styled.a`
   }
 
   @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    width: 45%;
-    height: 130px;
-    padding: 15px;
+    width: 100%;
+    height: 140px;
+    padding: 20px;
   }
 `;
 
 export const StyledApartmentDocumentsCardImage = styled.img`
   width: 80px;
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 50px;
+  }
 
   @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     width: 30px;

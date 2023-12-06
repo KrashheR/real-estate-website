@@ -1,4 +1,4 @@
-import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../components/ui/title/title';
 import { StyledBuildings, StyledBuildingsContainer } from './styled';
 import BuildingsFilterForm from '../../components/forms/buildingsFilterForm/buildingsFilterForm';
 import BuildingsList from './buildingsList/buildingsList';
@@ -7,7 +7,11 @@ function BuildingsPage() {
   return (
     <StyledBuildings>
       <StyledBuildingsContainer>
-        <Title level={TitleLevel.H1} type={TitleType.PAGETITLE}>
+      <Title
+          level={TitleLevel.H2}
+          size={TitleSize.XL}
+          weight={TitleWeight.BOLD}
+        >
           Каталог новостроек:
         </Title>
         <BuildingsFilterForm />

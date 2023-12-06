@@ -1,8 +1,12 @@
 import { IApartmentDocumentsData } from '../../../types/IBuilding';
 import Description, {
-  DescriptionType,
+  DescriptionSize,
 } from '../../../components/ui/description/description';
-import Title, { TitleLevel, TitleType } from '../../../components/ui/title/title';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../components/ui/title/title';
 import Container from '../../../components/layouts/container/container';
 import ApartmentDocumentsCard from './apartmentDocumentsCard/apartmentDocumentsCard';
 import {
@@ -22,10 +26,14 @@ function ApartmentDocuments({ documents }: ApartmentDocumentsProps) {
     <Container>
       <StyledApartmentDocuments>
         <StyledApartmentDocumentsHeader>
-          <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
+          <Title
+            level={TitleLevel.H2}
+            size={TitleSize.XL}
+            weight={TitleWeight.BOLD}
+          >
             Документы проекта
           </Title>
-          <Description type={DescriptionType.DOCUMENTS}>
+          <Description size={DescriptionSize.XS}>
             Все документы находятся в открытом доступе. Здесь вы можете
             ознакомиться со всеми необходимыми документами по проекту.
           </Description>

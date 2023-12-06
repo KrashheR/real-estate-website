@@ -8,11 +8,17 @@ export const StyledApartmentDocuments = styled.section`
 `;
 
 export const StyledApartmentDocumentsHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 10px;
 `;
 
 export const StyledApartmentDocumentsCards = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;

@@ -24,6 +24,10 @@ export const StyledFormRange = styled.div`
     width: 80vw;
   }
 
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 50px;
+    font-size: 14px;
+  }
 `;
 
 export const StyledFormRangeContainer = styled.span`
@@ -34,7 +38,7 @@ export const StyledFormRangeContainer = styled.span`
   font-size: 16px;
   gap: 4px;
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     font-size: 14px;
   }
 `;
@@ -50,7 +54,7 @@ export const StyledFormRangeInput = styled.input`
   padding-left: 5px;
   color: ${(props) => props.theme.colors.colorBlack};
 
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     font-size: 14px;
   }
 `;

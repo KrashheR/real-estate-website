@@ -12,8 +12,7 @@ import {
   StyledBuildingsCardImage,
 } from './styled';
 import Title, {
-  TitleLevel,
-  TitleType,
+  TitleLevel, TitleSize, TitleWeight,
 } from '../../../components/ui/title/title';
 import metroPremium from '../../../assets/images/card/metroPremium.svg';
 import humanPremium from '../../../assets/images/card/humanPremium.svg';
@@ -73,7 +72,7 @@ function BuildingsCard({ data }: BuildingsCardProps) {
       </StyledBuildingsCardPicture>
       <StyledBuildingsCardDescription $type={data.type}>
         <StyledBuildingsCardTitleContainer>
-          <Title level={TitleLevel.H2} type={TitleType.CARD}>
+          <Title level={TitleLevel.H2} size={TitleSize.M} weight={TitleWeight.SEMIBOLD}>
             {data.title}
           </Title>
           <StyledBuildingsCardPlaceContainer>
@@ -105,7 +104,7 @@ function BuildingsCard({ data }: BuildingsCardProps) {
             от {parkingMinPrice} млн.
           </StyledBuildingsCardAvaiable>
           <StyledBuildingsCardButton $type={data.type}>
-            ПОДРОБНЕЕ
+            Подробнее
           </StyledBuildingsCardButton>
         </StyledBuildingsCardAvaiableContainer>
       </StyledBuildingsCardDescription>

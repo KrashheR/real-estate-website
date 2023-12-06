@@ -1,7 +1,7 @@
 import Description, {
-  DescriptionType,
+  DescriptionSize,
 } from '../../../components/ui/description/description';
-import Title, { TitleLevel, TitleType } from '../../../components/ui/title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight} from '../../../components/ui/title/title';
 import Container from '../../../components/layouts/container/container';
 import {
   StyledApartmentAbout,
@@ -25,7 +25,11 @@ function ApartmentAbout({
   return (
     <Container>
       <StyledApartmentAbout>
-        <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
+      <Title
+        level={TitleLevel.H2}
+        size={TitleSize.XL}
+        weight={TitleWeight.BOLD}
+      >
           О проекте
         </Title>
         <StyledApartmentAboutInfo>
@@ -33,7 +37,7 @@ function ApartmentAbout({
             {apartmentDescription.map((item, index) => {
               const key = `${index}-${item.substring(0, 5)}`;
               return (
-                <Description type={DescriptionType.APARTMENT} key={key}>
+                <Description size={DescriptionSize.S} key={key}>
                   {item}
                 </Description>
               );

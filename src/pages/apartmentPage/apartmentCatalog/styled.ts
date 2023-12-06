@@ -5,8 +5,6 @@ export const StyledApartmentCatalogSelector = styled.div``;
 
 export const StyledApartmentCatalog = styled.section`
   padding: 30px 0;
-  gap: 40px;
-  margin-top: 60px;
   background-color: ${(props) => props.theme.colors.colorLightRed};
 `;
 

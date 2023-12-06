@@ -26,7 +26,7 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
   min-width: ${(props) => {
     if (props.$formRadioType === FormRadioType.CATALOG) {
       return '55px';
-    } else if (props.$formRadioType === FormRadioType.APARTMENT) {
+    } else if (props.$formRadioType === FormRadioType.BUILDING) {
       return '80px';
     } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
       return '450px';
@@ -59,23 +59,24 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
     min-width: ${(props) => {
       if (props.$formRadioType === FormRadioType.CATALOG) {
         return '55px';
-      } else if (props.$formRadioType === FormRadioType.APARTMENT) {
+      } else if (props.$formRadioType === FormRadioType.BUILDING) {
         return '40px';
       } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
         return '45vw';
       }
     }};
     padding: ${(props) => {
-      if (props.$formRadioType === FormRadioType.APARTMENT) {
+      if (props.$formRadioType === FormRadioType.BUILDING) {
         return '0 10px';
-      }}}
+      }
+    }};
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     min-width: ${(props) => {
       if (props.$formRadioType === FormRadioType.CATALOG) {
         return '55px';
-      } else if (props.$formRadioType === FormRadioType.APARTMENT) {
+      } else if (props.$formRadioType === FormRadioType.BUILDING) {
         return '90px';
       } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
         return '40vw';
@@ -87,19 +88,27 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
     min-width: ${(props) => {
       if (props.$formRadioType === FormRadioType.CATALOG) {
         return '55px';
-      } else if (props.$formRadioType === FormRadioType.APARTMENT) {
+      } else if (props.$formRadioType === FormRadioType.BUILDING) {
         return '70px';
       } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
         return '90vw';
       }
     }};
+
+    height: ${(props) => {
+      if (props.$formRadioType === FormRadioType.BUILDING) {
+        return '50px';
+      }
+    }};
+
+    font-size: 14px;
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
     min-width: ${(props) => {
       if (props.$formRadioType === FormRadioType.CATALOG) {
         return '55px';
-      } else if (props.$formRadioType === FormRadioType.APARTMENT) {
+      } else if (props.$formRadioType === FormRadioType.BUILDING) {
         return '50px';
       } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
         return '90vw';
@@ -111,8 +120,11 @@ export const StyledFormRadioLabel = styled.label<StyledFormRadioProps>`
         : '0px 10px';
     }};
     height: ${(props) => {
-      return props.$formRadioType === FormRadioType.CATALOG ? '55px' : '60px';
+      if (props.$formRadioType === FormRadioType.CATALOG) {
+        return '55px';
+      } else if (props.$formRadioType === FormRadioType.CONSTRUCTOR) {
+        return '50px';
+      }
     }};
-    font-size: 14px;
   }
 `;

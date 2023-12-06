@@ -4,7 +4,7 @@ export const StyledNewsCard = styled.a`
   display: flex;
   flex-direction: column;
   width: 360px;
-  height: 320px;
+  height: 310px;
   background-color: ${(props) => props.theme.colors.colorLightRed};
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -21,6 +21,11 @@ export const StyledNewsCard = styled.a`
 
   @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     width: 100%;
+    height: 300px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    height: fit-content;
   }
 `;
 
@@ -39,6 +44,10 @@ export const StyledNewsCardTextContainer = styled.div`
   height: 100%;
   padding: 10px 20px;
   color:${(props) => props.theme.colors.colorBlack};
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    gap: 10px;
+  }
 `;
 
 export const StyledCardDate = styled.p`

@@ -1,4 +1,8 @@
-import Title, { TitleLevel, TitleType } from '../../../../components/ui/title/title';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../../components/ui/title/title';
 import {
   StyledApartmentDocumentsCard,
   StyledApartmentDocumentsCardDownloadText,
@@ -21,7 +25,11 @@ function ApartmentDocumentsCard({
 }: DocumentCardProps) {
   return (
     <StyledApartmentDocumentsCard href={downloadLink}>
-      <Title level={TitleLevel.H3} type={TitleType.DOCUMENTSCARD}>
+      <Title
+        level={TitleLevel.H2}
+        size={TitleSize.L}
+        weight={TitleWeight.BOLD}
+      >
         {title}
       </Title>
       <StyledApartmentDocumentsCardFooter>

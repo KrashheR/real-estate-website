@@ -20,7 +20,7 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
-    color 0.1s ease;
+    color 0.2s ease;
 
   @media (min-width: ${(props) => props.theme.deviceSizes.laptop}) {
     &:hover {
@@ -53,7 +53,7 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   }
 `;
 
-export const StyledPromoImg = styled.img`
+export const StyledPromoCardImg = styled.img`
   width: 200px;
   height: 80px;
   margin-top: auto;
@@ -77,5 +77,11 @@ export const StyledPromoImg = styled.img`
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
     width: 12vw;
     height: 12vw;
+  }
+`;
+
+export const StyledPromoCardDescriptionContainer = styled.div`
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    display: none;
   }
 `;

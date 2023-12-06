@@ -1,4 +1,4 @@
-import Title, { TitleLevel, TitleType } from '../../../components/ui/title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../../components/ui/title/title';
 import Catalog from '../../../components/layouts/catalog/catalog';
 import { StyledApartmentCatalog, StyledCatalogContainer } from './styled';
 
@@ -10,7 +10,11 @@ function ApartmentCatalog({ apartments }: ApartmentCatalogProps) {
   return (
     <StyledApartmentCatalog>
       <StyledCatalogContainer>
-        <Title level={TitleLevel.H2} type={TitleType.APARTMENTSECTION}>
+         <Title
+        level={TitleLevel.H2}
+        size={TitleSize.XL}
+        weight={TitleWeight.BOLD}
+      >
           Выберите квартиру
         </Title>
         <Catalog apartments={apartments} />

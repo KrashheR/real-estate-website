@@ -1,8 +1,12 @@
 import { useParams } from 'react-router-dom';
 import Description, {
-  DescriptionType,
+  DescriptionSize,
 } from '../../components/ui/description/description';
-import Title, { TitleLevel, TitleType } from '../../components/ui/title/title';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../components/ui/title/title';
 import { useAppSelector } from '../../hooks/redux';
 import { selectNewsById } from '../../store/reducers/news/NewsSelectors';
 import {
@@ -30,14 +34,18 @@ function NewsArticle() {
           <source srcSet={data.imageMobile} media="(max-width: 576px)" />
           <StyledNewsImage src={data.image} />
         </StyledNewsPicture>
-        <Title level={TitleLevel.H2} type={TitleType.NEWS}>
+        <Title
+          level={TitleLevel.H2}
+          size={TitleSize.L}
+          weight={TitleWeight.BOLD}
+        >
           {data.title}
         </Title>
         <StyledNewsText>
           {newsDescription.map((item, index) => {
             const key = `${index}-${item.substring(0, 5)}`;
             return (
-              <Description type={DescriptionType.NEWS} key={key}>
+              <Description size={DescriptionSize.S} key={key}>
                 {item}
               </Description>
             );

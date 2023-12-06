@@ -1,5 +1,5 @@
-import Description, { DescriptionType } from "../../../../components/ui/description/description";
-import Title, { TitleType, TitleLevel } from "../../../../components/ui/title/title";
+import Description, { DescriptionSize } from "../../../../components/ui/description/description";
+import Title, { TitleSize, TitleWeight, TitleLevel } from "../../../../components/ui/title/title";
 import { StyledApartmentFeature, StyledApartmentFeatureContainer, StyledApartmentFeatureImage } from "./styled";
 import metroImg from "../../../../assets/images/apartmentFeatures/metro.svg";
 import hospitalImg from "../../../../assets/images/apartmentFeatures/hospital.svg"
@@ -45,8 +45,12 @@ function ApartmentFeature({descriptionText, type}: FeatureProps) {
     <StyledApartmentFeature>
       <StyledApartmentFeatureImage src={imageSrc}/>
       <StyledApartmentFeatureContainer>
-        <Title level={TitleLevel.H3} type={TitleType.APARTMENTFEATURE}>{titleText}</Title>
-        <Description type={DescriptionType.APARTMENTFEAUTURE}>{descriptionText}</Description>
+      <Title
+          level={TitleLevel.H2}
+          size={TitleSize.S}
+          weight={TitleWeight.SEMIBOLD}
+        >{titleText}</Title>
+        <Description size={DescriptionSize.XS}>{descriptionText}</Description>
       </StyledApartmentFeatureContainer>
     </StyledApartmentFeature>
   );

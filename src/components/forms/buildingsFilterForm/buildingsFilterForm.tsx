@@ -103,7 +103,7 @@ function BuildingsFilterForm() {
                   value={option.value}
                   defaultChecked={defaultChecked === option.value}
                   onChange={handleDeliveryDateChange}
-                  radioType={FormRadioType.APARTMENT}
+                  radioType={FormRadioType.BUILDING}
                   label={option.label}
                 />
               </React.Fragment>
