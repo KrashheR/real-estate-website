@@ -1,61 +1,30 @@
 import styled from 'styled-components';
-import { TitleType } from './title';
+import { TitleSize, TitleWeight } from './title';
 
 type StyledTitleProps = {
-  $titleType: TitleType;
+  $titleSize: TitleSize;
+  $titleWeight: TitleWeight;
 };
 
 export const StyledTitle = styled.h1<StyledTitleProps>`
   padding: 0;
-  font-size: ${(props) => {
-    if (props.$titleType === TitleType.APARTMENT) {
-      return '60px';
-    } else if (props.$titleType === TitleType.APARTMENTSECTION) {
-      return '48px';
-    } else if (props.$titleType === TitleType.DOCUMENTSCARD) {
-      return '28px';
-    } else if (
-      props.$titleType === TitleType.PROMO ||
-      props.$titleType === TitleType.CARD
-    ) {
-      return '24px';
-    } else if (props.$titleType === TitleType.APARTMENTFEATURE) {
-      return '16px';
-    }
-  }};
-  font-weight: ${(props) => {
-    if (props.$titleType === TitleType.CARD) {
-      return 700;
-    } else if (
-      props.$titleType === TitleType.PROMO ||
-      props.$titleType === TitleType.APARTMENT ||
-      props.$titleType === TitleType.APARTMENTMAP
-    ) {
-      return 600;
-    } else if (props.$titleType === TitleType.APARTMENTFEATURE) {
-      return 600;
-    } else if (props.$titleType === TitleType.APARTMENTSECTION) {
-      return 700;
-    }
-  }};
+  font-size: ${(props) => props.theme.fontSizes.desktop[props.$titleSize]};
+  font-weight: ${(props) => props.$titleWeight};
 
-  text-transform: ${(props) => {
-    return props.$titleType === TitleType.APARTMENT ? 'uppercase' : 'none';
-  }};
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    font-size: ${(props) => props.theme.fontSizes.laptop[props.$titleSize]};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    font-size: ${(props) => props.theme.fontSizes.tablet[props.$titleSize]};
+  }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    font-size: ${(props) => {
-      return props.$titleType === TitleType.APARTMENT
-        ? props.theme.fontSizes.sectionTitleMobile
-        : props.theme.fontSizes.cardTitleMobile;
-    }};
+    font-size: ${(props) => props.theme.fontSizes.mobile[props.$titleSize]};
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
-    font-size: ${(props) => {
-      return props.$titleType === TitleType.APARTMENT
-        ? props.theme.fontSizes.sectionTitleMobileSmall
-        : props.theme.fontSizes.cardTitleMobileSmall;
-    }};
+    font-size: ${(props) =>
+      props.theme.fontSizes.mobileSmall[props.$titleSize]};
   }
 `;

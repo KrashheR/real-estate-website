@@ -1,25 +1,33 @@
 import styled from 'styled-components';
-import { DescriptionType } from './description';
+import { DescriptionSize } from './description';
 
 interface StyledDescriptionProps {
-  $descriptionType: DescriptionType;
+  $descriptionSize: DescriptionSize;
 }
 
 export const StyledDescription = styled.p<StyledDescriptionProps>`
-  width: ${(props) => props.$descriptionType === DescriptionType.DOCUMENTS ? "40%": "auto"};
   margin-block-start: 0;
-  font-size: ${(props) => {
-    if (props.$descriptionType === DescriptionType.APARTMENT) {
-      return '16px';
-    } else if (props.$descriptionType === DescriptionType.DOCUMENTS) {
-      return '16px';
-    } else {
-      return '14px';
-    }
-  }};
+  font-size: ${(props) =>
+    props.theme.fontSizes.desktop[props.$descriptionSize]};
   font-weight: 400;
 
+  @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    font-size: ${(props) =>
+      props.theme.fontSizes.laptop[props.$descriptionSize]};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    font-size: ${(props) =>
+      props.theme.fontSizes.tablet[props.$descriptionSize]};
+  }
+
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    padding: 0 5px;
+    font-size: ${(props) =>
+      props.theme.fontSizes.mobile[props.$descriptionSize]};
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    font-size: ${(props) =>
+      props.theme.fontSizes.mobileSmall[props.$descriptionSize]};
   }
 `;

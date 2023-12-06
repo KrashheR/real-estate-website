@@ -2,18 +2,20 @@ import { StyledDescription } from './styled';
 
 interface DescriptionProps {
   children: string;
-  type: DescriptionType;
+  size: DescriptionSize;
 }
 
-export enum DescriptionType {
-  APARTMENT = 'apartment',
-  APARTMENTFEAUTURE = 'apartmentFeature',
-  DOCUMENTS = 'dociments',
-  PROMO = 'apartment',
+export enum DescriptionSize {
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+  XL = 'xl',
+  XXL = 'xxl',
 }
 
-const Description: React.FC<DescriptionProps> = ({ type, children }) =>  {
-  return <StyledDescription $descriptionType={type}>{children}</StyledDescription>;
+const Description: React.FC<DescriptionProps> = ({ size, children }) =>  {
+  return <StyledDescription $descriptionSize={size}>{children}</StyledDescription>;
 }
 
 export default Description;

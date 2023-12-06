@@ -10,25 +10,33 @@ export enum TitleLevel {
   H6 = '6',
 }
 
-export enum TitleType {
-  APARTMENT = 'apartment',
-  APARTMENTFEATURE = 'apartmentFeature',
-  APARTMENTMAP = 'apartmentMap',
-  APARTMENTSECTION = 'apartmentSection',
-  DOCUMENTSCARD = 'documentscard',
-  CARD = 'card',
-  PROMO = 'promo',
+export enum TitleSize {
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+  XL = 'xl',
+  XXL = 'xxl',
+}
+
+export enum TitleWeight {
+  NORMAL = 400,
+  MEDIUM = 500,
+  SEMIBOLD = 600,
+  BOLD = 700,
+  BLACK = 800,
 }
 
 interface TitleProps {
   level: TitleLevel;
-  type: TitleType;
+  size: TitleSize;
+  weight: TitleWeight;
   children: string;
 }
 
-const Title: React.FC<TitleProps> = ({ level, type, children }) => {
+const Title: React.FC<TitleProps> = ({ level, size, weight, children }) => {
   return (
-    <StyledTitle as={`h${level}`} $titleType={type}>
+    <StyledTitle as={`h${level}`} $titleSize={size} $titleWeight={weight}>
       {children}
     </StyledTitle>
   );
