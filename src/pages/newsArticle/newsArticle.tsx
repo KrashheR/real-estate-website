@@ -11,6 +11,7 @@ import { useAppSelector } from '../../hooks/redux';
 import { selectNewsById } from '../../store/reducers/news/NewsSelectors';
 import {
   StyledNewsArticle,
+  StyledNewsBackToList,
   StyledNewsContainer,
   StyledNewsImage,
   StyledNewsPicture,
@@ -51,6 +52,7 @@ function NewsArticle() {
             );
           })}
         </StyledNewsText>
+        <StyledNewsBackToList to='/news/'>Вернуться к списку новостей</StyledNewsBackToList>
       </StyledNewsContainer>
     </StyledNewsArticle>
   );
