@@ -1,6 +1,8 @@
-import { ChangeEvent, MouseEventHandler } from 'react';
+import { ChangeEvent, MouseEventHandler, useState } from 'react';
 import { IConstructor, UserChoices } from '../../../../types/IConstructor';
-import FormRadio, { FormRadioType } from '../../../forms/formsComponents/formRadio/formRadio';
+import FormRadio, {
+  FormRadioType,
+} from '../../../forms/formsComponents/formRadio/formRadio';
 import Title, { TitleLevel, TitleSize, TitleWeight } from '../../title/title';
 import {
   StyledConstructorButton,
@@ -25,7 +27,10 @@ function ConstructorItem({
   questionNumber,
   setUserChoices,
 }: ConstructorItemProps) {
+  const [isVariantSelected, setVariantSelected] = useState<boolean>(false);
+
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setVariantSelected(true);
     const { value } = e.target;
     let updatedValue: string | number = value;
 
@@ -39,11 +44,14 @@ function ConstructorItem({
   return (
     <StyledConstructorItem isActive={dataItem.id === questionNumber}>
       <StyledConstructorItemTitle>
-        <Title level={TitleLevel.H2} size={TitleSize.XL} weight={TitleWeight.SEMIBOLD}>
+        <Title
+          level={TitleLevel.H2}
+          size={TitleSize.XL}
+          weight={TitleWeight.SEMIBOLD}
+        >
           {dataItem.question}
         </Title>
       </StyledConstructorItemTitle>
-
       {dataItem.variants.length > 0 && (
         <StyledConstructorVariants>
           {dataItem.variants.map((item, index) => (
@@ -61,11 +69,14 @@ function ConstructorItem({
       )}
       <StyledConstructorButtonsContainer>
         {questionNumber > 0 && (
-          <StyledConstructorButton onClick={handleBack}>
+          <StyledConstructorButton onClick={handleBack} isActive={true}>
             Назад
           </StyledConstructorButton>
         )}
-        <StyledConstructorButton onClick={handleNext}>
+        <StyledConstructorButton
+          onClick={handleNext}
+          isActive={isVariantSelected}
+        >
           Вперёд
         </StyledConstructorButton>
       </StyledConstructorButtonsContainer>

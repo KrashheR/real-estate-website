@@ -4,6 +4,10 @@ interface StyledConstructorProps {
   isActive: boolean;
 }
 
+interface StyledConstructorButtonProps {
+  isActive: boolean;
+}
+
 export const StyledConstructorItemTitle = styled.span`
   text-align: center;
 `;
@@ -43,18 +47,19 @@ export const StyledConstructorButtonsContainer = styled.div`
   justify-content: center;
 `;
 
-export const StyledConstructorButton = styled.button`
+export const StyledConstructorButton = styled.button<StyledConstructorButtonProps>`
   width: 100%;
   align-self: center;
   height: 50px;
   border: none;
   border-radius: 25px;
-  background-color: ${(props) => props.theme.colors.colorLightRed};
-  color: ${(props) => props.theme.colors.colorBlack};
-  box-shadow: 0px 2px 4px ${(props) => props.theme.colors.boxShadowMain};
+  background-color: ${(props) => props.isActive ? props.theme.colors.colorLightRed : props.theme.colors.colorLightRedDisabled};
+  color: ${(props) => props.isActive ? props.theme.colors.colorBlack : props.theme.colors.colorBlackDisabled};
+  box-shadow: 0px 2px 4px ${(props) => props.isActive ? props.theme.colors.boxShadowMain : props.theme.colors.colorLightRed};
   font-size: 16px;
   transition: all 0.3s ease;
   cursor: pointer;
+  pointer-events: ${(props) => props.isActive ? "all" : "none"};
 
   &:hover {
     background-color: ${(props) => props.theme.colors.colorMainRed};
