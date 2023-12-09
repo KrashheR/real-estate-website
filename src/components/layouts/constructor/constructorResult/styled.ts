@@ -8,7 +8,7 @@ export const StyledConstructorResult = styled.div<StyledConstructorResultProps>`
   display:  ${(props) => props.isActive ? "flex" : "none"};
   flex-direction: column;
   gap: 40px;
-  height: 100%;
+  min-height: 65vh;
   width: 100%;
   color: ${(props) => props.theme.colors.colorBlack};
 `;

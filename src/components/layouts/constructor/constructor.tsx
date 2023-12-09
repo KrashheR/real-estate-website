@@ -4,8 +4,8 @@ import ConstructorResult from './constructorResult/constructorResult';
 import ConstructorItem from './constructorItem/constructorItem';
 import { IConstructor, UserChoices } from '../../../types/IConstructor';
 import { useAppDispatch } from '../../../hooks/redux';
-import { setFilters } from '../../../store/reducers/buildings/BuildingSlice';
-import ProgressBar from '../progressBar/progressBar';
+import { setFilters } from '../../../store/reducers/buildings/buildingSlice';
+import ProgressBar from '../../ui/progressBar/progressBar';
 
 interface ConstructorProps {
   data: IConstructor[];
@@ -40,7 +40,7 @@ function Constructor({ data }: ConstructorProps) {
   return (
     <StyledConstructor>
       <StyledConstructorItemsList>
-        {data.map((dataItem) => {
+        {data.map((dataItem: IConstructor) => {
           return (
             <ConstructorItem
               dataItem={dataItem}

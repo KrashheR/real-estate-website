@@ -16,8 +16,8 @@ export const StyledConstructorItem = styled.li<StyledConstructorProps>`
   display: ${(props) => props.isActive ? "flex": "none"};
   flex-direction: column;
   gap: 40px;
-  min-height: calc(100vh - 300px);
   width: 100%;
+  min-height: 65vh;
   background-color: ${(props) => props.theme.colors.colorWhite};
   color: ${(props) => props.theme.colors.colorBlack};
 `;

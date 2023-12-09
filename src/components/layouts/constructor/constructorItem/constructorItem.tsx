@@ -3,7 +3,7 @@ import { IConstructor, UserChoices } from '../../../../types/IConstructor';
 import FormRadio, {
   FormRadioType,
 } from '../../../forms/formsComponents/formRadio/formRadio';
-import Title, { TitleLevel, TitleSize, TitleWeight } from '../../title/title';
+import Title, { TitleLevel, TitleSize, TitleWeight } from '../../../ui/title/title';
 import {
   StyledConstructorButton,
   StyledConstructorButtonsContainer,
