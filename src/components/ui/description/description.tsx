@@ -14,7 +14,7 @@ export enum DescriptionSize {
   XXL = 'xxl',
 }
 
-const Description: React.FC<DescriptionProps> = ({ size, children }) =>  {
+function Description ({ size, children }: DescriptionProps) {
   return <StyledDescription $descriptionSize={size}>{children}</StyledDescription>;
 }
 
