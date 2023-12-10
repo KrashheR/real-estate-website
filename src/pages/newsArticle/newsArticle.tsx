@@ -8,15 +8,15 @@ import Title, {
   TitleWeight,
 } from '../../components/ui/title/title';
 import { useAppSelector } from '../../hooks/redux';
-import { selectNewsById } from '../../store/reducers/news/NewsSelectors';
+import { selectNewsById } from '../../store/reducers/news/newsSelectors';
 import {
   StyledNewsArticle,
-  StyledNewsBackToList,
   StyledNewsContainer,
   StyledNewsImage,
   StyledNewsPicture,
   StyledNewsText,
 } from './styled';
+import MyRouteButton from '../../components/ui/myRouteButton/myRouteButton';
 
 function NewsArticle() {
   const { id } = useParams<{ id: string }>();
@@ -52,7 +52,7 @@ function NewsArticle() {
             );
           })}
         </StyledNewsText>
-        <StyledNewsBackToList to='/news/'>Вернуться к списку новостей</StyledNewsBackToList>
+        <MyRouteButton link="/news/">Вернуться к списку новостей</MyRouteButton>
       </StyledNewsContainer>
     </StyledNewsArticle>
   );

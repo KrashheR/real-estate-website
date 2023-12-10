@@ -51,6 +51,6 @@ export const StyledNewsCardTextContainer = styled.div`
 `;
 
 export const StyledCardDate = styled.p`
-  color: ${(props) => props.theme.colors.colorGray};
+  color: ${(props) => props.theme.colors.colorBlack};
   font-size: 12px;
 `;

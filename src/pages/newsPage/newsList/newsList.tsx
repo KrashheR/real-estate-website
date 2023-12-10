@@ -4,13 +4,11 @@ import { INews } from '../../../types/INews';
 
 function NewsList({ news }: { news: INews[] }) {
   return (
-    <>
-      <StyledNewsList>
-        {news.map((item) => (
-          <NewsCard data={item} key={item.id} />
-        ))}
-      </StyledNewsList>
-    </>
+    <StyledNewsList>
+      {news.map((item: INews) => (
+        <NewsCard data={item} key={item.id} />
+      ))}
+    </StyledNewsList>
   );
 }
 

@@ -1,18 +1,24 @@
 import { useEffect } from 'react';
-import Title, { TitleLevel, TitleSize, TitleWeight } from '../../components/ui/title/title';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../components/ui/title/title';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchNews } from '../../store/reducers/ActionCreators';
+import { fetchNews } from '../../store/reducers/actionCreators';
 import {
   selectNews,
   selectNewsLoading,
   selectCurrentPage,
   selectPageSize,
-  selectTotalNews
-} from '../../store/reducers/news/NewsSelectors';
+  selectTotalNews,
+} from '../../store/reducers/news/newsSelectors';
 import NewsList from './newsList/newsList';
 import { StyledNewsPage } from './styled';
-import Pagination, { PaginationType } from '../../components/ui/pagination/pagintaion';
-import { updateCurrentPage } from '../../store/reducers/news/NewsSlice';
+import Pagination, {
+  PaginationType,
+} from '../../components/ui/pagination/pagintaion';
+import { updateCurrentPage } from '../../store/reducers/news/newsSlice';
 
 function NewsPage() {
   const dispatch = useAppDispatch();
@@ -26,7 +32,6 @@ function NewsPage() {
     dispatch(fetchNews({ page: currentPage, pageSize }));
   }, [dispatch, currentPage, pageSize]);
 
-
   const handlePageChange = (newPage: number) => {
     dispatch(updateCurrentPage(newPage));
     dispatch(fetchNews({ page: newPage, pageSize }));
@@ -34,22 +39,22 @@ function NewsPage() {
 
   return (
     <StyledNewsPage>
-              <Title
-          level={TitleLevel.H2}
-          size={TitleSize.XL}
-          weight={TitleWeight.BOLD}
-        >
+      <Title
+        level={TitleLevel.H2}
+        size={TitleSize.XL}
+        weight={TitleWeight.BOLD}
+      >
         Наши новости
       </Title>
       <NewsList news={news} />
       {isLoading ?? <p>Загрузка...</p>}
       <Pagination
-          total={totalNews}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-          paginationType={PaginationType.NEWS}
-        />
+        total={totalNews}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+        paginationType={PaginationType.NEWS}
+      />
     </StyledNewsPage>
   );
 }

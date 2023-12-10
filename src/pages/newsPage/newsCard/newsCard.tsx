@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import Title, {
   TitleLevel,
-  TitleType,
+  TitleSize,
+  TitleWeight,
 } from '../../../components/ui/title/title';
 import { INews } from '../../../types/INews';
 import { StyledCardDate, StyledNewsCard, StyledNewsCardImage, StyledNewsCardTextContainer } from './styled';
@@ -16,7 +17,11 @@ function NewsCard({ data }: NewsCardProps) {
     <StyledNewsCard as={Link} to={link}>
       <StyledNewsCardImage src={data.imageMobile} />
       <StyledNewsCardTextContainer>
-      <Title level={TitleLevel.H2} type={TitleType.NEWSCARD}>
+      <Title
+        level={TitleLevel.H2}
+        size={TitleSize.S}
+        weight={TitleWeight.BOLD}
+      >
         {data.title}
       </Title>
       <StyledCardDate>
