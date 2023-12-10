@@ -1,7 +1,7 @@
 import { Action, ThunkAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { AppDispatch, RootState } from '../store';
-import { buildingSlice } from './buildings/BuildingSlice';
-import { promoSlice } from './promo/PromoSlice';
+import { buildingSlice } from './buildings/buildingSlice';
+import { promoSlice } from './promo/promoSlice';
 import { getMinAndMaxApartmentPrice } from '../../utils/buildingPriceUtils';
 import { getCardsUrl, getPromoUrl, getNewsUrl } from '../routes';
 import axios from 'axios';
@@ -13,8 +13,8 @@ export const fetchBuildings = () => {
       .then((response) => response.json())
       .then((data) => {
         dispatch(buildingSlice.actions.buildingsFetchingSuccess(data));
-        dispatch(updateMinMaxPrices());
       })
+      .then(() => dispatch(updateMinMaxPrices()) )
       .catch((error) =>
         dispatch(
           buildingSlice.actions.buildingsFetchingError(error.toString()),
