@@ -1,4 +1,4 @@
-import Constructor from '../../components/ui/constructor/constructor';
+import Constructor from '../../components/layouts/constructor/constructor';
 import { StyledConstructorContainer, StyledConstructorPage } from './styled';
 import { constructorOptions } from './constructorConfig';
 
