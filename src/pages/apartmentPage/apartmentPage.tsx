@@ -1,5 +1,5 @@
 import { IBuilding } from '../../types/IBuilding';
-import { StyledApartment } from './styled';
+import { StyledApartment, StyledApartmentNotFound } from './styled';
 import ApartmentAbout from './apartmentAbout/apartmentAbout';
 import ApartmentFeaturesList from './apartmentFeaturesList/apartmentFeaturesList';
 import ApartmentMap from './apartmentMap/apartmentMap';
@@ -9,10 +9,9 @@ import ApartmentDocuments from './apartmentDocuments/apartmentDocuments';
 import ApartmentHeader from './apartmentHeader/apartmentHeader';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
-import { selectBuildingById } from '../../store/reducers/buildings/BuildingSelectors';
+import { selectBuildingById } from '../../store/reducers/buildings/buildingSelectors';
 
 function ApartmentPage() {
-
   let { id } = useParams<{ id: string }>();
 
   const data : IBuilding | undefined = useAppSelector((state) =>
@@ -21,7 +20,9 @@ function ApartmentPage() {
 
   if(!data) {
     return (
-      <p>Такого здания не найдено :(</p>
+      <StyledApartment>
+        <StyledApartmentNotFound>Такого здания не найдено :(</StyledApartmentNotFound>
+      </StyledApartment>
     );
   }
 
