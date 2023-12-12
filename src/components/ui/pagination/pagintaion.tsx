@@ -1,4 +1,4 @@
-import { StyledPagination, StyledPaginationButton } from "./styled";
+import { StyledPagination, StyledPaginationButton } from './styled';
 
 interface PaginationProps {
   total: number;
@@ -9,10 +9,16 @@ interface PaginationProps {
 }
 
 export enum PaginationType {
-  NEWS = "news",
+  NEWS = 'news',
 }
 
-function Pagination ({ total, pageSize, currentPage, onPageChange, paginationType } :PaginationProps){
+function Pagination({
+  total,
+  pageSize,
+  currentPage,
+  onPageChange,
+  paginationType,
+}: PaginationProps) {
   const totalPages = Math.ceil(total / pageSize);
 
   return (

@@ -13,7 +13,7 @@ import {
 import Logo from '../../ui/logo/logo';
 import logoImage from '../../../assets/images/logo.svg';
 import { useAppSelector } from '../../../hooks/redux';
-import { selectBuildings } from '../../../store/reducers/buildings/BuildingSelectors';
+import { selectBuildings } from '../../../store/reducers/buildings/buildingSelectors';
 import { IBuilding } from '../../../types/IBuilding';
 import { Link } from 'react-router-dom';
 

@@ -1,20 +1,25 @@
-import { StyledBuildingsList, StyledBuildingsListPlaceholderTitle } from "./styled";
-import BuildingsCard from "../buildingsCard/buildingsCard";
-import { useAppSelector } from '../../../hooks/redux';
-import { selectFilteredBuildings } from '../../../store/reducers/buildings/BuildingSelectors';
+import { StyledBuildingsList } from './styled';
+import BuildingsCard from '../buildingsCard/buildingsCard';
+import { IBuilding } from '../../../types/IBuilding';
+import BuildingListEmpty from './buildingListEmpty/buildingListEmpty';
 
-function BuildingsList() {
-  const filteredBuildings = useAppSelector(selectFilteredBuildings);
+interface BuildingListProps {
+  filteredBuildings: IBuilding[];
+}
 
+function BuildingsList({ filteredBuildings }: BuildingListProps) {
   return (
-    <StyledBuildingsList>
-      {filteredBuildings.map((item) => {
-        return (
-          <BuildingsCard data={item} key={item.id} />
-        );
-      })}
-      {filteredBuildings.length === 0 && <StyledBuildingsListPlaceholderTitle>Нет квартир, соответствующих вашим фильтрам</StyledBuildingsListPlaceholderTitle>}
-    </StyledBuildingsList>
+    <>
+      {filteredBuildings.length ? (
+        <StyledBuildingsList>
+          {filteredBuildings.map((item: IBuilding) => {
+            return <BuildingsCard data={item} key={item.id} />;
+          })}
+        </StyledBuildingsList>
+      ) : (
+        <BuildingListEmpty />
+      )}
+    </>
   );
 }
 

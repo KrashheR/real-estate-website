@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import buildingReducer from "./reducers/buildings/BuildingSlice";
-import promoReducer from "./reducers/promo/PromoSlice";
-import newsReducer from "./reducers/news/NewsSlice";
+import buildingReducer from "./reducers/buildings/buildingSlice";
+import promoReducer from "./reducers/promo/promoSlice";
+import newsReducer from "./reducers/news/newsSlice";
 import { configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
