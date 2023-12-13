@@ -15,6 +15,18 @@
     module: {
       rules: [
         {
+          test: /\.(woff|woff2|eot|ttf)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 300000,
+                name: 'fonts/[name].[ext]',
+              },
+            },
+          ],
+        },
+        {
           test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
           use: 'babel-loader',
@@ -46,18 +58,7 @@
             },
           ],
         },
-        {
-          test: /\.(woff|woff2|eot|ttf)$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 100000,
-                name: 'fonts/[name].[ext]',
-              },
-            },
-          ],
-        },
+
 
       ],
     },
@@ -65,10 +66,6 @@
       new HtmlWebpackPlugin({
         title: 'Real estate website',
         template: _resolve(__dirname, './public/index.html'),
-      }),
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'server',
-        openAnalyzer: true,
       }),
     ],
   };
