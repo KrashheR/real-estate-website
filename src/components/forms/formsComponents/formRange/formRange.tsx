@@ -1,12 +1,17 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import {
   StyledFormRange,
   StyledFormRangeInput,
-  StyledFormRangeContainer,
+  StyledFormRangeInputContainer,
+  StyledFormRangeSlider,
+  StyledFormRangeSliderTrack,
+  StyledFormRangeSliderContainer,
 } from './styled';
 import { useAppSelector } from '../../../../hooks/redux';
-import { selectFilteredBuildings } from '../../../../store/reducers/buildings/BuildingSelectors';
-import { getMinAndMaxApartmentPrice } from '../../../../utils/buildingPriceUtils';
+import {
+  selectInitialMaxPrice,
+  selectInitialMinPrice,
+} from '../../../../store/reducers/buildings/buildingSelectors';
 
 interface FormRangeProps {
   id: string;
@@ -16,6 +21,12 @@ interface FormRangeProps {
   onMaxPriceChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
+export interface FormSliderTrackProps {
+  width: number;
+  left: number;
+  right: number;
+}
+
 function FormRange({
   id,
   minPrice,
@@ -23,36 +34,66 @@ function FormRange({
   onMinPriceChange,
   onMaxPriceChange,
 }: FormRangeProps) {
-  const cards = useAppSelector(selectFilteredBuildings);
-  const [initialMinPrice, initialMaxPrice] = getMinAndMaxApartmentPrice(cards);
+  const initialMinPrice = useAppSelector(selectInitialMinPrice) ?? 0;
+  const initialMaxPrice = useAppSelector(selectInitialMaxPrice) ?? 100;
+
+  const trackStyle = useMemo(() => {
+    const minVal = minPrice ?? initialMinPrice;
+    const maxVal = maxPrice ?? initialMaxPrice;
+    const minValuePercent = ((minVal - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100;
+    const maxValuePercent = ((maxVal - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100;
+
+    return {
+      left: minValuePercent,
+      right: 100 - maxValuePercent,
+      width: maxValuePercent - minValuePercent,
+    };
+  }, [minPrice, maxPrice, initialMinPrice, initialMaxPrice]);
 
   return (
     <StyledFormRange id={id}>
-      <StyledFormRangeContainer>
+      <StyledFormRangeInputContainer>
         <label htmlFor="price-min">От</label>
         <StyledFormRangeInput
           type="number"
           id="price-min"
           min={initialMinPrice}
-          max="100"
-          placeholder="0"
+          max={initialMaxPrice}
           value={minPrice ?? ''}
+          placeholder="0"
           onChange={onMinPriceChange}
         />
-      </StyledFormRangeContainer>
-      <p>-</p>
-      <StyledFormRangeContainer>
+        <p>-</p>
         <label htmlFor="price-max">До</label>
         <StyledFormRangeInput
           type="number"
           id="price-max"
-          min="1"
+          min={initialMinPrice}
           max={initialMaxPrice}
-          placeholder="100"
           value={maxPrice ?? ''}
+          placeholder="100"
           onChange={onMaxPriceChange}
         />
-      </StyledFormRangeContainer>
+      </StyledFormRangeInputContainer>
+      <StyledFormRangeSliderContainer>
+        <StyledFormRangeSlider
+        type='range'
+          min={initialMinPrice}
+          max={initialMaxPrice}
+          value={minPrice ?? initialMinPrice}
+          step={0.1}
+          onChange={onMinPriceChange}
+        />
+        <StyledFormRangeSlider
+        type='range'
+          min={initialMinPrice}
+          max={initialMaxPrice}
+          value={maxPrice ?? initialMaxPrice}
+          step={0.1}
+          onChange={onMaxPriceChange}
+        />
+        <StyledFormRangeSliderTrack width={trackStyle.width} left={trackStyle.left} right={trackStyle.right}/>
+      </StyledFormRangeSliderContainer>
     </StyledFormRange>
   );
 }
