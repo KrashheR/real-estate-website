@@ -81,6 +81,10 @@ export const StyledFormRangeSlider = styled.input.attrs({ type: 'range' })`
   position: absolute;
   bottom: 1px;
 
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    bottom: 2px;
+  }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -90,6 +94,11 @@ export const StyledFormRangeSlider = styled.input.attrs({ type: 'range' })`
     cursor: pointer;
     border-radius: 50%;
     z-index: 2;
+
+    @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &::-moz-range-thumb {

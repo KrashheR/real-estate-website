@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   height: 60px;
   z-index: 10;
   color: ${(props) => props.theme.colors.colorBlack};
-  background-color: ${(props) => props.theme.colors.backgroundHeader};
+  background-color: ${(props) => props.theme.colors.colorWhite};
   border-bottom: 1px solid ${(props) => props.theme.colors.colorLightRed};
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
 

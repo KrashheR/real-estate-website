@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { StyledContainer } from '../../components/layouts/container/styled';
 
 export const StyledAboutContainer = styled(StyledContainer)`
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   min-height: calc(100vh - 280px);
   color: ${(props) => props.theme.colors.colorBlack};
 

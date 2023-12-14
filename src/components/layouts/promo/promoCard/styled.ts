@@ -25,7 +25,7 @@ export const StyledPromoCard = styled.a<StyledPromoCardProps>`
   @media (min-width: ${(props) => props.theme.deviceSizes.laptop}) {
     &:hover {
       color: ${(props) => props.theme.colors.colorMainRed};
-      transform: translateY(-2px);
+      transform: scale3d(1.01, 1.01, 1) translateY(-2px);
       box-shadow: 0px 3px 8px ${(props) => props.theme.colors.boxShadowHover};
     }
   }

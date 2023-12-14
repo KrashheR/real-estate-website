@@ -14,16 +14,18 @@ export const StyledCountdownOfferCard = styled.a`
   background: ${(props) => props.theme.colors.promoGradient};
   font-weight: 400;
   grid-area: countdown;
-  box-shadow: 0px 0px 8px 4px rgba(238, 228, 228, 1);
+  box-shadow: 0px 0px 2px ${(props) => props.theme.colors.boxShadowMain};
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     color 0.1s ease;
   cursor: pointer;
 
-  &:hover {
-    transform: scale3d(1.01, 1.01, 1) translateY(-2px);
-    box-shadow: 0px 2px 4px 2px rgba(184, 41, 57, 0.4);
+  @media (min-width: ${(props) => props.theme.deviceSizes.laptop}) {
+    &:hover {
+      transform: scale3d(1.01, 1.01, 1) translateY(-2px);
+      box-shadow: 0px 3px 8px ${(props) => props.theme.colors.boxShadowHover};
+    }
   }
 
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
