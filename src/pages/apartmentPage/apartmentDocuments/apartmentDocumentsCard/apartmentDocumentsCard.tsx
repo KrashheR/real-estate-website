@@ -24,7 +24,7 @@ function ApartmentDocumentsCard({
   imageSrc,
 }: DocumentCardProps) {
   return (
-    <StyledApartmentDocumentsCard href={downloadLink}>
+    <StyledApartmentDocumentsCard href={downloadLink} target='blank'>
       <Title
         level={TitleLevel.H2}
         size={TitleSize.L}

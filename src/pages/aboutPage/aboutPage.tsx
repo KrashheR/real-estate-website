@@ -12,7 +12,7 @@ import {
 import AboutPerson from './aboutPerson/aboutPerson';
 import AboutContact from './aboutContact/aboutContact';
 
-function About() {
+function AboutPage() {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -68,4 +68,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutPage;

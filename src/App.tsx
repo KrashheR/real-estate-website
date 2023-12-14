@@ -6,7 +6,7 @@ import MainPage from './pages/mainPage/mainPage';
 import ErrorBoundary from './utils/errorBoundary/errorBoundary';
 import { useAppDispatch } from './hooks/redux';
 import { useEffect } from 'react';
-import { fetchBuildings, fetchPromos } from './store/reducers/ActionCreators';
+import { fetchBuildings, fetchPromos } from './store/reducers/actionCreators';
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layouts/mainLayout/mainLayout';
 import NotFoundPage from './pages/notFoundPage/notFoundPage';

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { INews } from '../../../types/INews';
-import { fetchNews } from '../ActionCreators';
+import { fetchNews } from '../actionCreators';
 
 interface NewsState {
   newsByPage: { [page: number]: INews[] };

@@ -34,7 +34,7 @@ function Slideshow({ slides }: SlideshowProps) {
         scrollbar={{ draggable: true }}
         autoplay={{ delay: 4000, disableOnInteraction: true }}
       >
-        {slides.map((slide) => {
+        {slides.map((slide: IPromo) => {
           return (
             <SwiperSlide key={slide.id}>
               <StyledSlideshowLink to={slide.href}>
