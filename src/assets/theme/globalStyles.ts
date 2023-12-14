@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Roboto";
     src: url(${RobotoRegular}) format("truetype");
     font-weight: 400;
-    font-style: normal;
+    font-style: regular;
     font-display: swap;
   }
 
@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Roboto";
     src: url(${RobotoBold}) format("truetype");
     font-weight: 700;
-    font-style: normal;
+    font-style: bold;
     font-display: swap;
   }
 
@@ -52,7 +52,7 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-    scrollbar-gutter: stable;
+
   }
 
   body {
@@ -63,7 +63,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a:-webkit-any-link {
-  text-decoration: none;
+    text-decoration: none;
   }
 
   button, form, select, input {
