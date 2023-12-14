@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const StyledBuildingsList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-template-columns: repeat(3, minmax(325px, 1fr));
   grid-gap: 45px;
   margin-bottom: 40px;
+  min-height: calc(100vh - 470px);
 
   @media (max-width: ${(props) => props.theme.deviceSizes.laptop}) {
-    grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+    grid-template-columns: repeat(2, minmax(325px, 1fr));
     place-items: center;
   }
 
@@ -20,11 +21,4 @@ export const StyledBuildingsList = styled.ul`
   @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     gap: 20px;
   }
-`;
-
-export const StyledBuildingsListPlaceholderTitle = styled.h3`
-  font-weight: 400;
-  text-align: center;
-  padding-top: 50px;
-  font-size: 18px;
 `;
