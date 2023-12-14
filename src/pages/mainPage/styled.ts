@@ -10,4 +10,5 @@ export const StyledMainPage = styled.main`
 export const StyledMainPageBuildings = styled(StyledContainer)`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;

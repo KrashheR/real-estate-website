@@ -7,41 +7,30 @@ import {
 } from './styled';
 import FormSelect from '../formsComponents/formSelect/formSelect';
 import FormRange from '../formsComponents/formRange/formRange';
-import FormRadio, { FormRadioType } from '../formsComponents/formRadio/formRadio';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { setFilters } from '../../../store/reducers/buildings/BuildingSlice';
-import {
-  selectMaxPrice,
-  selectMinPrice,
-} from '../../../store/reducers/buildings/BuildingSelectors';
+import { setFilters } from '../../../store/reducers/buildings/buildingSlice';
 import { completionDateOptions, objectTypesOptions } from './buildingsFormConfig';
-import React from 'react';
+import { selectInitialMinPrice, selectInitialMaxPrice } from '../../../store/reducers/buildings/buildingSelectors';
+import useDebouncedFunction from '../../../hooks/debounce';
+import FormCheckbox from '../formsComponents/formCheckbox/formCheckbox';
 
 function BuildingsFilterForm() {
   const dispatch = useAppDispatch();
-  const initialMinPrice = useAppSelector(selectMinPrice);
-  const initialMaxPrice = useAppSelector(selectMaxPrice);
 
-  const [minPrice, setMinPrice] = useState<number | null>(initialMinPrice);
-  const [maxPrice, setMaxPrice] = useState<number | null>(initialMaxPrice);
-  const [completionDate, setCompletionDate] = useState<string | null>(null);
+  const [minPrice, setMinPrice] = useState<number | null>(useAppSelector(selectInitialMinPrice));
+  const [maxPrice, setMaxPrice] = useState<number | null>(useAppSelector(selectInitialMaxPrice));
+
+  const [completionDates, setCompletionDates] = useState<string[]>([]);
   const [objectType, setObjectType] = useState<string>('Все объекты');
 
-  useEffect(() => {
-    if (initialMinPrice !== null) {
-      setMinPrice(initialMinPrice);
-    }
-    if (initialMaxPrice !== null) {
-      setMaxPrice(initialMaxPrice);
-    }
-  }, [initialMinPrice, initialMaxPrice]);
-
   const handleMinPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setMinPrice(parseFloat(e.target.value));
+    const newValue = Math.min(parseFloat(e.target.value), maxPrice ?? Infinity);
+    setMinPrice(newValue);
   };
 
   const handleMaxPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setMaxPrice(parseFloat(e.target.value));
+    const newValue = Math.max(parseFloat(e.target.value), minPrice ?? 0);
+    setMaxPrice(newValue);
   };
 
   const handleObjectTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -49,21 +38,36 @@ function BuildingsFilterForm() {
   };
 
   const handleDeliveryDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCompletionDate(e.target.value);
+    if (e.target.checked) {
+      setCompletionDates(prevDates => [...prevDates, e.target.value]);
+    } else {
+      setCompletionDates(prevDates => prevDates.filter(date => date !== e.target.value));
+    }
   };
 
   const defaultChecked = '';
 
   useEffect(() => {
-    dispatch(
-      setFilters({
-        minPrice,
-        maxPrice,
-        objectType,
-        completionDate,
-      }),
-    );
-  }, [minPrice, maxPrice, objectType, completionDate, dispatch]);
+    dispatch(setFilters({
+      minPrice,
+      maxPrice,
+      objectType,
+      completionDates,
+    }));
+  }, [objectType, completionDates, dispatch]);
+
+  const debouncedSetPriceFilters = useDebouncedFunction((minPrice, maxPrice) => {
+    dispatch(setFilters({
+      minPrice,
+      maxPrice,
+      objectType,
+      completionDates,
+    }));
+  }, 300);
+
+  useEffect(() => {
+    debouncedSetPriceFilters(minPrice, maxPrice);
+  }, [minPrice, maxPrice]);
 
   return (
     <StyledBuildingsFilterForm>
@@ -96,17 +100,15 @@ function BuildingsFilterForm() {
         <StyledBuildingsFormRadios>
           {completionDateOptions.map((option) => {
             return (
-              <React.Fragment key={option.id}>
-                <FormRadio
-                  id={option.id}
-                  name={'catalogRadio'}
-                  value={option.value}
-                  defaultChecked={defaultChecked === option.value}
-                  onChange={handleDeliveryDateChange}
-                  radioType={FormRadioType.BUILDING}
-                  label={option.label}
-                />
-              </React.Fragment>
+              <FormCheckbox
+              id={option.id}
+              key={option.id}
+              name={'buildingsCheckbox'}
+              value={option.value}
+              defaultChecked={defaultChecked === option.value}
+              onChange={handleDeliveryDateChange}
+              label={option.label}
+            />
             );
           })}
         </StyledBuildingsFormRadios>
