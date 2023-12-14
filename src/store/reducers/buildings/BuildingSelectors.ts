@@ -8,10 +8,15 @@ export const selectBuildingById = (state: RootState, id: string) => {
   return state.buildingReducer.buildings.find((building) => building.id === id);
 };
 
-export const selectMinPrice = (state: RootState) =>
-  state.buildingReducer.filters.minPrice;
-export const selectMaxPrice = (state: RootState) =>
-  state.buildingReducer.filters.maxPrice;
+export const selectBuildingsMinMaxCalculatingState = (state: RootState) => {
+  return state.buildingReducer.isMinMaxSet;
+}
+
+export const selectInitialMinPrice = (state: RootState) =>
+  state.buildingReducer.initialMinPrice;
+
+export const selectInitialMaxPrice = (state: RootState) =>
+  state.buildingReducer.initialMaxPrice;
 
 export const selectSortedBuildings = createSelector([selectBuildings], (cards) => {
   return [...cards].sort((a, b) => {
@@ -28,12 +33,15 @@ export const selectSortedBuildings = createSelector([selectBuildings], (cards) =
 export const selectFilteredBuildings = createSelector(
   [selectSortedBuildings, (state: RootState) => state.buildingReducer.filters],
   (sortedBuildings, filters) => {
-    const { completionDate, objectType, minPrice, maxPrice } = filters;
+    const { completionDates, objectType, minPrice, maxPrice } = filters;
 
     const filteredCards = sortedBuildings.filter((building) => {
-      let isMatch: boolean =
-      completionDate === null || building.completionDate === completionDate;
+      let isMatch: boolean = true;
       const buildingApartments: IApartmentData[] = JSON.parse(building.apartments);
+
+      if (completionDates.length > 0) {
+        isMatch = completionDates.includes(building.completionDate);
+      }
 
       const isPriceInRange = (
         price: number,

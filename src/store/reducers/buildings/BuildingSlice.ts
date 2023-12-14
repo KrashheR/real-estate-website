@@ -4,27 +4,33 @@ import { IBuilding } from '../../../types/IBuilding';
 interface BuildingState {
   buildings: IBuilding[];
   isLoading: boolean;
+  isMinMaxSet: boolean;
   error: string;
   filters: FilterValues;
+  initialMinPrice: number | null;
+  initialMaxPrice: number | null;
 }
 
 interface FilterValues {
   minPrice: number | null;
   maxPrice: number | null;
   objectType: string;
-  completionDate: string | null;
+  completionDates: string[];
 }
 
 const initialState: BuildingState = {
   buildings: [],
   isLoading: false,
+  isMinMaxSet: false,
   error: '',
   filters: {
     minPrice: null,
     maxPrice: null,
     objectType: 'Все объекты',
-    completionDate: '',
+    completionDates: [],
   },
+  initialMinPrice: null,
+  initialMaxPrice: null,
 };
 
 export const buildingSlice = createSlice({
@@ -49,6 +55,9 @@ export const buildingSlice = createSlice({
     setMinMaxPrice: (state, action: PayloadAction<{min: number, max: number}>) => {
       state.filters.minPrice = action.payload.min;
       state.filters.maxPrice = action.payload.max;
+      state.initialMinPrice = action.payload.min;
+      state.initialMaxPrice = action.payload.max;
+      state.isMinMaxSet = true;
     },
   },
 });
