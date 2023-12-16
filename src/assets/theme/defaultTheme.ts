@@ -3,7 +3,7 @@ export const DefaultTheme = {
     colorMainRed: '#F42F46',
     colorLightRed: '#FBF4F4',
     colorLightRedDisabled: '#fbf4f4d4',
-    colorBlack: '#4A4A4A',
+    colorBlack: '#2f2828',
     colorBlackDisabled: '#4a4a4a50',
     colorWhite: '#FFFFFF',
     colorButtonPrimary: '#ffffff',
