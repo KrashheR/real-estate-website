@@ -14,12 +14,12 @@ export const constructorOptions = [
     id: 1,
     type: 'question',
     question: 'Выберите желаемую дату сдачи дома',
-    filter: 'completionDate',
+    filter: 'completionDates',
     variants: [
-      { answer: 'Дом уже сдан', value: '0' },
-      { answer: 'Сдаётся в этому году', value: '2023' },
-      { answer: 'Сдаётся в следующем году', value: '2024' },
-      { answer: 'Сдаётся через год', value: '2025' },
+      { answer: 'Дом уже сдан', value: ['0'] },
+      { answer: 'Сдаётся в этому году', value: ['2023'] },
+      { answer: 'Сдаётся в следующем году', value: ['2024'] },
+      { answer: 'Сдаётся через год', value: ['2025'] },
     ],
   },
   {
