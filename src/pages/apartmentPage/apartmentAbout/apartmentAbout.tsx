@@ -45,7 +45,7 @@ function ApartmentAbout({
           </StyledApartmentAboutText>
           <StyledApartmentAboutPicture>
             <source srcSet={apartmentImageMobile} media='(max-width: 576px)'/>
-            <StyledApartmentAboutImage src={apartmentImage}/>
+            <StyledApartmentAboutImage src={apartmentImage} alt="Дневная фотография ЖК"/>
           </StyledApartmentAboutPicture>
         </StyledApartmentAboutInfo>
       </StyledApartmentAbout>

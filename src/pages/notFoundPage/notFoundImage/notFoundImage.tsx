@@ -1,8 +1,11 @@
 import { StyledNotFoundImage } from './styled';
-import image404 from '../../../assets/images/notFoundPage/cat404.webp'
 
-function NotFoundImage() {
-  return <StyledNotFoundImage src={image404}></StyledNotFoundImage>;
+interface NotFoundImageProps {
+  src: string;
+}
+
+function NotFoundImage({src}: NotFoundImageProps) {
+  return <StyledNotFoundImage src={src} alt="Картинка - ошибка 404"></StyledNotFoundImage>;
 }
 
 export default NotFoundImage;

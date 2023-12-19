@@ -26,13 +26,16 @@ export const StyledApartmentDocumentsCard = styled.a`
 
 export const StyledApartmentDocumentsCardImage = styled.img`
   width: 80px;
+  height: 80px;
 
   @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     width: 50px;
+    height: 50px;
   }
 
   @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {
     width: 30px;
+    height: 30px;
   }
 `;
 

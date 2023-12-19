@@ -4,7 +4,6 @@ import {
   StyledAboutPersonPhoto,
   StyledAboutPersonInfo,
 } from './styled';
-import BossPhoto from '../../../assets/images/about/boss_photo.webp';
 import Title, {
   TitleLevel,
   TitleSize,
@@ -33,7 +32,7 @@ function AboutPerson() {
       onMouseLeave={handleMouseLeave}
     >
       <StyledAboutPersonPhotoContainer>
-        <StyledAboutPersonPhoto src={BossPhoto} />
+        <StyledAboutPersonPhoto src={'https://www.krashher.ru/real-estate/images/about/boss.webp'} />
       </StyledAboutPersonPhotoContainer>
       <StyledAboutPersonInfo>
         <Description size={DescriptionSize.S}>

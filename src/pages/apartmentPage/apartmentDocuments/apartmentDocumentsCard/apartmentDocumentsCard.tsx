@@ -36,7 +36,7 @@ function ApartmentDocumentsCard({
         <StyledApartmentDocumentsCardDownloadText>
           {downloadText}
         </StyledApartmentDocumentsCardDownloadText>
-        <StyledApartmentDocumentsCardImage src={imageSrc} />
+        <StyledApartmentDocumentsCardImage src={imageSrc} alt="Кнопка скачать"/>
       </StyledApartmentDocumentsCardFooter>
     </StyledApartmentDocumentsCard>
   );

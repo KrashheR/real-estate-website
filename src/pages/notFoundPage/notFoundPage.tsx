@@ -7,7 +7,7 @@ import { StyledNotFoundPage } from "./styled";
 function NotFoundPage() {
   return(
     <StyledNotFoundPage>
-      <NotFoundImage/>
+      <NotFoundImage src="https://www.krashher.ru/real-estate/images/404/cat404.webp"/>
       <Title size={TitleSize.XL} weight={TitleWeight.BOLD} level={TitleLevel.H1}>Упс!</Title>
       <Description size={DescriptionSize.M}>Указанной страницы не существует</Description>
       <MyRouteButton link="/">Вернуться на главную</MyRouteButton>

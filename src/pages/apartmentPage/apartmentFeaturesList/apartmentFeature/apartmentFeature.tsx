@@ -43,7 +43,7 @@ function ApartmentFeature({descriptionText, type}: FeatureProps) {
 
   return(
     <StyledApartmentFeature>
-      <StyledApartmentFeatureImage src={imageSrc}/>
+      <StyledApartmentFeatureImage src={imageSrc} alt={"Значок " + titleText}/>
       <StyledApartmentFeatureContainer>
       <Title
           level={TitleLevel.H2}
