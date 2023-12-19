@@ -15,3 +15,32 @@ export const getMinAndMaxApartmentPrice = (buildings: IBuilding[]): [number, num
 
   return [minPrice, maxPrice];
 }
+
+export const sumApartmentsNum = (apartmentData: IApartmentData[]): number[] => {
+  let apartmentSum = 0;
+  let parkingSum = 0;
+
+  apartmentData.forEach((item) => {
+    if (item.roomNum === 'parking') {
+      parkingSum += item.num;
+    } else {
+      apartmentSum += item.num;
+    }
+  });
+
+  return [apartmentSum, parkingSum];
+}
+
+export const findMinPrice = (apartmentData: IApartmentData[]): number[] => {
+  let apartmentMin = 999;
+  let parkingMin = 999;
+
+  apartmentData.forEach((item) => {
+    if (item.roomNum === 'parking') {
+      parkingMin = Math.min(parkingMin, item.price);
+    } else {
+      apartmentMin = Math.min(apartmentMin, item.price);
+    }
+  });
+  return [apartmentMin, parkingMin];
+}

@@ -10,11 +10,30 @@ type StyledBuildingsCardTypeProps = {
   $type: string;
 };
 
-export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
-  display: flex;
-  flex-direction: column;
+export const StyledBuildingsCard = styled.li`
   width: 370px;
   height: 400px;
+  list-style: none;
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+    width: 80vw;
+    height: 500px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    height: 400px;
+  }
+
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
+    height: 340px;
+  }
+`;
+
+export const StyledBuildingsCardLink = styled(Link)<StyledBuildingsCardTypeProps>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   color: ${(props) =>
     props.$type === 'premium'
       ? props.theme.colors.colorWhite
@@ -29,19 +48,6 @@ export const StyledBuildingsCard = styled(Link)<StyledBuildingsCardTypeProps>`
       transform: translateY(-5px);
       box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
     }
-  }
-
-  @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
-    width: 80vw;
-    height: 500px;
-  }
-
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    height: 400px;
-  }
-
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobileSmall}) {
-    height: 340px;
   }
 `;
 
@@ -119,6 +125,7 @@ export const StyledBuildingsCardPlaceContainer = styled.div`
 
 export const StyledBuildingsCardPlaceIcon = styled.img`
   width: 16px;
+  height: 16px;
 `;
 
 export const StyledBuildingsCardPlaceText = styled.span`
