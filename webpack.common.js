@@ -1,6 +1,5 @@
   const _resolve = require('path').resolve;
   const HtmlWebpackPlugin = require('html-webpack-plugin');
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
   module.exports = {
     entry: _resolve(__dirname, './src/index.tsx'),
@@ -20,7 +19,7 @@
             {
               loader: 'url-loader',
               options: {
-                limit: 300000,
+                limit: 400000,
                 name: 'fonts/[name].[ext]',
               },
             },
@@ -64,8 +63,11 @@
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Real estate website',
+        title: 'RealEstate - лучшие ЖК города',
+        description: "Покупка квартир и машиномест в лучших ЖК города по низким ценам",
+        keywords: "недвижимость,квартира,новостройка,ипотека,машиноместа",
         template: _resolve(__dirname, './public/index.html'),
+        favicon: _resolve(__dirname, './public/logo.svg'),
       }),
     ],
   };
