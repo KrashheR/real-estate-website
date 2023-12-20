@@ -9,7 +9,7 @@ function FullSizeImage({ imageSrc, imageMobileSrc }:FullSizeImageProps) {
   return(
     <StyledFullSizePicture>
       <source srcSet={imageMobileSrc} media="(max-width: 576px)"/>
-      <StyledFullSizeImage src={imageSrc}/>
+      <StyledFullSizeImage src={imageSrc} alt="Ночная фотография жк"/>
     </StyledFullSizePicture>
   );
 }

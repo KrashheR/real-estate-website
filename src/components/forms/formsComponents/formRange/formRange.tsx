@@ -77,20 +77,24 @@ function FormRange({
       </StyledFormRangeInputContainer>
       <StyledFormRangeSliderContainer>
         <StyledFormRangeSlider
-        type='range'
+          type='range'
+          id="range-slide-min"
           min={initialMinPrice}
           max={initialMaxPrice}
           value={minPrice ?? initialMinPrice}
           step={0.1}
           onChange={onMinPriceChange}
+          aria-label="Ползунок минимальной цены"
         />
         <StyledFormRangeSlider
-        type='range'
+          type='range'
+          id="range-slide-max"
           min={initialMinPrice}
           max={initialMaxPrice}
           value={maxPrice ?? initialMaxPrice}
           step={0.1}
           onChange={onMaxPriceChange}
+          aria-label="Ползунок максимальной цены"
         />
         <StyledFormRangeSliderTrack width={trackStyle.width} left={trackStyle.left} right={trackStyle.right}/>
       </StyledFormRangeSliderContainer>

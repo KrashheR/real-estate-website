@@ -85,6 +85,10 @@ export const StyledFormRangeSlider = styled.input.attrs({ type: 'range' })`
     bottom: 2px;
   }
 
+  @-moz-document url-prefix() {
+    bottom: -5px;
+  }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -102,21 +106,36 @@ export const StyledFormRangeSlider = styled.input.attrs({ type: 'range' })`
   }
 
   &::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
     background: ${(props) => props.theme.colors.colorMainRed};
     cursor: pointer;
     border-radius: 50%;
     z-index: 2;
+    border: none;
+
+    @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &::-ms-thumb {
-    width: 15px;
-    height: 15px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
     background: ${(props) => props.theme.colors.colorMainRed};
     cursor: pointer;
     border-radius: 50%;
     z-index: 2;
+
+    @media (max-width: ${(props) => props.theme.deviceSizes.tablet}) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &::-webkit-slider-runnable-track {

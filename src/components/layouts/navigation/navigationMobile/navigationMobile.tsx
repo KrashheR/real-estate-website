@@ -42,7 +42,7 @@ function NavigationMobile() {
         <StyledNavigationMobileLink to="/">
           {({ isActive }) => (
             <>
-              <StyledNavigationMobileImage src={isActive ? homeActive : home} />
+              <StyledNavigationMobileImage src={isActive ? homeActive : home} alt='Значок главной'/>
               <StyledNavigationMobileText>Главная</StyledNavigationMobileText>
             </>
           )}
@@ -53,7 +53,7 @@ function NavigationMobile() {
           {({ isActive }) => (
             <>
               <StyledNavigationMobileImage
-                src={isActive ? projectsActive : projects}
+                src={isActive ? projectsActive : projects} alt='Значок проектов'
               />
               <StyledNavigationMobileText>Проекты</StyledNavigationMobileText>
             </>
@@ -65,7 +65,7 @@ function NavigationMobile() {
           {({ isActive }) => (
             <>
               <StyledNavigationMobileImage
-                src={isActive ? constructorActive : constructor}
+                src={isActive ? constructorActive : constructor} alt='Значок конструктора'
               />
               <StyledNavigationMobileText>
                 Конструктор
@@ -78,7 +78,7 @@ function NavigationMobile() {
         <StyledNavigationMobileLink to="/news">
           {({ isActive }) => (
             <>
-              <StyledNavigationMobileImage src={isActive ? newsActive : news} />
+              <StyledNavigationMobileImage src={isActive ? newsActive : news} alt='Значок новостей'/>
               <StyledNavigationMobileText>Новости</StyledNavigationMobileText>
             </>
           )}
@@ -89,7 +89,7 @@ function NavigationMobile() {
           {({ isActive }) => (
             <>
               <StyledNavigationMobileImage
-                src={isActive ? aboutUsActive : aboutUs}
+                src={isActive ? aboutUsActive : aboutUs} alt='Значок о нас'
               />
               <StyledNavigationMobileText>О нас</StyledNavigationMobileText>
             </>

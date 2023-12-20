@@ -2,6 +2,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import {
   StyledBuildingsFilterForm,
   StyledBuildingsFormSubtitle,
+  StyledBuildingsFormLabel,
   StyledBuildingsFormItem,
   StyledBuildingsFormRadios,
 } from './styled';
@@ -72,11 +73,11 @@ function BuildingsFilterForm() {
   return (
     <StyledBuildingsFilterForm>
       <StyledBuildingsFormItem>
-        <StyledBuildingsFormSubtitle>
+        <StyledBuildingsFormLabel htmlFor='form-buildings-type'>
           Тип объекта
-        </StyledBuildingsFormSubtitle>
+        </StyledBuildingsFormLabel>
         <FormSelect
-          id="form-object-type"
+          id="form-buildings-type"
           options={objectTypesOptions}
           onChange={handleObjectTypeChange}
         />
@@ -86,7 +87,7 @@ function BuildingsFilterForm() {
           Стоимость объекта, млн. руб.
         </StyledBuildingsFormSubtitle>
         <FormRange
-          id="form-object-price"
+          id="form-buildings-price"
           minPrice={minPrice}
           maxPrice={maxPrice}
           onMinPriceChange={handleMinPriceChange}

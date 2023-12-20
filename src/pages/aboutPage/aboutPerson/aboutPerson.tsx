@@ -32,7 +32,7 @@ function AboutPerson() {
       onMouseLeave={handleMouseLeave}
     >
       <StyledAboutPersonPhotoContainer>
-        <StyledAboutPersonPhoto src={'https://www.krashher.ru/real-estate/images/about/boss.webp'} />
+        <StyledAboutPersonPhoto src={'https://www.krashher.ru/real-estate/images/about/boss.webp'} alt="Фотография босса"/>
       </StyledAboutPersonPhotoContainer>
       <StyledAboutPersonInfo>
         <Description size={DescriptionSize.S}>

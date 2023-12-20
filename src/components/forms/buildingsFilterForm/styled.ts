@@ -22,6 +22,11 @@ export const StyledBuildingsFormSubtitle = styled.p`
   padding-bottom: 8px;
 `;
 
+export const StyledBuildingsFormLabel = styled.label`
+  font-size: 14px;
+  padding-bottom: 8px;
+`;
+
 export const StyledBuildingsFormItem = styled.span`
   display: flex;
   flex-direction: column;

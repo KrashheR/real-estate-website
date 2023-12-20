@@ -99,10 +99,10 @@ function Showroom({ slides }: ShowroomProps) {
         onSlideChange={handleSliderChange}
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index} data-type={slide.type}>
+          <SwiperSlide key={index + slide.type} data-type={slide.type}>
             <StyledShowroomPicture>
               <source srcSet={slide.imageMobile} media="(max-width: 576px)" />
-              <StyledShowroomImage src={slide.image} />
+              <StyledShowroomImage src={slide.image} alt={"Изображение " + slide.type + " номер " + index}/>
             </StyledShowroomPicture>
           </SwiperSlide>
         ))}

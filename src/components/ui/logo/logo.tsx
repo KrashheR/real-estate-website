@@ -1,11 +1,12 @@
 import { StyledLogo } from './styled';
 
 interface LogoProps {
+  alt: string;
   srcImage: string;
 }
 
-function Logo({ srcImage }: LogoProps) {
-  return <StyledLogo src={srcImage}></StyledLogo>;
+function Logo(props: LogoProps) {
+  return <StyledLogo src={props.srcImage} alt={props.alt}></StyledLogo>;
 }
 
 export default Logo;
