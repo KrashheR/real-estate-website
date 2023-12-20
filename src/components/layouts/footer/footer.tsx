@@ -31,7 +31,7 @@ function Footer() {
           {buildings.map((building: IBuilding) => {
             return (
               <StyledFooterProject key={building.id}>
-                <StyledFooterProjectLink to={'apartment/' + building.id}>
+                <StyledFooterProjectLink to={'buildings/' + building.id}>
                   {building.title}
                 </StyledFooterProjectLink>
               </StyledFooterProject>
