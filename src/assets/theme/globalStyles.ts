@@ -1,14 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 import RobotoFlexVFWoff from '../fonts/RobotoFlexVF.woff2';
-import RobotoFlexVFTtf from '../fonts/RobotoFlexVF.ttf';
-import RobotoRegular from '../fonts/Roboto-Regular.ttf';
-import RobotoMedium from '../fonts/Roboto-Medium.ttf';
-import RobotoBold from '../fonts/Roboto-Bold.ttf';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: "Roboto";
-    src: url(${RobotoRegular}) format("truetype");
+    src: url('https://www.krashher.ru/real-estate/fonts/Roboto-Regular.ttf') format("truetype");
     font-weight: 400;
     font-style: regular;
     font-display: swap;
@@ -16,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: "Roboto";
-    src: url(${RobotoMedium}) format("truetype");
+    src: url('https://www.krashher.ru/real-estate/fonts/Roboto-Medium.ttf') format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -24,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: "Roboto";
-    src: url(${RobotoBold}) format("truetype");
+    src: url('https://www.krashher.ru/real-estate/fonts/Roboto-Bold.ttf') format("truetype");
     font-weight: 700;
     font-style: bold;
     font-display: swap;
@@ -34,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     @font-face {
     font-family: "RobotoFlex";
     src: url(${RobotoFlexVFWoff}) format("woff2-variations"),
-        url(${RobotoFlexVFTtf}) format("truetype-variations");
+        url('https://www.krashher.ru/real-estate/fonts/RobotoFlexVF.ttf') format("truetype-variations");
     font-weight: 100 900;
     font-stretch: 25% 151%;
     font-style: normal;
