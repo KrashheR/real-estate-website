@@ -10,23 +10,18 @@ function MainPage() {
   const filteredBuildings = useAppSelector(selectFilteredBuildings);
   const isDataLoaded = useAppSelector(selectBuildingsMinMaxCalculatingState);
 
-  if(!isDataLoaded){
-    return (
-      <StyledMainPage>
-      <Promo />
-      <StyledMainPageBuildings>
-        <LoadingLayout />
-      </StyledMainPageBuildings>
-    </StyledMainPage>
-    );
-  }
-
   return (
     <StyledMainPage>
       <Promo />
       <StyledMainPageBuildings>
-        <BuildingsFilterForm />
-        <BuildingsList filteredBuildings={filteredBuildings} />
+        {!isDataLoaded ? (
+          <LoadingLayout />
+        ) : (
+          <>
+            <BuildingsFilterForm />
+            <BuildingsList filteredBuildings={filteredBuildings} />
+          </>
+        )}
       </StyledMainPageBuildings>
     </StyledMainPage>
   );
