@@ -19,7 +19,7 @@ export const StyledApartmentFeature = styled.div`
   @media(max-width: ${(props) => props.theme.deviceSizes.tablet}) {
     gap: 10px;
     width: 40vw;
-    height: 160px;
+    height: 130px;
   }
 
   @media(max-width: ${(props) => props.theme.deviceSizes.mobile}) {

@@ -40,7 +40,7 @@ export const StyledNavigationMobileLink = styled(NavLink)`
   width: 100%;
   height: 100%;
   justify-content: center;
-  color: ${(props) => props.theme.colors.colorBlack};
+  color: ${(props) => props.theme.colors.colorGray};
   gap: 5px;
   cursor: pointer;
 

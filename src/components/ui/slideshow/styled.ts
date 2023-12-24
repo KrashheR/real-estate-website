@@ -62,8 +62,8 @@ export const StyledSlideshow = styled.div`
 
     @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
       opacity: 1;
     }
 

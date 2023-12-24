@@ -5,6 +5,7 @@ export const DefaultTheme = {
     colorLightRedDisabled: '#fbf4f4d4',
     colorBlack: '#2f2828',
     colorBlackDisabled: '#4a4a4a50',
+    colorGray: '#8c94a8',
     colorWhite: '#FFFFFF',
     colorButtonPrimary: '#ffffff',
     colorButtonText: '#E11439',

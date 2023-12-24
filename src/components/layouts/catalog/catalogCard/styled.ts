@@ -32,6 +32,7 @@ export const StyledCatalogCard = styled.li<StyledCatalogCardProps>`
 
 export const StyledCatalogCardImage = styled.img`
   width: 75px;
+  height: 75px;
 `;
 
 export const StyledCatalogCardSize = styled.p`

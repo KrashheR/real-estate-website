@@ -43,7 +43,7 @@ export const StyledFooterProjectsList = styled.ul`
   }
 `;
 
-export const StyledFooterTitle = styled.h4`
+export const StyledFooterTitle = styled.h3`
   font-weight: 600;
   font-size: 16px;
   color: ${(props) => props.theme.colors.colorBlack};
