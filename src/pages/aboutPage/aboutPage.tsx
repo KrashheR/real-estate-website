@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { z } from 'zod';
 import Modal, { ModalType } from '../../components/ui/modal/modal';
 import Title, { TitleLevel, TitleSize, TitleWeight } from '../../components/ui/title/title';
-import YandexMap from '../../components/ui/yandexMap/yandexMap';
+import YandexMap from '../../components/layouts/yandexMap/yandexMap';
 import AboutButton from './aboutButton/aboutButton';
 import {
   StyledAboutContainer,
