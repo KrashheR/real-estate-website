@@ -15,5 +15,5 @@ export interface UserChoices {
   minPrice: number | null;
   maxPrice: number | null;
   objectType: string;
-  completionDate: string | null;
+  completionDates: string[];
 }

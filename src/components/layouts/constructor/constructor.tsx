@@ -18,7 +18,7 @@ function Constructor({ data }: ConstructorProps) {
     minPrice: 0,
     maxPrice: 999,
     objectType: '',
-    completionDate: null,
+    completionDates: [],
   });
   const [isResultActive, setResultActive] = useState<boolean>(false);
 
