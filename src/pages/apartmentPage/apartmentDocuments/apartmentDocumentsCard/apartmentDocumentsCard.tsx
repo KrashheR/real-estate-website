@@ -24,19 +24,18 @@ function ApartmentDocumentsCard({
   imageSrc,
 }: DocumentCardProps) {
   return (
-    <StyledApartmentDocumentsCard href={downloadLink} target='blank'>
-      <Title
-        level={TitleLevel.H2}
-        size={TitleSize.L}
-        weight={TitleWeight.BOLD}
-      >
+    <StyledApartmentDocumentsCard href={downloadLink} target="blank">
+      <Title level={TitleLevel.H2} size={TitleSize.L} weight={TitleWeight.BOLD}>
         {title}
       </Title>
       <StyledApartmentDocumentsCardFooter>
         <StyledApartmentDocumentsCardDownloadText>
           {downloadText}
         </StyledApartmentDocumentsCardDownloadText>
-        <StyledApartmentDocumentsCardImage src={imageSrc} alt="Кнопка скачать"/>
+        <StyledApartmentDocumentsCardImage
+          src={imageSrc}
+          alt="Кнопка скачать"
+        />
       </StyledApartmentDocumentsCardFooter>
     </StyledApartmentDocumentsCard>
   );

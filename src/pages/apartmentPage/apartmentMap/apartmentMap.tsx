@@ -1,4 +1,8 @@
-import Title, { TitleLevel, TitleSize, TitleWeight } from '../../../components/ui/title/title';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../components/ui/title/title';
 import YandexMap from '../../../components/layouts/yandexMap/yandexMap';
 import { StyledApartmentMap, StyledApartmentMapContainer } from './styled';
 
@@ -11,7 +15,7 @@ function ApartmentMap({ latitude, longitude }: ApartmentMapProps) {
   return (
     <StyledApartmentMap>
       <StyledApartmentMapContainer>
-      <Title
+        <Title
           level={TitleLevel.H2}
           size={TitleSize.XL}
           weight={TitleWeight.BOLD}

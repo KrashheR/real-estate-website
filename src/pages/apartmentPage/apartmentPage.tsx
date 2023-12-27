@@ -14,14 +14,16 @@ import { selectBuildingById } from '../../store/reducers/buildings/buildingSelec
 function ApartmentPage() {
   let { id } = useParams<{ id: string }>();
 
-  const data : IBuilding | undefined = useAppSelector((state) =>
+  const data: IBuilding | undefined = useAppSelector((state) =>
     selectBuildingById(state, id as string),
   );
 
-  if(!data) {
+  if (!data) {
     return (
       <StyledApartment>
-        <StyledApartmentNotFound>Такого здания не найдено :(</StyledApartmentNotFound>
+        <StyledApartmentNotFound>
+          Такого здания не найдено :(
+        </StyledApartmentNotFound>
       </StyledApartment>
     );
   }
@@ -35,7 +37,11 @@ function ApartmentPage() {
 
   return (
     <StyledApartment>
-      <ApartmentHeader title={data.title} bigImage={data.bigImage} bigMobileImage={data.bigMobileImage}/>
+      <ApartmentHeader
+        title={data.title}
+        bigImage={data.bigImage}
+        bigMobileImage={data.bigMobileImage}
+      />
       <ApartmentAbout
         apartmentDescription={apartmentDescription}
         apartmentImage={data.image}

@@ -22,7 +22,10 @@ import humanPremium from '../../../assets/images/card/humanPremium.svg';
 import metro from '../../../assets/images/card/metro.svg';
 import human from '../../../assets/images/card/human.svg';
 import { IBuilding } from '../../../types/IBuilding';
-import { findMinPrice, sumApartmentsNum } from '../../../utils/buildingPriceUtils';
+import {
+  findMinPrice,
+  sumApartmentsNum,
+} from '../../../utils/buildingPriceUtils';
 
 export enum CardType {
   PREMIUM = 'premium',

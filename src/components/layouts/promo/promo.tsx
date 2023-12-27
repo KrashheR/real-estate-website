@@ -13,7 +13,10 @@ function Promo() {
   return (
     <StyledPromo>
       <StyledPromoContainer>
-        <CountdownOfferCard toDate={'31 December 2023 23:59:59'} link='/buildings'/>
+        <CountdownOfferCard
+          toDate={'31 December 2023 23:59:59'}
+          link="/buildings"
+        />
         <PromoCard
           title="Подбор квартиры"
           description="Подберите жильё, соответствующее вашим требованиям"
@@ -28,7 +31,7 @@ function Promo() {
           href="/buildings"
           area="cardB"
         />
-        <Slideshow slides={slides}/>
+        <Slideshow slides={slides} />
       </StyledPromoContainer>
     </StyledPromo>
   );

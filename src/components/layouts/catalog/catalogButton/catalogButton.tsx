@@ -7,8 +7,16 @@ interface CatalogButtonProps {
   isAppartmentSelected: boolean;
 }
 
-function CatalogButton({ text, onClick, isAppartmentSelected }: CatalogButtonProps) {
-  return <StyledCatalogButton isActive={isAppartmentSelected} onClick={onClick}>{text}</StyledCatalogButton>;
+function CatalogButton({
+  text,
+  onClick,
+  isAppartmentSelected,
+}: CatalogButtonProps) {
+  return (
+    <StyledCatalogButton isActive={isAppartmentSelected} onClick={onClick}>
+      {text}
+    </StyledCatalogButton>
+  );
 }
 
 export default CatalogButton;

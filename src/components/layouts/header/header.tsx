@@ -10,10 +10,10 @@ function Header() {
     <StyledHeader>
       <StyledHeaderContainer>
         <Link to="/">
-          <Logo srcImage={logoImage} alt="Логотип компании"/>
+          <Logo srcImage={logoImage} alt="Логотип компании" />
         </Link>
         <Navigation />
-        <Phone phoneType={PhoneType.HEADER}/>
+        <Phone phoneType={PhoneType.HEADER} />
       </StyledHeaderContainer>
     </StyledHeader>
   );

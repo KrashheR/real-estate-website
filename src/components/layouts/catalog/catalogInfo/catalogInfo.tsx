@@ -1,4 +1,3 @@
-
 import { IApartmentData } from '../../../../types/IBuilding';
 import {
   StyledCatalogInfoApartment,
@@ -32,7 +31,9 @@ function CatalogInfo({ selectedApartment }: CatalogInfoProps) {
           </StyledCatalogInfoItem>
           <StyledCatalogInfoItem>
             <StyledCatalogInfoLabel>Этаж</StyledCatalogInfoLabel>
-            <StyledCatalogInfoData>{selectedApartment.floor}</StyledCatalogInfoData>
+            <StyledCatalogInfoData>
+              {selectedApartment.floor}
+            </StyledCatalogInfoData>
           </StyledCatalogInfoItem>
           <StyledCatalogInfoItem>
             <StyledCatalogInfoLabel>Цена</StyledCatalogInfoLabel>
@@ -52,7 +53,11 @@ function CatalogInfo({ selectedApartment }: CatalogInfoProps) {
   }
 
   return (
-    <StyledCatalogInfoPlaceholder><StyledCatalogInfoPlaceholderTitle>Выберите понравившийся план квартиры</StyledCatalogInfoPlaceholderTitle></StyledCatalogInfoPlaceholder>
+    <StyledCatalogInfoPlaceholder>
+      <StyledCatalogInfoPlaceholderTitle>
+        Выберите понравившийся план квартиры
+      </StyledCatalogInfoPlaceholderTitle>
+    </StyledCatalogInfoPlaceholder>
   );
 }
 

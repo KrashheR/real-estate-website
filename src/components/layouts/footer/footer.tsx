@@ -24,7 +24,7 @@ function Footer() {
     <StyledFooter>
       <StyledFooterContainer>
         <Link to="/">
-          <Logo srcImage={logoImage} alt="Логотип компании"/>
+          <Logo srcImage={logoImage} alt="Логотип компании" />
         </Link>
         <StyledFooterProjectsList>
           <StyledFooterTitle>Наши проекты:</StyledFooterTitle>

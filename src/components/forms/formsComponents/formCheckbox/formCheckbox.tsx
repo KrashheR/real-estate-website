@@ -9,12 +9,19 @@ interface FormCheckboxProps {
   name: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   defaultChecked?: boolean;
-  id:string;
-  label:string;
-  value:string | number;
+  id: string;
+  label: string;
+  value: string | number;
 }
 
-function FormCheckbox({ name, onChange, defaultChecked, id, value, label }: FormCheckboxProps) {
+function FormCheckbox({
+  name,
+  onChange,
+  defaultChecked,
+  id,
+  value,
+  label,
+}: FormCheckboxProps) {
   return (
     <StyledFormCheckboxContainer id={`form-${name}`} onChange={onChange}>
       <StyledFormCheckbox
@@ -24,9 +31,7 @@ function FormCheckbox({ name, onChange, defaultChecked, id, value, label }: Form
         value={value}
         defaultChecked={defaultChecked}
       />
-      <StyledFormCheckboxLabel htmlFor={id}>
-        {label}
-      </StyledFormCheckboxLabel>
+      <StyledFormCheckboxLabel htmlFor={id}>{label}</StyledFormCheckboxLabel>
     </StyledFormCheckboxContainer>
   );
 }

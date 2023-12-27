@@ -34,7 +34,7 @@ function PromoCard(props: PromoCardProps) {
       <StyledPromoCardDescriptionContainer>
         <Description size={DescriptionSize.XS}>{props.description}</Description>
       </StyledPromoCardDescriptionContainer>
-      <StyledPromoCardImg src={props.img} alt={props.title}/>
+      <StyledPromoCardImg src={props.img} alt={props.title} />
     </StyledPromoCard>
   );
 }

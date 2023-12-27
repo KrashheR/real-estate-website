@@ -10,16 +10,26 @@ import FormSelect from '../formsComponents/formSelect/formSelect';
 import FormRange from '../formsComponents/formRange/formRange';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { setFilters } from '../../../store/reducers/buildings/buildingSlice';
-import { completionDateOptions, objectTypesOptions } from './buildingsFormConfig';
-import { selectInitialMinPrice, selectInitialMaxPrice } from '../../../store/reducers/buildings/buildingSelectors';
+import {
+  completionDateOptions,
+  objectTypesOptions,
+} from './buildingsFormConfig';
+import {
+  selectInitialMinPrice,
+  selectInitialMaxPrice,
+} from '../../../store/reducers/buildings/buildingSelectors';
 import useDebouncedFunction from '../../../hooks/debounce';
 import FormCheckbox from '../formsComponents/formCheckbox/formCheckbox';
 
 function BuildingsFilterForm() {
   const dispatch = useAppDispatch();
 
-  const [minPrice, setMinPrice] = useState<number | null>(useAppSelector(selectInitialMinPrice));
-  const [maxPrice, setMaxPrice] = useState<number | null>(useAppSelector(selectInitialMaxPrice));
+  const [minPrice, setMinPrice] = useState<number | null>(
+    useAppSelector(selectInitialMinPrice),
+  );
+  const [maxPrice, setMaxPrice] = useState<number | null>(
+    useAppSelector(selectInitialMaxPrice),
+  );
 
   const [completionDates, setCompletionDates] = useState<string[]>([]);
   const [objectType, setObjectType] = useState<string>('Все объекты');
@@ -40,31 +50,40 @@ function BuildingsFilterForm() {
 
   const handleDeliveryDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      setCompletionDates(prevDates => [...prevDates, e.target.value]);
+      setCompletionDates((prevDates) => [...prevDates, e.target.value]);
     } else {
-      setCompletionDates(prevDates => prevDates.filter(date => date !== e.target.value));
+      setCompletionDates((prevDates) =>
+        prevDates.filter((date) => date !== e.target.value),
+      );
     }
   };
 
   const defaultChecked = '';
 
   useEffect(() => {
-    dispatch(setFilters({
-      minPrice,
-      maxPrice,
-      objectType,
-      completionDates,
-    }));
+    dispatch(
+      setFilters({
+        minPrice,
+        maxPrice,
+        objectType,
+        completionDates,
+      }),
+    );
   }, [objectType, completionDates, dispatch]);
 
-  const debouncedSetPriceFilters = useDebouncedFunction((minPrice, maxPrice) => {
-    dispatch(setFilters({
-      minPrice,
-      maxPrice,
-      objectType,
-      completionDates,
-    }));
-  }, 300);
+  const debouncedSetPriceFilters = useDebouncedFunction(
+    (minPrice, maxPrice) => {
+      dispatch(
+        setFilters({
+          minPrice,
+          maxPrice,
+          objectType,
+          completionDates,
+        }),
+      );
+    },
+    300,
+  );
 
   useEffect(() => {
     debouncedSetPriceFilters(minPrice, maxPrice);
@@ -73,7 +92,7 @@ function BuildingsFilterForm() {
   return (
     <StyledBuildingsFilterForm>
       <StyledBuildingsFormItem>
-        <StyledBuildingsFormLabel htmlFor='form-buildings-type'>
+        <StyledBuildingsFormLabel htmlFor="form-buildings-type">
           Тип объекта
         </StyledBuildingsFormLabel>
         <FormSelect
@@ -95,21 +114,19 @@ function BuildingsFilterForm() {
         />
       </StyledBuildingsFormItem>
       <StyledBuildingsFormItem>
-        <StyledBuildingsFormSubtitle>
-          Сдача объекта
-        </StyledBuildingsFormSubtitle>
+        <StyledBuildingsFormSubtitle>Сдача объекта</StyledBuildingsFormSubtitle>
         <StyledBuildingsFormRadios>
           {completionDateOptions.map((option) => {
             return (
               <FormCheckbox
-              id={option.id}
-              key={option.id}
-              name={'buildingsCheckbox'}
-              value={option.value}
-              defaultChecked={defaultChecked === option.value}
-              onChange={handleDeliveryDateChange}
-              label={option.label}
-            />
+                id={option.id}
+                key={option.id}
+                name={'buildingsCheckbox'}
+                value={option.value}
+                defaultChecked={defaultChecked === option.value}
+                onChange={handleDeliveryDateChange}
+                label={option.label}
+              />
             );
           })}
         </StyledBuildingsFormRadios>

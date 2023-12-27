@@ -1,6 +1,6 @@
-import CatalogCard from "../catalogCard/catalogCard";
-import { StyledCatalogList, StyledCatalogNoOptionsMessage } from "./styled";
-import { IApartmentData } from "../../../../types/IBuilding";
+import CatalogCard from '../catalogCard/catalogCard';
+import { StyledCatalogList, StyledCatalogNoOptionsMessage } from './styled';
+import { IApartmentData } from '../../../../types/IBuilding';
 
 interface CatalogListProps {
   apartments: IApartmentData[];
@@ -9,15 +9,22 @@ interface CatalogListProps {
   selectedApartmentId: string | undefined;
 }
 
-function CatalogList ({ apartments, selectedRoomType, onCatalogCardChange, selectedApartmentId }: CatalogListProps) {
+function CatalogList({
+  apartments,
+  selectedRoomType,
+  onCatalogCardChange,
+  selectedApartmentId,
+}: CatalogListProps) {
   let filteredItems = [];
 
-  filteredItems = apartments.filter(apartment => apartment.roomNum === selectedRoomType);
+  filteredItems = apartments.filter(
+    (apartment) => apartment.roomNum === selectedRoomType,
+  );
 
   return (
     <StyledCatalogList>
       {filteredItems.length > 0 ? (
-        filteredItems.map(item => (
+        filteredItems.map((item) => (
           <CatalogCard
             key={item.id}
             details={item}
@@ -26,10 +33,12 @@ function CatalogList ({ apartments, selectedRoomType, onCatalogCardChange, selec
           />
         ))
       ) : (
-        <StyledCatalogNoOptionsMessage>Нет свободных вариантов</StyledCatalogNoOptionsMessage>
+        <StyledCatalogNoOptionsMessage>
+          Нет свободных вариантов
+        </StyledCatalogNoOptionsMessage>
       )}
     </StyledCatalogList>
   );
-};
+}
 
 export default CatalogList;

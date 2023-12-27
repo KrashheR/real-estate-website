@@ -1,5 +1,9 @@
-import Title, { TitleLevel, TitleSize, TitleWeight } from "../../../../components/ui/title/title";
-import { StyledBuildingsListEmpty } from "./styled";
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../../components/ui/title/title';
+import { StyledBuildingsListEmpty } from './styled';
 
 function BuildingListEmpty() {
   return (

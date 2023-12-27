@@ -16,7 +16,7 @@ function FormSelect({ id, options, onChange }: FormSelectProps) {
   return (
     <StyledFormSelect id={id} onChange={onChange}>
       {options.map((option, index) => (
-        <StyledFormSelectOption key={option + "-" + index} value={option.value}>
+        <StyledFormSelectOption key={option + '-' + index} value={option.value}>
           {option.label}
         </StyledFormSelectOption>
       ))}

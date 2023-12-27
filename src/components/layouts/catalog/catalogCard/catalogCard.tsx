@@ -1,5 +1,9 @@
-import { IApartmentData } from "../../../../types/IBuilding";
-import { StyledCatalogCard, StyledCatalogCardImage, StyledCatalogCardSize } from "./styled";
+import { IApartmentData } from '../../../../types/IBuilding';
+import {
+  StyledCatalogCard,
+  StyledCatalogCardImage,
+  StyledCatalogCardSize,
+} from './styled';
 
 interface CatalogCardProps {
   details: IApartmentData;
@@ -7,10 +11,16 @@ interface CatalogCardProps {
   handleCatalogCardChange: () => void;
 }
 
-function CatalogCard({ details, isSelected, handleCatalogCardChange }: CatalogCardProps )  {
-
+function CatalogCard({
+  details,
+  isSelected,
+  handleCatalogCardChange,
+}: CatalogCardProps) {
   return (
-    <StyledCatalogCard onClick={handleCatalogCardChange} isSelected={isSelected}>
+    <StyledCatalogCard
+      onClick={handleCatalogCardChange}
+      isSelected={isSelected}
+    >
       <StyledCatalogCardImage src={details.image} alt="План квартиры" />
       <StyledCatalogCardSize> {details.size} м²</StyledCatalogCardSize>
     </StyledCatalogCard>

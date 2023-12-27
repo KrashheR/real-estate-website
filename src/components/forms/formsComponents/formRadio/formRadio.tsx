@@ -10,18 +10,26 @@ interface FormRadioProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   defaultChecked?: boolean;
   radioType: FormRadioType;
-  id:string;
-  label:string;
-  value:string | number;
+  id: string;
+  label: string;
+  value: string | number;
 }
 
 export enum FormRadioType {
-  CATALOG = "catalog",
-  BUILDING = "apartment",
-  CONSTRUCTOR = "constructor",
+  CATALOG = 'catalog',
+  BUILDING = 'apartment',
+  CONSTRUCTOR = 'constructor',
 }
 
-function FormRadio({ name, onChange, defaultChecked, id, value, label, radioType }: FormRadioProps) {
+function FormRadio({
+  name,
+  onChange,
+  defaultChecked,
+  id,
+  value,
+  label,
+  radioType,
+}: FormRadioProps) {
   return (
     <StyledFormRadioContainer id={`form-${name}`} onChange={onChange}>
       <StyledFormRadio

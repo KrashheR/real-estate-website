@@ -1,7 +1,11 @@
 import Description, {
   DescriptionSize,
 } from '../../../components/ui/description/description';
-import Title, { TitleLevel, TitleSize, TitleWeight} from '../../../components/ui/title/title';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../components/ui/title/title';
 import Container from '../../../components/layouts/container/container';
 import {
   StyledApartmentAbout,
@@ -25,11 +29,11 @@ function ApartmentAbout({
   return (
     <Container>
       <StyledApartmentAbout>
-      <Title
-        level={TitleLevel.H2}
-        size={TitleSize.XL}
-        weight={TitleWeight.BOLD}
-      >
+        <Title
+          level={TitleLevel.H2}
+          size={TitleSize.XL}
+          weight={TitleWeight.BOLD}
+        >
           О проекте
         </Title>
         <StyledApartmentAboutInfo>
@@ -44,8 +48,11 @@ function ApartmentAbout({
             })}
           </StyledApartmentAboutText>
           <StyledApartmentAboutPicture>
-            <source srcSet={apartmentImageMobile} media='(max-width: 576px)'/>
-            <StyledApartmentAboutImage src={apartmentImage} alt="Дневная фотография ЖК"/>
+            <source srcSet={apartmentImageMobile} media="(max-width: 576px)" />
+            <StyledApartmentAboutImage
+              src={apartmentImage}
+              alt="Дневная фотография ЖК"
+            />
           </StyledApartmentAboutPicture>
         </StyledApartmentAboutInfo>
       </StyledApartmentAbout>

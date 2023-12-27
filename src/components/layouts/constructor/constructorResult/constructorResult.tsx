@@ -1,9 +1,11 @@
 import { useAppSelector } from '../../../../hooks/redux';
 import { selectFilteredBuildings } from '../../../../store/reducers/buildings/buildingSelectors';
-import Title, { TitleLevel, TitleSize, TitleWeight } from '../../../ui/title/title';
-import {
-  StyledConstructorResult,
-} from './styled';
+import Title, {
+  TitleLevel,
+  TitleSize,
+  TitleWeight,
+} from '../../../ui/title/title';
+import { StyledConstructorResult } from './styled';
 import BuildingsList from '../../../../pages/buildingsPage/buildingsList/buildingsList';
 
 interface ConstructorResultProps {

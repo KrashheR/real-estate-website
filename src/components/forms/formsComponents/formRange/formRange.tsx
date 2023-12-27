@@ -40,8 +40,10 @@ function FormRange({
   const trackStyle = useMemo(() => {
     const minVal = minPrice ?? initialMinPrice;
     const maxVal = maxPrice ?? initialMaxPrice;
-    const minValuePercent = ((minVal - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100;
-    const maxValuePercent = ((maxVal - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100;
+    const minValuePercent =
+      ((minVal - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100;
+    const maxValuePercent =
+      ((maxVal - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100;
 
     return {
       left: minValuePercent,
@@ -77,7 +79,7 @@ function FormRange({
       </StyledFormRangeInputContainer>
       <StyledFormRangeSliderContainer>
         <StyledFormRangeSlider
-          type='range'
+          type="range"
           id="range-slide-min"
           min={initialMinPrice}
           max={initialMaxPrice}
@@ -87,7 +89,7 @@ function FormRange({
           aria-label="Ползунок минимальной цены"
         />
         <StyledFormRangeSlider
-          type='range'
+          type="range"
           id="range-slide-max"
           min={initialMinPrice}
           max={initialMaxPrice}
@@ -96,7 +98,11 @@ function FormRange({
           onChange={onMaxPriceChange}
           aria-label="Ползунок максимальной цены"
         />
-        <StyledFormRangeSliderTrack width={trackStyle.width} left={trackStyle.left} right={trackStyle.right}/>
+        <StyledFormRangeSliderTrack
+          width={trackStyle.width}
+          left={trackStyle.left}
+          right={trackStyle.right}
+        />
       </StyledFormRangeSliderContainer>
     </StyledFormRange>
   );

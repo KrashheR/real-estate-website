@@ -3,7 +3,10 @@ import { StyledMainPage, StyledMainPageBuildings } from './styled';
 import BuildingsList from '../buildingsPage/buildingsList/buildingsList';
 import BuildingsFilterForm from '../../components/forms/buildingsFilterForm/buildingsFilterForm';
 import { useAppSelector } from '../../hooks/redux';
-import { selectBuildingsMinMaxCalculatingState, selectFilteredBuildings } from '../../store/reducers/buildings/buildingSelectors';
+import {
+  selectBuildingsMinMaxCalculatingState,
+  selectFilteredBuildings,
+} from '../../store/reducers/buildings/buildingSelectors';
 import LoadingLayout from '../../components/layouts/loadingLayout/loadingLayout';
 
 function MainPage() {

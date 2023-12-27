@@ -10,7 +10,7 @@ function YandexMap({latitude, longitude}: YMapsProps) {
 
   return(
     <StyledMap>
-      <YMaps>
+      <YMaps query={{apikey: "caee58c2-bb49-4773-897c-9f20bf105bf7"}}>
         <Map
           defaultState={{
             center: [latitude, longitude],

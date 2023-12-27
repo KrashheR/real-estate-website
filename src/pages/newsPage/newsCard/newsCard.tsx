@@ -5,7 +5,12 @@ import Title, {
   TitleWeight,
 } from '../../../components/ui/title/title';
 import { INews } from '../../../types/INews';
-import { StyledCardDate, StyledNewsCard, StyledNewsCardImage, StyledNewsCardTextContainer } from './styled';
+import {
+  StyledCardDate,
+  StyledNewsCard,
+  StyledNewsCardImage,
+  StyledNewsCardTextContainer,
+} from './styled';
 
 interface NewsCardProps {
   data: INews;
@@ -17,16 +22,14 @@ function NewsCard({ data }: NewsCardProps) {
     <StyledNewsCard as={Link} to={link}>
       <StyledNewsCardImage src={data.imageMobile} />
       <StyledNewsCardTextContainer>
-      <Title
-        level={TitleLevel.H2}
-        size={TitleSize.S}
-        weight={TitleWeight.BOLD}
-      >
-        {data.title}
-      </Title>
-      <StyledCardDate>
-        {data.date}
-      </StyledCardDate>
+        <Title
+          level={TitleLevel.H2}
+          size={TitleSize.S}
+          weight={TitleWeight.BOLD}
+        >
+          {data.title}
+        </Title>
+        <StyledCardDate>{data.date}</StyledCardDate>
       </StyledNewsCardTextContainer>
     </StyledNewsCard>
   );
