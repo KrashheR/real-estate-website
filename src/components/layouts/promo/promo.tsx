@@ -14,7 +14,7 @@ function Promo() {
     <StyledPromo>
       <StyledPromoContainer>
         <CountdownOfferCard
-          toDate={'31 December 2023 23:59:59'}
+          toDate={'31 December 2024 23:59:59'}
           link="/buildings"
         />
         <PromoCard
