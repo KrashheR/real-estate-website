@@ -1,4 +1,3 @@
-import { IBuilding } from '../../types/IBuilding';
 import { StyledApartment, StyledApartmentNotFound } from './styled';
 import ApartmentAbout from './apartmentAbout/apartmentAbout';
 import ApartmentFeaturesList from './apartmentFeaturesList/apartmentFeaturesList';

@@ -9,6 +9,7 @@ import {
   StyledApartmentDocumentsCardFooter,
   StyledApartmentDocumentsCardImage,
 } from './styled';
+import downloadIcon from '../../../../assets/images/documents/download.svg';
 
 interface DocumentCardProps {
   title: string;
@@ -33,7 +34,7 @@ function ApartmentDocumentsCard({
           {downloadText}
         </StyledApartmentDocumentsCardDownloadText>
         <StyledApartmentDocumentsCardImage
-          src={imageSrc}
+          src={downloadIcon}
           alt="Кнопка скачать"
         />
       </StyledApartmentDocumentsCardFooter>
