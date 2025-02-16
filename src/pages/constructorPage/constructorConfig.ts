@@ -28,10 +28,10 @@ export const constructorOptions = [
     question: 'Укажите желаемый бюджет',
     filter: 'maxPrice',
     variants: [
-      { answer: 'До 3.000.000 рублей', value: 3 },
       { answer: 'До 5.000.000 рублей', value: 5 },
-      { answer: 'До 9.000.000 рублей', value: 9 },
-      { answer: 'До 13.000.000 рублей', value: 13 },
+      { answer: 'До 10.000.000 рублей', value: 10 },
+      { answer: 'До 15.000.000 рублей', value: 15 },
+      { answer: 'До 25.000.000 рублей', value: 25 },
     ],
   },
 ];
