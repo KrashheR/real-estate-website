@@ -14,7 +14,6 @@ import downloadIcon from '../../../../assets/images/documents/download.svg';
 interface DocumentCardProps {
   title: string;
   downloadText: string;
-  imageSrc: string;
   downloadLink: string;
 }
 
@@ -22,7 +21,6 @@ function ApartmentDocumentsCard({
   title,
   downloadLink,
   downloadText,
-  imageSrc,
 }: DocumentCardProps) {
   return (
     <StyledApartmentDocumentsCard href={downloadLink} target="blank">
