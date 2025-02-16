@@ -46,7 +46,7 @@ function BuildingsCard({ data }: BuildingsCardProps) {
     <StyledBuildingsCard>
       <StyledBuildingsCardLink to={link} $type={data.type}>
         <StyledBuildingsCardPicture>
-          <source srcSet={data.imageMobile} media="(max-width: 576px)" />
+          <source srcSet={data.imageMobile} media="(max-width: 577px)" />
           <StyledBuildingsCardImage src={data.image} alt={data.title} />
         </StyledBuildingsCardPicture>
         <StyledBuildingsCardDescription $type={data.type}>

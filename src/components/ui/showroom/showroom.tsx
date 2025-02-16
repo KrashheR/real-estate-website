@@ -7,9 +7,14 @@ import {
   StyledShowroomPicture,
 } from './styled';
 import ShowroomButton from './showroomButton/showroomButton';
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import SwiperCore from 'swiper';
 import { IRoomSlides } from '../../../types/IBuilding';
+
+interface RoomType {
+  type: string;
+  label: string;
+}
 
 export interface ShowroomProps {
   slides: IRoomSlides[];
@@ -18,6 +23,13 @@ export interface ShowroomProps {
 function Showroom({ slides }: ShowroomProps) {
   const [selectedRoom, setSelectedRoom] = useState('livingroom');
   const swiperRef = useRef<SwiperCore | null>(null);
+  const uniqueRooms = useMemo(() => {
+    const uniqueTypes = Array.from(new Set(slides.map(slide => slide.type)));
+    return uniqueTypes.map(type => {
+      const slide = slides.find(s => s.type === type);
+      return { type, label: slide?.label ?? '' };
+    });
+  }, [slides]);
 
   const handleSliderChange = () => {
     const swiper = swiperRef.current;
@@ -45,46 +57,17 @@ function Showroom({ slides }: ShowroomProps) {
   return (
     <StyledShowroom>
       <StyledShowroomButtons>
-        <ShowroomButton
-          selectedRoom={selectedRoom}
-          setSelectedRoom={setSelectedRoom}
-          room="livingroom"
-          onButtonClick={handleRoomSelection}
-        >
-          Гостиная
-        </ShowroomButton>
-        <ShowroomButton
-          selectedRoom={selectedRoom}
-          setSelectedRoom={setSelectedRoom}
-          room="bedroom"
-          onButtonClick={handleRoomSelection}
-        >
-          Спальня
-        </ShowroomButton>
-        <ShowroomButton
-          selectedRoom={selectedRoom}
-          setSelectedRoom={setSelectedRoom}
-          room="kitchen"
-          onButtonClick={handleRoomSelection}
-        >
-          Кухня
-        </ShowroomButton>
-        <ShowroomButton
-          selectedRoom={selectedRoom}
-          setSelectedRoom={setSelectedRoom}
-          room="bathroom"
-          onButtonClick={handleRoomSelection}
-        >
-          Ванная
-        </ShowroomButton>
-        <ShowroomButton
-          selectedRoom={selectedRoom}
-          setSelectedRoom={setSelectedRoom}
-          room="hallway"
-          onButtonClick={handleRoomSelection}
-        >
-          Прихожая
-        </ShowroomButton>
+        {uniqueRooms.map((room) => (
+          <ShowroomButton
+            key={room.type}
+            selectedRoom={selectedRoom}
+            setSelectedRoom={setSelectedRoom}
+            room={room.type}
+            onButtonClick={handleRoomSelection}
+          >
+            {room.label}
+          </ShowroomButton>
+        ))}
       </StyledShowroomButtons>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -102,7 +85,10 @@ function Showroom({ slides }: ShowroomProps) {
           <SwiperSlide key={index + slide.type} data-type={slide.type}>
             <StyledShowroomPicture>
               <source srcSet={slide.imageMobile} media="(max-width: 576px)" />
-              <StyledShowroomImage src={slide.image} alt={"Изображение " + slide.type + " номер " + index}/>
+              <StyledShowroomImage
+                src={slide.image}
+                alt={`Изображение ${slide.label} номер ${index}`}
+              />
             </StyledShowroomPicture>
           </SwiperSlide>
         ))}

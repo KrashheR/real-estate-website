@@ -1,4 +1,4 @@
-import {lazy, Suspense} from 'react';
+import { lazy, Suspense } from 'react';
 import GlobalStyles from './assets/theme/globalStyles';
 import { ThemeProvider } from 'styled-components';
 import { DefaultTheme } from './assets/theme/defaultTheme';
@@ -12,13 +12,9 @@ import MainLayout from './components/layouts/mainLayout/mainLayout';
 import NotFoundPage from './pages/notFoundPage/notFoundPage';
 import LoadingLayout from './components/layouts/loadingLayout/loadingLayout';
 
-const BuildingsPage = lazy(
-  () => import('./pages/buildingsPage/buildingsPage'),
-);
+const BuildingsPage = lazy(() => import('./pages/buildingsPage/buildingsPage'));
 const AboutPage = lazy(() => import('./pages/aboutPage/aboutPage'));
-const ApartmentPage = lazy(
-  () => import('./pages/apartmentPage/apartmentPage'),
-);
+const ApartmentPage = lazy(() => import('./pages/apartmentPage/apartmentPage'));
 const NewsPage = lazy(() => import('./pages/newsPage/newsPage'));
 const NewsArticle = lazy(() => import('./pages/newsArticle/newsArticle'));
 const ConstructorPage = lazy(
@@ -31,7 +27,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchBuildings());
     dispatch(fetchPromos());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ErrorBoundary>

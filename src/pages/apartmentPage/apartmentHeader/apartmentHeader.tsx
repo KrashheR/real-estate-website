@@ -28,7 +28,7 @@ function ApartmentHeader({
             size={TitleSize.XXL}
             weight={TitleWeight.BOLD}
           >
-            {'ЖК «' + title + '»'}
+            {title}
           </Title>
         </StyledApartmentTitle>
       </Container>

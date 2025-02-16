@@ -1,0 +1,25 @@
+{
+  "promos": [
+    {
+      "id": "promo-001",
+      "title": "Конструктор квартир",
+      "href": "/constructor",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/promo/constructor.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/promo/constructorMobile.webp"
+    },
+    {
+      "id": "promo-002",
+      "title": "Наш офис",
+      "href": "/about",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/promo/office.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/promo/officeMobile.webp"
+    },
+    {
+      "id": "promo-003",
+      "title": "Парковочные места",
+      "href": "/buildings?filter-mode=parking-space",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/promo/parking.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/promo/parkingMobile.webp"
+    }
+  ]
+}

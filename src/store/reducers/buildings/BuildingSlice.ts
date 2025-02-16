@@ -52,15 +52,36 @@ export const buildingSlice = createSlice({
     setFilters: (state, action: PayloadAction<FilterValues>) => {
       state.filters = action.payload;
     },
-    setMinMaxPrice: (state, action: PayloadAction<{min: number, max: number}>) => {
+    setMinMaxPrice: (
+      state,
+      action: PayloadAction<{ min: number; max: number }>,
+    ) => {
       state.filters.minPrice = action.payload.min;
       state.filters.maxPrice = action.payload.max;
       state.initialMinPrice = action.payload.min;
       state.initialMaxPrice = action.payload.max;
       state.isMinMaxSet = true;
     },
+    setMinPrice: (state, action: PayloadAction<number | null>) => {
+      state.filters.minPrice = action.payload;
+    },
+    setMaxPrice: (state, action: PayloadAction<number | null>) => {
+      state.filters.maxPrice = action.payload;
+    },
+    setObjectType: (state, action: PayloadAction<string>) => {
+      state.filters.objectType = action.payload;
+    },
+    setCompletionDates: (state, action: PayloadAction<string[]>) => {
+      state.filters.completionDates = action.payload;
+    },
   },
 });
 
-export const { setFilters } = buildingSlice.actions;
+export const {
+  setFilters,
+  setMinPrice,
+  setMaxPrice,
+  setObjectType,
+  setCompletionDates,
+} = buildingSlice.actions;
 export default buildingSlice.reducer;

@@ -1,0 +1,117 @@
+{
+  "news": [
+    {
+      "id": "news-001",
+      "title": "Открытие нового корпуса в ЖК «Симфония»",
+      "description": "Рады сообщить об успешном завершении строительства нового корпуса в жилом комплексе «Симфония». Современная архитектура и премиальная отделка создают неповторимую атмосферу комфорта и роскоши.<br>В новом корпусе представлены квартиры различных планировок, от уютных студий до просторных четырехкомнатных квартир с панорамными окнами. Все квартиры сдаются с дизайнерской отделкой.<br>Приглашаем вас на день открытых дверей, который состоится в следующую субботу.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/newsRassvet.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/newsRassvetMobile.webp",
+      "date": "20.03.2024"
+    },
+    {
+      "id": "news-002",
+      "title": "Строительство эко-крыши в ЖК «Грация»",
+      "description": "В ЖК «Грация» завершается строительство уникальной эко-крыши. Проект включает в себя создание зеленых зон, систему сбора дождевой воды и солнечные панели.<br>На крыше будут размещены общественные пространства для отдыха жителей, включая зоны для йоги и медитации. Проект реализуется с использованием современных экологичных материалов.<br>Открытие эко-крыши запланировано на следующий месяц.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/ecoRoof.webpp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/ecoRoofMobile.webp",
+      "date": "15.03.2024"
+    },
+    {
+      "id": "news-003",
+      "title": "Высокий уровень безопасности в ЖК «Берлога»",
+      "description": "ЖК «Берлога» внедрил инновационную систему безопасности последнего поколения. Комплекс оснащен умными камерами с функцией распознавания лиц и круглосуточным постом охраны.<br>Установлена современная система контроля доступа с использованием электронных ключей и мобильного приложения. Территория комплекса находится под постоянным видеонаблюдением.<br>Новая система уже доказала свою эффективность, обеспечивая максимальный комфорт и спокойствие жителей.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/security.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/securityMobile.webp",
+      "date": "10.03.2024"
+    },
+    {
+      "id": "news-004",
+      "title": "Открытие фитнес-центра в ЖК «Симфония»",
+      "description": "Спешим сообщить об открытии современного фитнес-центра в ЖК «Симфония». Просторный тренажерный зал оснащен новейшим оборудованием премиум-класса.<br>Для жителей комплекса действуют специальные условия на клубные карты. В штате центра работают сертифицированные тренеры с богатым опытом.<br>Торжественное открытие состоится через неделю, где все желающие смогут посетить бесплатные пробные тренировки.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/spaCenter.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/spaCenterMobile.webp",
+      "date": "05.03.2024"
+    },
+    {
+      "id": "news-005",
+      "title": "Открытие природного пруда в ЖК «Грация»",
+      "description": "В ЖК «Грация» завершено создание природного пруда с системой естественной фильтрации воды. Вокруг водоема обустроена зона отдыха с деревянными настилами и удобными беседками.<br>В пруду высажены водные растения, создающие естественную экосистему. Установлена художественная подсветка, создающая особую атмосферу в вечернее время.<br>Приглашаем жителей на торжественное открытие нового места отдыха.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/newsLake.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/newsLakeMobile.webp",
+      "date": "01.03.2024"
+    },
+    {
+      "id": "news-006",
+      "title": "Специальные условия покупки в ЖК «Тушино»",
+      "description": "ЖК «Тушино» запускает программу специальных условий на покупку квартир. Скидки до 15% на определенные планировки и этажи.<br>Действует программа рассрочки без процентов на 12 месяцев и специальные ипотечные условия от банков-партнеров. Дополнительные бонусы при 100% оплате.<br>Предложение действует ограниченное время, успейте воспользоваться выгодными условиями.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/newsTushino.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/newsTushino.webp",
+      "date": "25.02.2024"
+    },
+    {
+      "id": "news-007",
+      "title": "Открытие ресторана в ЖК «Орхидея»",
+      "description": "В ЖК «Орхидея» открылся новый ресторан с панорамным видом на реку. Меню разработано известным шеф-поваром и включает блюда европейской и азиатской кухни.<br>Интерьер ресторана выполнен в современном стиле с использованием натуральных материалов. Для жителей комплекса действует специальная система скидок и бонусов.<br>В честь открытия всех гостей ждет праздничная программа и дегустация фирменных блюд.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/openingTC.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/openingTCMobile.webp",
+      "date": "20.02.2024"
+    },
+    {
+      "id": "news-008",
+      "title": "Новая транспортная развязка около ЖК «Сады»",
+      "description": "Завершено строительство новой транспортной развязки рядом с ЖК «Сады». Это значительно улучшило транспортную доступность комплекса.<br>Открыты дополнительные маршруты общественного транспорта, связывающие комплекс с центром города. Организованы удобные пешеходные переходы и велодорожки.<br>Время в пути до ближайшей станции метро сократилось до 5 минут.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/orhideyaCenter.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/orhideyaCenterMobile.webp",
+      "date": "15.02.2024"
+    },
+    {
+      "id": "news-009",
+      "title": "Старт продаж новых квартир в ЖК «Симфония»",
+      "description": "Открыты продажи квартир в новом корпусе ЖК «Симфония». Доступны различные планировки от студий до пятикомнатных квартир.<br>Все квартиры сдаются с премиальной отделкой и установленной бытовой техникой. Действует специальная программа ипотечного кредитования от банков-партнеров.<br>Записаться на просмотр можно уже сейчас в нашем офисе продаж.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/preordering.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/preorderingMobile.webp",
+      "date": "10.02.2024"
+    },
+    {
+      "id": "news-010",
+      "title": "Открытие медицинского центра в ЖК «Тушино»",
+      "description": "В ЖК «Тушино» начал работу современный медицинский центр. В центре представлен широкий спектр медицинских услуг и диагностики.<br>Прием ведут высококвалифицированные специалисты, установлено новейшее оборудование. Для жителей комплекса разработана специальная программа медицинского обслуживания.<br>В течение первого месяца работы действует скидка 20% на все услуги центра.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/techoPark.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/techoParkMobile.webp",
+      "date": "05.02.2024"
+    },
+    {
+      "id": "news-011",
+      "title": "Создание паркового комплекса в ЖК «Сады»",
+      "description": "Вокруг ЖК «Сады» создается масштабный парковый комплекс площадью 5 гектаров. В парке высажены редкие виды деревьев и кустарников, создающие уникальную экосистему.<br>Обустроены прогулочные дорожки, зоны для пикников и спортивные площадки. Установлены арт-объекты от известных скульпторов.<br>Открытие первой очереди парка состоится уже этой весной.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/sadyParking.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/sadyParkingMobile.webp",
+      "date": "01.02.2024"
+    },
+    {
+      "id": "news-012",
+      "title": "ЖК «Орхидея» - лидер по экологичности",
+      "description": "ЖК «Орхидея» признан самым экологичным жилым комплексом года. В проекте реализованы передовые технологии энергосбережения и переработки отходов.<br>Установлены системы сбора дождевой воды, солнечные панели и умные системы регулирования потребления ресурсов. На территории комплекса создана уникальная эко-тропа.<br>Комплекс получил международный сертификат экологического строительства.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/treesOnRoof.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/treesOnRoofMobile.webp",
+      "date": "25.01.2024"
+    },
+    {
+      "id": "news-013",
+      "title": "Открытие школы искусств в ЖК «Сады»",
+      "description": "В ЖК «Сады» открылась школа искусств для детей и взрослых. В программе обучения: живопись, музыка, хореография и театральное искусство.<br>Занятия проводят опытные преподаватели и действующие артисты. Оборудованы просторные классы с современным оснащением.<br>Запись на пробные занятия уже открыта для всех желающих.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/simphonyClub.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/simphonyClubMobile.webp",
+      "date": "20.01.2024"
+    },
+    {
+      "id": "news-014",
+      "title": "ЖК «Егоровский» досрочно сдал первую очередь",
+      "description": "Первая очередь ЖК «Егоровский» сдана на полгода раньше запланированного срока. Все квартиры полностью соответствуют заявленным характеристикам и высоким стандартам качества.<br>Уже работают все инженерные системы, благоустроена придомовая территория. Начата выдача ключей первым жильцам.<br>Успешная сдача первой очереди подтверждает надежность застройщика и высокое качество строительства.",
+      "image": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/simphonyClub.webp",
+      "imageMobile": "https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/news/simphonyClubMobile.webp",
+      "date": "15.01.2024"
+    }
+  ],
+  "total": 14
+}

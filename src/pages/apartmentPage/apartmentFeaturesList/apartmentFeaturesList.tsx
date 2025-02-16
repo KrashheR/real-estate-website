@@ -16,8 +16,9 @@ function ApartmentFeaturesList({
         {apartmentFeatures.map((item: IApartmentFeature) => {
           return (
             <ApartmentFeature
-              type={item.type}
-              descriptionText={item.description}
+              title={item.title}
+              description={item.description}
+              imageSrc={item.imageSrc}
               key={item.id}
             />
           );

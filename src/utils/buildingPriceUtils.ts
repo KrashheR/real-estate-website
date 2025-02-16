@@ -1,20 +1,24 @@
-import { IBuilding, IApartmentData } from "../types/IBuilding";
+import { IBuilding, IApartmentData } from '../types/IBuilding';
 
-export const getMinAndMaxApartmentPrice = (buildings: IBuilding[]): [number, number] => {
+export const getMinAndMaxApartmentPrice = (
+  buildings: IBuilding[],
+): [number, number] => {
   let minPrice = 9999;
   let maxPrice = -9999;
 
-  buildings.forEach(building => {
-    const buildingApartments: IApartmentData[] = JSON.parse(building.apartments);
+  buildings.forEach((building) => {
+    const buildingApartments: IApartmentData[] = JSON.parse(
+      building.apartments,
+    );
 
-    buildingApartments.forEach(apartment => {
+    buildingApartments.forEach((apartment) => {
       if (apartment.price < minPrice) minPrice = apartment.price;
       if (apartment.price > maxPrice) maxPrice = apartment.price;
     });
   });
 
   return [minPrice, maxPrice];
-}
+};
 
 export const sumApartmentsNum = (apartmentData: IApartmentData[]): number[] => {
   let apartmentSum = 0;
@@ -29,7 +33,7 @@ export const sumApartmentsNum = (apartmentData: IApartmentData[]): number[] => {
   });
 
   return [apartmentSum, parkingSum];
-}
+};
 
 export const findMinPrice = (apartmentData: IApartmentData[]): number[] => {
   let apartmentMin = 999;
@@ -43,4 +47,4 @@ export const findMinPrice = (apartmentData: IApartmentData[]): number[] => {
     }
   });
   return [apartmentMin, parkingMin];
-}
+};

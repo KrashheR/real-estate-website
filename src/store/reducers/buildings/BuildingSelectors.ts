@@ -2,7 +2,8 @@ import { createSelector } from 'reselect';
 import { RootState } from '../../store';
 import { IApartmentData } from '../../../types/IBuilding';
 
-export const selectBuildings = (state: RootState) => state.buildingReducer.buildings;
+export const selectBuildings = (state: RootState) =>
+  state.buildingReducer.buildings;
 
 export const selectBuildingById = (state: RootState, id: string) => {
   return state.buildingReducer.buildings.find((building) => building.id === id);
@@ -10,7 +11,7 @@ export const selectBuildingById = (state: RootState, id: string) => {
 
 export const selectBuildingsMinMaxCalculatingState = (state: RootState) => {
   return state.buildingReducer.isMinMaxSet;
-}
+};
 
 export const selectInitialMinPrice = (state: RootState) =>
   state.buildingReducer.initialMinPrice;
@@ -18,17 +19,32 @@ export const selectInitialMinPrice = (state: RootState) =>
 export const selectInitialMaxPrice = (state: RootState) =>
   state.buildingReducer.initialMaxPrice;
 
-export const selectSortedBuildings = createSelector([selectBuildings], (cards) => {
-  return [...cards].sort((a, b) => {
-    if (a.type === 'premium' && b.type !== 'premium') {
-      return -1;
-    }
-    if (a.type !== 'premium' && b.type === 'premium') {
-      return 1;
-    }
-    return 0;
-  });
-});
+export const selectCurrentFilterType = (state: RootState): string =>
+  state.buildingReducer.filters.objectType;
+
+export const selectCurrentMinPrice = (state: RootState): number | null =>
+  state.buildingReducer.filters.minPrice;
+
+export const selectCurrentMaxPrice = (state: RootState): number | null =>
+  state.buildingReducer.filters.maxPrice;
+
+export const selectCurrentCompletionDates = (state: RootState): string[] =>
+  state.buildingReducer.filters.completionDates;
+
+export const selectSortedBuildings = createSelector(
+  [selectBuildings],
+  (cards) => {
+    return [...cards].sort((a, b) => {
+      if (a.type === 'premium' && b.type !== 'premium') {
+        return -1;
+      }
+      if (a.type !== 'premium' && b.type === 'premium') {
+        return 1;
+      }
+      return 0;
+    });
+  },
+);
 
 export const selectFilteredBuildings = createSelector(
   [selectSortedBuildings, (state: RootState) => state.buildingReducer.filters],
@@ -37,7 +53,9 @@ export const selectFilteredBuildings = createSelector(
 
     const filteredCards = sortedBuildings.filter((building) => {
       let isMatch: boolean = true;
-      const buildingApartments: IApartmentData[] = JSON.parse(building.apartments);
+      const buildingApartments: IApartmentData[] = JSON.parse(
+        building.apartments,
+      );
 
       if (completionDates.length > 0) {
         isMatch = completionDates.includes(building.completionDate);
@@ -47,8 +65,11 @@ export const selectFilteredBuildings = createSelector(
         price: number,
         minPrice: number | null,
         maxPrice: number | null,
-      ): boolean =>
-        price >= (minPrice ?? price) && price <= (maxPrice ?? price);
+      ): boolean => {
+        const min = minPrice ?? 0;
+        const max = maxPrice ?? Infinity;
+        return price >= min && price <= max;
+      };
 
       const isApartmentAvailable = (apartment: IApartmentData): boolean =>
         apartment.num > 0 &&

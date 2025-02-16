@@ -1,4 +1,5 @@
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useEffect, ChangeEvent } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   StyledBuildingsFilterForm,
   StyledBuildingsFormSubtitle,
@@ -9,85 +10,65 @@ import {
 import FormSelect from '../formsComponents/formSelect/formSelect';
 import FormRange from '../formsComponents/formRange/formRange';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { setFilters } from '../../../store/reducers/buildings/buildingSlice';
+import {
+  setMinPrice,
+  setMaxPrice,
+  setObjectType,
+  setCompletionDates,
+} from '../../../store/reducers/buildings/buildingSlice';
 import {
   completionDateOptions,
   objectTypesOptions,
 } from './buildingsFormConfig';
 import {
-  selectInitialMinPrice,
-  selectInitialMaxPrice,
+  selectCurrentFilterType,
+  selectCurrentMinPrice,
+  selectCurrentMaxPrice,
+  selectCurrentCompletionDates,
 } from '../../../store/reducers/buildings/buildingSelectors';
-import useDebouncedFunction from '../../../hooks/debounce';
 import FormCheckbox from '../formsComponents/formCheckbox/formCheckbox';
+import { getFilterModeFromUrl } from '../../../utils/urlFilterUtils';
 
 function BuildingsFilterForm() {
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
-  const [minPrice, setMinPrice] = useState<number | null>(
-    useAppSelector(selectInitialMinPrice),
-  );
-  const [maxPrice, setMaxPrice] = useState<number | null>(
-    useAppSelector(selectInitialMaxPrice),
-  );
-
-  const [completionDates, setCompletionDates] = useState<string[]>([]);
-  const [objectType, setObjectType] = useState<string>('Все объекты');
+  const currentFilterType = useAppSelector(selectCurrentFilterType);
+  const currentMinPrice = useAppSelector(selectCurrentMinPrice);
+  const currentMaxPrice = useAppSelector(selectCurrentMaxPrice);
+  const currentCompletionDates = useAppSelector(selectCurrentCompletionDates);
 
   const handleMinPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = Math.min(parseFloat(e.target.value), maxPrice ?? Infinity);
-    setMinPrice(newValue);
+    const newValue = Math.min(
+      parseFloat(e.target.value),
+      currentMaxPrice ?? Infinity,
+    );
+    dispatch(setMinPrice(newValue));
   };
 
   const handleMaxPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = Math.max(parseFloat(e.target.value), minPrice ?? 0);
-    setMaxPrice(newValue);
+    const newValue = Math.max(parseFloat(e.target.value), currentMinPrice ?? 0);
+    dispatch(setMaxPrice(newValue));
   };
 
   const handleObjectTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setObjectType(e.target.value);
+    dispatch(setObjectType(e.target.value));
   };
 
   const handleDeliveryDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setCompletionDates((prevDates) => [...prevDates, e.target.value]);
-    } else {
-      setCompletionDates((prevDates) =>
-        prevDates.filter((date) => date !== e.target.value),
-      );
-    }
+    const newCompletionDates = e.target.checked
+      ? [...currentCompletionDates, e.target.value]
+      : currentCompletionDates.filter((date) => date !== e.target.value);
+
+    dispatch(setCompletionDates(newCompletionDates));
   };
 
-  const defaultChecked = '';
-
   useEffect(() => {
-    dispatch(
-      setFilters({
-        minPrice,
-        maxPrice,
-        objectType,
-        completionDates,
-      }),
+    const currentFilterMode = getFilterModeFromUrl(
+      new URLSearchParams(location.search),
     );
-  }, [objectType, completionDates, dispatch]);
-
-  const debouncedSetPriceFilters = useDebouncedFunction(
-    (minPrice, maxPrice) => {
-      dispatch(
-        setFilters({
-          minPrice,
-          maxPrice,
-          objectType,
-          completionDates,
-        }),
-      );
-    },
-    300,
-  );
-
-  useEffect(() => {
-    debouncedSetPriceFilters(minPrice, maxPrice);
-  }, [minPrice, maxPrice]);
+    dispatch(setObjectType(currentFilterMode));
+  }, [location.search]);
 
   return (
     <StyledBuildingsFilterForm>
@@ -99,6 +80,7 @@ function BuildingsFilterForm() {
           id="form-buildings-type"
           options={objectTypesOptions}
           onChange={handleObjectTypeChange}
+          value={currentFilterType}
         />
       </StyledBuildingsFormItem>
       <StyledBuildingsFormItem>
@@ -107,8 +89,8 @@ function BuildingsFilterForm() {
         </StyledBuildingsFormSubtitle>
         <FormRange
           id="form-buildings-price"
-          minPrice={minPrice}
-          maxPrice={maxPrice}
+          minPrice={currentMinPrice}
+          maxPrice={currentMaxPrice}
           onMinPriceChange={handleMinPriceChange}
           onMaxPriceChange={handleMaxPriceChange}
         />
@@ -116,19 +98,17 @@ function BuildingsFilterForm() {
       <StyledBuildingsFormItem>
         <StyledBuildingsFormSubtitle>Сдача объекта</StyledBuildingsFormSubtitle>
         <StyledBuildingsFormRadios>
-          {completionDateOptions.map((option) => {
-            return (
-              <FormCheckbox
-                id={option.id}
-                key={option.id}
-                name={'buildingsCheckbox'}
-                value={option.value}
-                defaultChecked={defaultChecked === option.value}
-                onChange={handleDeliveryDateChange}
-                label={option.label}
-              />
-            );
-          })}
+          {completionDateOptions.map((option) => (
+            <FormCheckbox
+              key={option.id}
+              id={option.id}
+              name="buildingsCheckbox"
+              value={option.value}
+              checked={currentCompletionDates.includes(option.value)}
+              onChange={handleDeliveryDateChange}
+              label={option.label}
+            />
+          ))}
         </StyledBuildingsFormRadios>
       </StyledBuildingsFormItem>
     </StyledBuildingsFilterForm>

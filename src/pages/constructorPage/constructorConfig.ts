@@ -5,9 +5,9 @@ export const constructorOptions = [
     question: 'Укажите количество комнат',
     filter: 'objectType',
     variants: [
-      { answer: 'Однокомнатная квартира', value: 'one-room' },
-      { answer: 'Двухкомнатная квартира', value: 'two-room' },
-      { answer: 'Трёхкомнатная квартира', value: 'three-room' },
+      { answer: 'Однокомнатная квартира', value: '1' },
+      { answer: 'Двухкомнатная квартира', value: '2' },
+      { answer: 'Трёхкомнатная квартира', value: '3' },
     ],
   },
   {
@@ -17,9 +17,9 @@ export const constructorOptions = [
     filter: 'completionDates',
     variants: [
       { answer: 'Дом уже сдан', value: ['0'] },
-      { answer: 'Сдаётся в этому году', value: ['2023'] },
-      { answer: 'Сдаётся в следующем году', value: ['2024'] },
-      { answer: 'Сдаётся через год', value: ['2025'] },
+      { answer: 'Сдаётся в этому году', value: ['2025'] },
+      { answer: 'Сдаётся в следующем году', value: ['2026'] },
+      { answer: 'Сдаётся через год', value: ['2027'] },
     ],
   },
   {

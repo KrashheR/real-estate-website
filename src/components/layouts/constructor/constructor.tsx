@@ -8,10 +8,10 @@ import { setFilters } from '../../../store/reducers/buildings/buildingSlice';
 import ProgressBar from '../../ui/progressBar/progressBar';
 
 interface ConstructorProps {
-  data: IConstructor[];
+  constructorQuestionsData: IConstructor[];
 }
 
-function Constructor({ data }: ConstructorProps) {
+function Constructor({ constructorQuestionsData }: ConstructorProps) {
   const dispatch = useAppDispatch();
   const [questionNumber, setQuestionNumber] = useState<number>(0);
   const [userChoices, setUserChoices] = useState<UserChoices>({
@@ -31,16 +31,16 @@ function Constructor({ data }: ConstructorProps) {
   };
 
   useEffect(() => {
-    if (questionNumber >= data.length) {
+    if (questionNumber >= constructorQuestionsData.length) {
       dispatch(setFilters(userChoices));
       setResultActive(true);
     }
-  }, [questionNumber, data.length, userChoices, dispatch]);
+  }, [questionNumber, constructorQuestionsData.length, userChoices, dispatch]);
 
   return (
     <StyledConstructor>
       <StyledConstructorItemsList>
-        {data.map((dataItem: IConstructor) => {
+        {constructorQuestionsData.map((dataItem: IConstructor) => {
           return (
             <ConstructorItem
               dataItem={dataItem}
@@ -56,7 +56,7 @@ function Constructor({ data }: ConstructorProps) {
       </StyledConstructorItemsList>
       <ProgressBar
         currentQuestion={questionNumber}
-        totalQuestions={data.length}
+        totalQuestions={constructorQuestionsData.length}
       />
     </StyledConstructor>
   );

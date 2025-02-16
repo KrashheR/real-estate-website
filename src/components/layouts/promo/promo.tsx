@@ -10,11 +10,13 @@ import { selectPromos } from '../../../store/reducers/promo/PromoSelectors';
 function Promo() {
   const slides = useAppSelector(selectPromos);
 
+  console.log(slides);
+
   return (
     <StyledPromo>
       <StyledPromoContainer>
         <CountdownOfferCard
-          toDate={'31 December 2024 23:59:59'}
+          toDate={'31 December 2025 23:59:59'}
           link="/buildings"
         />
         <PromoCard
@@ -28,7 +30,7 @@ function Promo() {
           title="Машиноместа"
           description="Купите квартиру и получите машиноместо в подарок"
           img={carParking}
-          href="/buildings"
+          href="/buildings?filter-mode=parking-space"
           area="cardB"
         />
         <Slideshow slides={slides} />

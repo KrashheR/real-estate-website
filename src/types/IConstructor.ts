@@ -8,7 +8,7 @@ export interface IConstructor {
 
 interface Variant {
   answer: string;
-  value: string | number;
+  value: string | number | string[];
 }
 
 export interface UserChoices {

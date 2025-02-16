@@ -6,63 +6,26 @@ import Title, {
   TitleWeight,
   TitleLevel,
 } from '../../../../components/ui/title/title';
+import { IApartmentFeature } from '../../../../types/IBuilding';
 import {
   StyledApartmentFeature,
   StyledApartmentFeatureContainer,
   StyledApartmentFeatureImage,
 } from './styled';
-import metroImg from '../../../../assets/images/apartmentFeatures/metro.svg';
-import hospitalImg from '../../../../assets/images/apartmentFeatures/hospital.svg';
-import locationImg from '../../../../assets/images/apartmentFeatures/location.svg';
-import infrastructureImg from '../../../../assets/images/apartmentFeatures/infrastructure.svg';
 
-export enum FeatureType {
-  METRO = 'metro',
-  INFRASTRUCTURE = 'infrastructure',
-  LOCATION = 'location',
-  HOSPITAL = 'hospital',
-}
-
-interface FeatureProps {
-  type: string;
-  descriptionText: string;
-}
-
-function ApartmentFeature({ descriptionText, type }: FeatureProps) {
-  let imageSrc = '';
-  let titleText = '';
-
-  switch (type) {
-    case FeatureType.METRO:
-      imageSrc = metroImg;
-      titleText = 'Метро';
-      break;
-    case FeatureType.INFRASTRUCTURE:
-      imageSrc = infrastructureImg;
-      titleText = 'Инфраструктура';
-      break;
-    case FeatureType.LOCATION:
-      imageSrc = locationImg;
-      titleText = 'Расположение';
-      break;
-    case FeatureType.HOSPITAL:
-      imageSrc = hospitalImg;
-      titleText = 'Медицина';
-      break;
-  }
-
+function ApartmentFeature({ title, description, imageSrc }: IApartmentFeature) {
   return (
     <StyledApartmentFeature>
-      <StyledApartmentFeatureImage src={imageSrc} alt={'Значок ' + titleText} />
+      <StyledApartmentFeatureImage src={imageSrc} alt={title} />
       <StyledApartmentFeatureContainer>
         <Title
           level={TitleLevel.H2}
           size={TitleSize.S}
           weight={TitleWeight.SEMIBOLD}
         >
-          {titleText}
+          {title}
         </Title>
-        <Description size={DescriptionSize.XS}>{descriptionText}</Description>
+        <Description size={DescriptionSize.XS}>{description}</Description>
       </StyledApartmentFeatureContainer>
     </StyledApartmentFeature>
   );

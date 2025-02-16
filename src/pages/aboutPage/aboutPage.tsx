@@ -14,19 +14,9 @@ import AboutContact from './aboutContact/aboutContact';
 
 function AboutPage() {
   const [isModalOpen, setModalOpen] = useState(false);
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
-
   const [phoneNumber, setPhoneNumber] = useState('');
-  const handlePhoneInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPhoneNumber(event.target.value);
-  };
-
   const [modalType, setModalType] = useState<ModalType>(ModalType.PHONEFORM);
+
   const phoneSchema = z
     .string()
     .regex(/^(8|\+7)(\d{10})$/, 'Неверный формат номера телефона');
@@ -38,6 +28,17 @@ function AboutPage() {
     } else {
       setModalType(ModalType.ERROR);
     }
+  };
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handlePhoneInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneNumber(event.target.value);
   };
 
   return (

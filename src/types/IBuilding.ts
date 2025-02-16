@@ -18,8 +18,9 @@ export interface IBuilding {
 }
 
 export interface IApartmentFeature {
-  type: string;
+  title: string;
   description: string;
+  imageSrc: string;
   id: string;
 }
 
@@ -35,6 +36,7 @@ export interface IApartmentData {
 
 export interface IRoomSlides {
   type: string;
+  label: string;
   image: string;
   imageMobile: string;
 }

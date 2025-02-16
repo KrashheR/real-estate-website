@@ -7,23 +7,37 @@ import {
 import Title, {
   TitleLevel,
   TitleSize,
-  TitleWeight
+  TitleWeight,
 } from '../../../components/ui/title/title';
 import Description, {
   DescriptionSize,
 } from '../../../components/ui/description/description';
 import bossVasiliySpeech from '../../../assets/sounds/bossVasiliySpeech.m4a';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function AboutPerson() {
-  const audioRef = useRef(new Audio(bossVasiliySpeech));
+  const [audioInitialized, setAudioInitialized] = useState(false);
+  const bossSound = useRef(new Audio(bossVasiliySpeech));
 
   const handleMouseEnter = () => {
-    audioRef.current.play();
+    if (!audioInitialized) {
+      bossSound.current.load();
+      setAudioInitialized(true);
+    }
+
+    const playPromise = bossSound.current.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.log(
+          'Воспроизведение аудио отложено до взаимодействия с пользователем',
+        );
+      });
+    }
   };
 
   const handleMouseLeave = () => {
-    audioRef.current.pause();
+    bossSound.current.pause();
+    bossSound.current.currentTime = 0;
   };
 
   return (
@@ -32,7 +46,12 @@ function AboutPerson() {
       onMouseLeave={handleMouseLeave}
     >
       <StyledAboutPersonPhotoContainer>
-        <StyledAboutPersonPhoto src={'https://www.krashher.ru/real-estate/images/about/boss.webp'} alt="Фотография босса"/>
+        <StyledAboutPersonPhoto
+          src={
+            'https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/about/boss.webp'
+          }
+          alt="Фотография босса"
+        />
       </StyledAboutPersonPhotoContainer>
       <StyledAboutPersonInfo>
         <Description size={DescriptionSize.S}>

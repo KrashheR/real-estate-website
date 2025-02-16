@@ -8,13 +8,14 @@ interface SelectOption {
 
 interface FormSelectProps {
   id: string;
-  options: SelectOption[];
+  options: Array<{ value: string; label: string }>;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  value: string;
 }
 
-function FormSelect({ id, options, onChange }: FormSelectProps) {
+function FormSelect({ id, options, onChange, value }: FormSelectProps) {
   return (
-    <StyledFormSelect id={id} onChange={onChange}>
+    <StyledFormSelect id={id} onChange={onChange} value={value}>
       {options.map((option, index) => (
         <StyledFormSelectOption key={option + '-' + index} value={option.value}>
           {option.label}

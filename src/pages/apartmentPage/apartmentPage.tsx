@@ -14,9 +14,7 @@ import { selectBuildingById } from '../../store/reducers/buildings/buildingSelec
 function ApartmentPage() {
   let { id } = useParams<{ id: string }>();
 
-  const data: IBuilding | undefined = useAppSelector((state) =>
-    selectBuildingById(state, id as string),
-  );
+  const data = useAppSelector((state) => selectBuildingById(state, id));
 
   if (!data) {
     return (

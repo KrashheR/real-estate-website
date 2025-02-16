@@ -12,6 +12,7 @@ interface FormCheckboxProps {
   id: string;
   label: string;
   value: string | number;
+  checked: boolean;
 }
 
 function FormCheckbox({
