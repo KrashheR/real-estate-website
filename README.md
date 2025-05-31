@@ -50,7 +50,7 @@ Here're some of the project's best features:
 <img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/constructor-step.webp" alt="constructor">
 <h3>News Pagination</h3>
 <p>The data comes from the server, using Axios. It is then cached in Redux to avoid repeated requests to retrieve the news page if it has already been loaded.</p>
-<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/pagination.webpf" alt="pagination">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/pagination.webp" alt="pagination">
 <h3>Showroom with interactive buttons-indicators</h3>
 <p>The data about the rooms of the apartments have in addition to pictures also a type. This helps to realize interactive buttons - indicators of the room the user is looking at.</p>
 <img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/showroom.webp" alt="showroom">
