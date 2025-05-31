@@ -15,7 +15,7 @@
     
 </p>
 
-<img src="https://www.krashher.ru/images/github/real-estate/realEstatePreview.png" alt="realEstate logo">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/main-screen.webp" alt="realEstate preview">
 <h2>🚀 Demo</h2>
 
 [https://krashher.github.io/real-estate-website/](https://krashher.github.io/real-estate-website/) 
