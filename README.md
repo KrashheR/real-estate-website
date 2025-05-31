@@ -39,24 +39,24 @@ Technologies used in the project:
 Here're some of the project's best features:
 
 <h3>Displaying of data received from the server (Rest-API)</h3>
-<p>The data that comes from the server using fetch API is displayed in a special list of cards containing basic information about buildings.</p>
-<img src="https://www.krashher.ru/images/github/real-estate/output.gif" alt="output data gif">
+<p>The data that comes from the server using fetch API is displayed in a special building pages.</p>
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/apartment-main-scren.webp" alt="output data">
 
 <h3>Sorting and filtering of the received data </h3>
 <p>The data is sorted (premium buildings are displayed first) and filtered with special inputs. Inputs set the values that are used as filters. When the filter is changed, the selectFilteredCards selector is re-rendered.</p>
-<img src="https://www.krashher.ru/images/github/real-estate/filter.gif" alt="filter and sorting data gif">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/filter-and-sorting.webp" alt="filter and sorting data">
 <h3>House Constructor</h3>
 <p>The constructor memorizes the user's answers to the questions and then applies them as filters to the buildings and displays only those that have apartments that match the specified conditions.</p>
-<img src="https://www.krashher.ru/images/github/real-estate/constructor.gif" alt="constructor gif">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/constructor-step.webp" alt="constructor">
 <h3>News Pagination</h3>
 <p>The data comes from the server, using Axios. It is then cached in Redux to avoid repeated requests to retrieve the news page if it has already been loaded.</p>
-<img src="https://www.krashher.ru/images/github/real-estate/pagination.gif" alt="pagination gif">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/pagination.webpf" alt="pagination">
 <h3>Showroom with interactive buttons-indicators</h3>
 <p>The data about the rooms of the apartments have in addition to pictures also a type. This helps to realize interactive buttons - indicators of the room the user is looking at.</p>
-<img src="https://www.krashher.ru/images/github/real-estate/showroom.gif" alt="showroom gif">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/showroom.webp" alt="showroom">
 <h3>Catalog of avaiable apartments</h3>
 <p>The user selects an apartment from the list (list includes filter by apartment type), evaluates its characteristics and then clicks select. After that a modal window appears, in which it is necessary to specify the phone number (input validation with zod).</p>
-<img src="https://www.krashher.ru/images/github/real-estate/catalog.gif" alt="catalog gif">
+<img src="https://raw.githubusercontent.com/KrashheR/cdn.krashher/refs/heads/main/images/real-estate/screenshots/apartment-picker.webp" alt="catalog">
 
 
 
